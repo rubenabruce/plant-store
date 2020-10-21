@@ -10,10 +10,10 @@ const Header = ({currentUser, hidden}) => (
 
     </LogoContainer>
     <OptionsContainer>
-      <OptionContainerLink to='/shop'>
+      <OptionContainerLink to='/collections'>
         Shop
       </OptionContainerLink>
-      <OptionContainerLink to='/shop'>
+      <OptionContainerLink to='/collections'>
         Contact
       </OptionContainerLink>
       

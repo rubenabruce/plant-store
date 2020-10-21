@@ -56,11 +56,12 @@ export const CustomButtonContainer = styled.button`
   font-size: 15px;
   transition: background-color .25s ease-out,color .25s ease-out;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
+  font-family: 'Montserrat';
   font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border-radius: 5px;
 
   ${getButtonStyles}
   ${getOtherStyles}

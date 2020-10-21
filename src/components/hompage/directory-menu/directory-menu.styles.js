@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const DirectoryMenuCont = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 90vh;
   display: flex;
   flex-direction: row;
-  
+  padding-top: 40px;
   justify-content: center;
   align-items: center;
 
@@ -19,21 +19,18 @@ export const BackgroundImageCont = styled.div`
   background-size: cover;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 
-  & .background-image {
-    transform: scale(0.6);
-  }
 
-  &:hover {
+  /* &:hover {
     
-    & .background-image {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    &.background-image {
+      transform: scale(1.01);
+      transition: transform 20s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
-    & .content {
+    &.content {
       opacity: 0.9;
     }
-  }
+  } */
 `;
 
 export const ContentCont = styled.div`
@@ -45,7 +42,7 @@ export const ContentCont = styled.div`
   align-items: ${({side}) => side};
   justify-content: center;
   width: 30%;
-  top: 25%;
+  top: 34%;
   ${({side}) => side}: 8%;
   position: absolute;
 `;
