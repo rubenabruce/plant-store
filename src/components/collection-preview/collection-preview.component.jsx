@@ -2,20 +2,21 @@ import React from 'react';
 
 import MenuItem from '../menu-item/menu-item.component';
 
+import { CollectionPreviewCont, TitleCont, PreviewCont } from "./collection-preview.styles";
+
 const CollectionPreview = ({ title, items }) => {
-  console.log(items)
   return ( 
-    <div className='collection-preview'>
-      <h1>{title}</h1>
-      <div className='preview'>
+    <CollectionPreviewCont>
+      <TitleCont>{title}</TitleCont>
+      <PreviewCont>
         {items
-          .filter((item, idx) => idx < 4)
+          .filter((item, idx) => idx < 3)
           .map(item => (
             <MenuItem key={item.id} item={item}>{item.name}</MenuItem>
           ))
         }
-      </div>
-    </div>
+      </PreviewCont>
+    </CollectionPreviewCont>
   );
 }
  

@@ -9,28 +9,66 @@ export const DirectoryMenuCont = styled.div`
   justify-content: center;
   align-items: center;
 
+  & .half-container-right {
+    width: 50%;
+    height: 100%;
+
+    &:hover {
+
+      width: 70%;
+      transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+
+      .half-container-left {
+        width:  30%;
+        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+
+
+      .container-right {
+        width: 600px;
+        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+      
+      .container-left {
+        width: 1px;
+        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+
+    
+    }
+  }
+
+  & .half-container-left {
+    width: 50%;
+    height: 100%;
+
+    &:hover {
+
+      .container-left {
+        width: 600px;
+        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+
+      .container-right {
+        width: 1px;
+        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+
+
+    }
+  }
 `;
 
-export const BackgroundImageCont = styled.div`
+export const BackgroundImageCont = styled.img`
   height: 100%;
-  width: 35%;
+  /* width: 36vw; */
   overflow: hidden;
-  background-position: center;
+  ${({side}) => side}: 0;
+  position: absolute;
+  width: 600px;
+  /* background-position: ${({side}) => side};
   background-size: cover;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-
-
-  /* &:hover {
-    
-    &.background-image {
-      transform: scale(1.01);
-      transition: transform 20s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    }
-
-    &.content {
-      opacity: 0.9;
-    }
-  } */
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`}; */
 `;
 
 export const ContentCont = styled.div`
@@ -59,3 +97,12 @@ export const SubtitleCont = styled.span`
   font-size: 16px;
   margin-bottom: 20px;
 `;
+
+export const BackgroundImageContainersCont = styled.div`
+  width: 300px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-${({side}) => side}: auto;
+`;
+
