@@ -12,8 +12,10 @@ export const DirectoryMenuCont = styled.div`
   & .half-container-right {
     width: 50%;
     height: 90%;
+    overflow: hidden;
 
-    &:hover {
+
+    /* &:hover {
 
       width: 70%;
       transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
@@ -35,14 +37,15 @@ export const DirectoryMenuCont = styled.div`
       }
 
     
-    }
+    } */
   }
 
   & .half-container-left {
     width: 50%;
     height: 90%;
+    overflow: hidden;
 
-    &:hover {
+    /* &:hover {
 
       .container-left {
         width: 600px;
@@ -55,16 +58,15 @@ export const DirectoryMenuCont = styled.div`
       }
 
 
-    }
+    } */
   }
 `;
 
 export const BackgroundImageCont = styled.img`
-  height: 100%;
-  /* width: 36vw; */
-  overflow: hidden;
-  /* ${({side}) => side}: 0; */
-  position: absolute;
+  width: 100%;
+  ${({side}) => side}: 50%;
+  bottom: 0;
+  position: relative;
   /* width: 600px; */
   /* background-position: ${({side}) => side};
   background-size: cover;
@@ -83,6 +85,7 @@ export const ContentCont = styled.div`
   top: 34%;
   ${({side}) => side}: 8%;
   position: absolute;
+  z-index: 10;
 `;
 
 export const TitleCont = styled.h1`

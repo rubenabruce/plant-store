@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 
 export const ParallaxImage = styled.div`
-  height: 30vh;
+  height: 40vh;
+  margin: 100px 0;
   width: 100%;
   background: url(${({imageUrl}) => imageUrl}) no-repeat top center fixed;
   background-size: cover;
   position:relative;
   background-blend-mode: darken;
   color: white;
+  display: flex;
 
   &::after {
     content: "";
-    /* add a layer which darkens the background image so that text is easier to read, maybe some sort of viniete effect */
+    background-color: black;
+    opacity: 0.3;
   }
-
 `;
 
-export const ReviewCont = styled.span`
+export const ContentCont = styled.div`
   margin: auto;
   position: relative;
   font-size:24;
+  line-height: 2;
+  text-align: center;
 `;
