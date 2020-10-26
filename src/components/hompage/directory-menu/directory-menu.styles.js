@@ -11,7 +11,7 @@ export const DirectoryMenuCont = styled.div`
 
   & .half-container-right {
     width: 50%;
-    height: 100%;
+    height: 90%;
 
     &:hover {
 
@@ -40,7 +40,7 @@ export const DirectoryMenuCont = styled.div`
 
   & .half-container-left {
     width: 50%;
-    height: 100%;
+    height: 90%;
 
     &:hover {
 
@@ -63,9 +63,9 @@ export const BackgroundImageCont = styled.img`
   height: 100%;
   /* width: 36vw; */
   overflow: hidden;
-  ${({side}) => side}: 0;
+  /* ${({side}) => side}: 0; */
   position: absolute;
-  width: 600px;
+  /* width: 600px; */
   /* background-position: ${({side}) => side};
   background-size: cover;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`}; */
@@ -103,6 +103,6 @@ export const BackgroundImageContainersCont = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
-  margin-${({side}) => side}: auto;
+  /* margin-${({side}) => side}: auto; */
 `;
 
