@@ -74,7 +74,7 @@ export const BackgroundImageCont = styled.img`
 `;
 
 export const ContentCont = styled.div`
-  height: 90px;
+  /* height: 90px; */
   padding: 0 25px;
   display: flex;
   flex-direction: column;

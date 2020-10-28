@@ -5,4 +5,5 @@ export const ContactSectionCont = styled.div`
   height: 70vh;
   display: flex;
   justify-content: space-between;
+  margin: auto;
 `;

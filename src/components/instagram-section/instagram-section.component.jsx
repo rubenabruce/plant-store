@@ -1,14 +1,21 @@
 import React from 'react';
 
+import { InstagramSectionCont, TitleCont, InstafeedCont } from "./instagram-section.styles";
+
 const InstagramSection = () => {
   return (  
-    <div>
-      <h2>Follow us <a href='https://www.instagram.com/ninasplantsofficial/'>@NinasPlantsOfficial</a></h2>
+    <InstagramSectionCont>
+      <TitleCont>Follow us <a href='https://www.instagram.com/ninasplantsofficial/'>@NinasPlantsOfficial</a></TitleCont>
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-      <div id='instafeed'>
-      https://instafeedjs.com/#/
-      </div>
-    </div>
+      <InstafeedCont id='instafeed'>
+        <img src='https://picsum.photos/170' alt='instagram' />
+        <img src='https://picsum.photos/170' alt='instagram' />
+        <img src='https://picsum.photos/170' alt='instagram' />
+        <img src='https://picsum.photos/170' alt='instagram' />
+        <img src='https://picsum.photos/170' alt='instagram' />
+        <img src='https://picsum.photos/170' alt='instagram' />
+      </InstafeedCont>
+    </InstagramSectionCont>
   );
 }
  
