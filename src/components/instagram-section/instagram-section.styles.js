@@ -11,6 +11,12 @@ export const TitleCont = styled.h2`
 
   & a {
     color: #65A15A;
+    transition: color .25s ease-out,color .25s ease-out;
+
+
+    &:hover {
+      color: #4e7b46;
+    }
   }
 `;
 

@@ -17,13 +17,17 @@ const Header = ({currentUser, hidden}) => (
         Contact
       </OptionContainerLink>
       
-          <OptionContainerLink to='/signin'>
-            Sign In
-          </OptionContainerLink>
-        
+      <OptionContainerLink to='/signin'>
+        Sign In
+      </OptionContainerLink>
       
-      <CartIcon />
+
     </OptionsContainer>
+
+    <div className='icons-container'>
+      <span className='search-icon' />
+      <CartIcon />
+    </div>
   </HeaderContainer>
 )
  

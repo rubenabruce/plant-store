@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ContactUsCont, ContactHeaderCont, NameEmailCont, FormInputCont, MessageInputCont } from "./contact-us.styles";
+import { ContactUsCont, ContactHeaderCont, NameEmailCont, FormInputCont, MessageInputCont, CustomButtonCont } from "./contact-us.styles";
 
 class ContactUs extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class ContactUs extends Component {
             type='text' 
             label='Name' 
             handleChange={this.handleChange} 
-            value={this.state.email} 
+            value={this.state.name} 
             required 
           />
           <FormInputCont 
@@ -49,6 +49,7 @@ class ContactUs extends Component {
           />
         </NameEmailCont>
         <MessageInputCont type='text' placeholder='Enter message here...'></MessageInputCont>
+        <CustomButtonCont>Submit!</CustomButtonCont>
       </ContactUsCont>
     );
   }

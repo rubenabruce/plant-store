@@ -1,0 +1,17 @@
+import React from 'react';
+import CustomButton from '../../components/custom-button/custom-button.component';
+
+import { CollectionSearchCont } from "./search-items.styles";
+
+const SearchItems = () => {
+  return ( 
+    <CollectionSearchCont>
+      <span>Search store</span>
+      <input type='text' placeholder='Search here...'></input>
+      <CustomButton>Search</CustomButton>
+    </CollectionSearchCont>
+  );
+}
+ 
+export default SearchItems;
+
