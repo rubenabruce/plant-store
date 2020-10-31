@@ -21,7 +21,7 @@ export const NameEmailCont = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 80px auto auto;
 `;
 
 export const FormInputCont = styled(FormInput)`

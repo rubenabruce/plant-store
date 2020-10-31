@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 class Shop extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import CartIcon from '../cart-icon/cart-icon.component'
 
-import { LogoContainer, HeaderContainer, OptionContainerLink, OptionsContainer } from "./header.styles";
+import { LogoContainer, HeaderContainer, OptionContainerLink, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
 
 const Header = ({currentUser, hidden}) => (
   <HeaderContainer>
@@ -24,10 +24,14 @@ const Header = ({currentUser, hidden}) => (
 
     </OptionsContainer>
 
-    <div className='icons-container'>
-      <span className='search-icon' />
+    <IconsContainer>
+      <SearchContainer>
+        <input type='text' placeholder='Search store...'/>
+        <SearchIconCont className='searchIcon' />
+      </SearchContainer>
+
       <CartIcon />
-    </div>
+    </IconsContainer>
   </HeaderContainer>
 )
  

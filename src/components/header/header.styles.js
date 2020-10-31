@@ -1,5 +1,10 @@
 import styled from 'styled-components';
+
 import { Link } from 'react-router-dom';
+
+import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
+
+
 
 const duration = '.2s';
 const distance = '8px';
@@ -7,7 +12,7 @@ const easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
 
 
 export const HeaderContainer = styled.div`
-  height: 10vh;
+  height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -32,10 +37,11 @@ export const LogoContainer = styled(Link)`
 export const OptionsContainer = styled.div`
   width: 50%;
   height: 100%;
-  padding-right: 8%;
+  padding-left: 15%;
   display: flex;
+  position: absolute;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   a {
   font-size: 20px;
@@ -82,4 +88,55 @@ export const OptionsContainer = styled.div`
 export const OptionContainerLink = styled(Link)`
   margin: 10px 15px;
   cursor: pointer;
+`;
+
+export const IconsContainer = styled.div`
+    display: flex;
+    /* justify-content: space-between; */
+    /* width: 8%; */
+    align-items: center;
+    margin-right: 5%;
+`
+
+export const SearchContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    
+    input{
+        opacity: 0;
+        transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+        width: 0px;
+        font-family: 'Montserrat';
+    }
+
+    &:hover {        
+        border: 1px solid black;
+        border-radius: 4px;
+
+
+        & input {
+            border: none;
+            height: 100%;
+            padding: 5px;
+            display: inline;
+            opacity: 1;
+            width: 170px;
+            
+        }
+
+        & .searchIcon {
+            background-color: white;
+            filter: invert(1);
+        }
+    }
+
+`;
+
+export const SearchIconCont = styled(SearchIcon)`
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 `;
