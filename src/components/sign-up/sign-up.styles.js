@@ -6,6 +6,7 @@ export const SignUpOverlay = styled.div`
   width: 100%;
   height: 100%;
   top: 0;
+  overflow: scroll;
   left: 0;
 `;
 
@@ -18,9 +19,9 @@ export const SignUpContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: #fefefe;
-  top: 20vh;
+  top: 10vh;
 `;
 
 export const TitleCont = styled.h2`

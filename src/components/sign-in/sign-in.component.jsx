@@ -5,6 +5,8 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import { SignInOverlay, SignInContainer, TitleCont, ButtonsContainer, FormContainer, AlternativeContainer} from './sign-in.styles'
 
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 class SignIn extends Component {
   state = { 
     email: '', 
@@ -41,8 +43,8 @@ class SignIn extends Component {
               label='password' 
               required/>
             <ButtonsContainer>
-              <CustomButton className='sign-in-button'>Sign In</CustomButton>
-              <CustomButton isGoogleSignIn >Sign In With Google</CustomButton>
+              <CustomButton className='sign-in-button' type='submit'>Sign In</CustomButton>
+              <CustomButton isGoogleSignIn onClick={signInWithGoogle} >Sign In With Google</CustomButton>
             </ButtonsContainer>
           </FormContainer>
         

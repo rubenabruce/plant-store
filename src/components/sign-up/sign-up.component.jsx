@@ -7,9 +7,14 @@ import { SignUpOverlay, SignUpContainer, TitleCont, ButtonsContainer, FormContai
 
 class SignUp extends Component {
   state = { 
+    displayName: '',
     email: '', 
     password: '',
     confirmPassword: ''
+  }
+
+  handleSubmit = event => {
+  
   }
 
   handleChange = event => {
@@ -18,20 +23,28 @@ class SignUp extends Component {
     this.setState({[name]: value});
   }
 
-  render() { 
+  render() {
     return ( 
       <SignUpOverlay>
       
         <SignUpContainer>
-          <TitleCont>Welcome Back!</TitleCont>
+          <TitleCont>Welcome To Ninas Plants!</TitleCont>
 
-          <FormContainer>
+          <FormContainer onSubmit={this.handleSubmit}>
+            <FormInput 
+              name='displayName' 
+              type='text' 
+              handleChange={this.handleChange} 
+              value={this.state.displayName} 
+              label='Display Name' 
+              required
+            />
             <FormInput 
               name='email' 
               type='email' 
               handleChange={this.handleChange} 
               value={this.state.email} 
-              label='email' 
+              label='Email' 
               required
             />
             <FormInput 
@@ -39,22 +52,28 @@ class SignUp extends Component {
               type='password' 
               handleChange={this.handleChange} 
               value={this.state.password} 
-              label='password' 
+              label='Password' 
+              required
+            />
+            <FormInput 
+              name='confirmPassword' 
+              type='password' 
+              handleChange={this.handleChange} 
+              value={this.state.confirmPassword} 
+              label='Confirm Password' 
               required/>
             <ButtonsContainer>
-              <CustomButton className='sign-in-button'>Sign In</CustomButton>
+              <CustomButton className='sign-in-button' type='submit' >Sign In</CustomButton>
               <CustomButton isGoogleSignIn >Sign In With Google</CustomButton>
             </ButtonsContainer>
           </FormContainer>
         
           <AlternativeContainer>
-            <span>New Customer? <br />Sign Up</span>
-            <span>Forgot password?</span>
+            <span>Already have an account? <br />Sign In</span>
           </AlternativeContainer>
         </SignUpContainer>
 
       </SignUpOverlay>
-
     );
   }
 }

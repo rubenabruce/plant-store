@@ -90,6 +90,15 @@ export const OptionContainerLink = styled(Link)`
   cursor: pointer;
 `;
 
+export const OptionContainerSignOut = styled.div`
+  margin: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+position: relative;
+-webkit-text-decoration: none;
+text-decoration: none;
+`;
+
 export const IconsContainer = styled.div`
     display: flex;
     /* justify-content: space-between; */

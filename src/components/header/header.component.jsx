@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { auth } from '../../firebase/firebase.utils';
+
 import CartIcon from '../cart-icon/cart-icon.component'
 
-import { LogoContainer, HeaderContainer, OptionContainerLink, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
+import { LogoContainer, HeaderContainer, OptionContainerLink, OptionContainerSignOut, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
 
 const Header = ({currentUser, hidden}) => (
   <HeaderContainer>
@@ -16,12 +18,14 @@ const Header = ({currentUser, hidden}) => (
       <OptionContainerLink to='/collections'>
         Contact
       </OptionContainerLink>
-      
-      <OptionContainerLink to='/signin'>
-        Sign In
-      </OptionContainerLink>
-      
-
+      {
+        currentUser ?
+        <OptionContainerSignOut onClick={() => auth.signOut()}>Sign Out</OptionContainerSignOut>
+        :
+        <OptionContainerLink to='/signin'>
+          Sign In
+        </OptionContainerLink>
+      }
     </OptionsContainer>
 
     <IconsContainer>
