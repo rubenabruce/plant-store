@@ -5,12 +5,25 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import { SignInOverlay, SignInContainer, TitleCont, ButtonsContainer, FormContainer, AlternativeContainer} from './sign-in.styles'
 
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SignIn extends Component {
   state = { 
     email: '', 
     password: ''
+  }
+
+  handleSubmit = async event => {
+    event.preventDefault();
+
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
+      console.log(`Error signing in: ${error}`);
+    }
   }
 
   handleChange = event => {
@@ -26,7 +39,7 @@ class SignIn extends Component {
         <SignInContainer>
           <TitleCont>Welcome Back!</TitleCont>
 
-          <FormContainer>
+          <FormContainer onSubmit={this.handleSubmit}>
             <FormInput 
               name='email' 
               type='email' 
