@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 import { SignUpOverlay, SignUpContainer, TitleCont, ButtonsContainer, FormContainer, AlternativeContainer} from './sign-up.styles'
 
@@ -90,8 +90,8 @@ class SignUp extends Component {
               label='Confirm Password' 
               required/>
             <ButtonsContainer>
-              <CustomButton className='sign-in-button' type='submit' >Sign In</CustomButton>
-              <CustomButton isGoogleSignIn >Sign In With Google</CustomButton>
+              <CustomButton className='sign-in-button' type='submit' >Sign Up</CustomButton>
+              <CustomButton type='button' isGoogleSignIn onClick={signInWithGoogle} >Sign In With Google</CustomButton>
             </ButtonsContainer>
           </FormContainer>
         

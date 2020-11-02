@@ -19,7 +19,7 @@ export const CollectionCont = styled.div`
   color: white;
   font-size: 28px;
   overflow: hidden;
-
+  border-radius: 5px;
 
   &:hover {
     cursor: pointer;
@@ -75,7 +75,6 @@ export const ContentCont = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
   opacity: 0.7;
   background-color: white;
   position: absolute;
