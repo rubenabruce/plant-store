@@ -20,7 +20,7 @@ const Header = ({currentUser, hidden}) => (
       </OptionContainerLink>
       {
         currentUser ?
-        <OptionContainerSignOut onClick={() => auth.signOut()}>Sign Out</OptionContainerSignOut>
+        <OptionContainerSignOut onClick={() => auth.signOut()}>Sign out</OptionContainerSignOut>
         :
         <OptionContainerLink to='/signin'>
           Sign In

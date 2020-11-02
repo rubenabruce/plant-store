@@ -110,7 +110,7 @@ export const IconsContainer = styled.div`
 export const SearchContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 50px;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
     
     input{
