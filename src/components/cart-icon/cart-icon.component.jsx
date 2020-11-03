@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 import { CartIconContainer, ShoppingIconCont, ItemCountContainer } from './cart-icon.styles';
 
@@ -7,6 +10,11 @@ const CartIcon = ({ toggleCartHidden, itemCount = 0 }) => (
     <ShoppingIconCont/>
     <ItemCountContainer>{itemCount}</ItemCountContainer>
   </CartIconContainer>
-)
+);
 
-export default CartIcon;
+
+const mapDispatchToProps = dispatch => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden())
+})
+
+export default connect(null, mapDispatchToProps)(CartIcon);
