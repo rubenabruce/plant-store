@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils';
 
@@ -6,7 +7,7 @@ import CartIcon from '../cart-icon/cart-icon.component'
 
 import { LogoContainer, HeaderContainer, OptionContainerLink, OptionContainerSignOut, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
 
-const Header = ({currentUser, hidden}) => (
+const Header = ({ currentUser }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
 
@@ -38,5 +39,9 @@ const Header = ({currentUser, hidden}) => (
     </IconsContainer>
   </HeaderContainer>
 )
+
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
  
-export default Header;
+export default connect(mapStateToProps)(Header);
