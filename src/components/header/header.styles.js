@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
 
-
-
 const duration = '.2s';
 const distance = '8px';
 const easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
-
 
 export const HeaderContainer = styled.div`
   height: 8vh;
