@@ -26,4 +26,5 @@ a {
 
 .app:nth-child(1) {
   margin-top: 8vh;
+  background-color: white;
 }
