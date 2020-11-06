@@ -9,6 +9,7 @@ import SignIn from './components/sign-in/sign-in.component';
 import SignUp from './components/sign-up/sign-up.component';
 import CollectionsDirectory from './pages/collection-directory/collection-directory.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import ShopPage from './pages/shop/shop.component'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -62,6 +63,7 @@ class App extends Component {
             : (<SignUp/>)
           } /> 
           <Route exact path='/checkout' component={CheckoutPage} />
+          <Route path='/shop' component={ShopPage} />
         </Switch>
       </div>
     );

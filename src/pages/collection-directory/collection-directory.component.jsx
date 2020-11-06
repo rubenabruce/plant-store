@@ -2,7 +2,7 @@ import React from 'react';
 
 import DirectoryItem from '../../components/directory-item/directory-item.component';
 import SearchItems from '../../components/search-items/search-items.component';
-import CollectionPage from '../collections/collections.component'
+import CollectionsOverviewCont from '../../components/collections-overview/collections-overview.component'
 
 import plantShop from '../../assets/plant-shop.jpg';
 
@@ -14,16 +14,16 @@ const CollectionDirectory = (props) => {
     <div>
       <CollectionDirectoryCont>
         <DirectoryGrid>
-          <DirectoryItem backgroundImage={plantShop} number='one' title='Plants' linkUrl='/plants'> </DirectoryItem>
-          <DirectoryItem backgroundImage={plantShop} number='two' title='Pots' linkUrl='/pots'></DirectoryItem>
-          <DirectoryItem backgroundImage={plantShop}  number='three' title='Cacti' linkUrl='/cacti'></DirectoryItem>
+          <DirectoryItem backgroundImage={plantShop} number='one' title='Plants' linkUrl='shop/plants'> </DirectoryItem>
+          <DirectoryItem backgroundImage={plantShop} number='two' title='Pots' linkUrl='shop/pots'></DirectoryItem>
+          <DirectoryItem backgroundImage={plantShop}  number='three' title='Cacti' linkUrl='shop/cacti'></DirectoryItem>
           <div className='four'>
             <SearchItems />
           </div>
         </DirectoryGrid>
       </CollectionDirectoryCont>
 
-      <CollectionPage/>
+      <CollectionsOverviewCont />
     </div>
   );
 }

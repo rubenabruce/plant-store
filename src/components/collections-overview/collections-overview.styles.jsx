@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const CollectionPageCont = styled.div`
+export const CollectionsOverviewCont = styled.div`
   background-color: #fefefe;
 `;

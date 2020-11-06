@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 
 export const MenuItemCont = styled.div`
-  height: 500px;
+  height: 600px;
   width: 22vw;
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
+
   &:hover {
     & .custom-button {
       min-width: 60px;
@@ -37,7 +38,7 @@ export const MenuItemCont = styled.div`
 
 export const ImageContainerCont = styled.div`
   width: 100%;
-  height: 90%;
+  height: 85%;
   margin-bottom: 5px;
   overflow: hidden;
   border-radius: 8px;

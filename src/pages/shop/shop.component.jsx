@@ -1,35 +1,46 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-class Shop extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      
-    }
-  }
-  render() { 
-    return ( 
-      <div className='shop-page'>
-        <div className='shop-page-header'>
-          <span>Collection Type</span>
-          <span>Sort by </span>
-        </div>
+import { selectCollectionItems } from '../../redux/shop/shop.selectors';
 
-        <div className='shop-filtering'>
-        </div>
+import MenuItem from '../../components/menu-item/menu-item.component';
 
-        <div className='shop-main'>
-          <div className='shop-grid'>
-            <div className='menu-items'></div>
-          </div>
-          <div className='shop-footer'>
-          1 2 3
-        </div>
-        </div>
-        
+import { ShopPageCont, ShopMainCont, ShopGridCont, ShopFilterCont } from './shop.styles'
+
+const ShopPage = ({ items }) => {
+  return ( 
+    <ShopPageCont>
+
+      <div className='shop-page-header'>
+        <span>Collection Type</span>
+        <span>Sort by </span>
+        <div className='sort-by-dropdown'></div>
       </div>
-    );
-  }
+
+      <ShopMainCont>
+
+        <ShopFilterCont></ShopFilterCont>
+
+        <ShopGridCont>
+          {items
+            .filter((item, idx) => idx < 10)
+            .map(item => (
+              <MenuItem key={item.id} item={item}>{item.name}</MenuItem>
+            ))
+          }
+        </ShopGridCont>
+
+        
+
+      </ShopMainCont>
+      <div className='shop-footer'>1 2 3</div>
+    </ShopPageCont>
+  );
 }
- 
-export default Shop;
+
+const mapStateToProps = createStructuredSelector({
+  items: selectCollectionItems
+});
+
+export default connect(mapStateToProps)(ShopPage);
