@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 
 export const MenuItemCont = styled.div`
-  height: 600px;
-  width: 22vw;
+  height: 350px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 0 auto;
 
   &:hover {
     & .custom-button {

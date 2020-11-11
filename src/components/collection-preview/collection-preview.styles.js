@@ -1,18 +1,25 @@
 import styled from 'styled-components';
 
 export const CollectionPreviewCont = styled.div`
-
-`;
-
-export const TitleCont = styled.h1`
-  width: 90%;
-  padding-top: 40px;
   margin: auto;
 `;
 
-export const PreviewCont = styled.div`
-  display: flex; 
+export const TitleCont = styled.h1`
+  padding-top: 40px;
+  margin: auto;
   width: 90%;
-  justify-content:space-between;
-  margin: 40px auto ;
+  display: none;
+`;
+
+export const PreviewCont = styled.div`
+  display: grid; 
+  width: 90%;
+  height: 70vh;
+  margin: auto;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  border-top: solid 3px #bcbcbc;
+  padding: 40px 0 40px 0;
 `;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
@@ -8,70 +8,67 @@ import { SignInOverlay, SignInContainer, TitleCont, ButtonsContainer, FormContai
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
-class SignIn extends Component {
-  state = { 
-    email: '', 
-    password: ''
-  }
+const SignIn = () => {
 
-  handleSubmit = async event => {
+  const [userCredentials, setCredentials] = useState({ email: '', password: '' });
+
+  const { email, password } = userCredentials;
+
+  const handleSubmit = async event => {
     event.preventDefault();
-
-    const { email, password } = this.state;
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: '', password: '' });
+      setCredentials({ email: '', password: '' });
     } catch (error) {
       console.log(`Error signing in: ${error}`);
     }
-  }
+  };
 
-  handleChange = event => {
+  const handleChange = event => {
     const { value, name } = event.target;
 
-    this.setState({[name]: value});
-  }
+    setCredentials({ ...userCredentials, [name]: value});
+  };
 
-  render() { 
-    return ( 
-      <SignInOverlay>
+  return ( 
+    <SignInOverlay>
+    
+      <SignInContainer>
+        <TitleCont>Welcome Back!</TitleCont>
+
+        <FormContainer onSubmit={handleSubmit}>
+          <FormInput 
+            name='email' 
+            type='email' 
+            handleChange={handleChange} 
+            value={email} 
+            label='email' 
+            required
+          />
+          <FormInput 
+            name='password' 
+            type='password' 
+            handleChange={handleChange} 
+            value={password} 
+            label='password' 
+            required/>
+          <ButtonsContainer>
+            <CustomButton className='sign-in-button' type='submit'>Sign In</CustomButton>
+            <CustomButton type='button' isGoogleSignIn onClick={signInWithGoogle} >Sign In With Google</CustomButton>
+          </ButtonsContainer>
+        </FormContainer>
       
-        <SignInContainer>
-          <TitleCont>Welcome Back!</TitleCont>
+        <AlternativeContainer>
+          <Link to='/signup'>New Customer? <br />Sign Up</Link>
+          <span>Forgot password?</span>
+        </AlternativeContainer>
+      </SignInContainer>
 
-          <FormContainer onSubmit={this.handleSubmit}>
-            <FormInput 
-              name='email' 
-              type='email' 
-              handleChange={this.handleChange} 
-              value={this.state.email} 
-              label='email' 
-              required
-            />
-            <FormInput 
-              name='password' 
-              type='password' 
-              handleChange={this.handleChange} 
-              value={this.state.password} 
-              label='password' 
-              required/>
-            <ButtonsContainer>
-              <CustomButton className='sign-in-button' type='submit'>Sign In</CustomButton>
-              <CustomButton type='button' isGoogleSignIn onClick={signInWithGoogle} >Sign In With Google</CustomButton>
-            </ButtonsContainer>
-          </FormContainer>
-        
-          <AlternativeContainer>
-            <Link to='/signup'>New Customer? <br />Sign Up</Link>
-            <span>Forgot password?</span>
-          </AlternativeContainer>
-        </SignInContainer>
+    </SignInOverlay>
 
-      </SignInOverlay>
-
-    );
-  }
+  );
 }
+
  
 export default SignIn;

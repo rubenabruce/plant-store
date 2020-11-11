@@ -9,8 +9,30 @@ export const ShopPageCont = styled.div`
 
 `;
 
+export const ShopPageHeader = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 60px;
+  align-items: flex-end;
+  border-bottom: 1px solid #A7A7A7;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  & .collection-type {
+    font-size: 22px;
+    /* font-weight: 600; */
+  }
+
+  & .sort-by {
+    font-size: 20px;
+    font-weight: 400;
+  }
+`;
+
 export const ShopMainCont = styled.div`
-  width: 90%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,17 +41,17 @@ export const ShopMainCont = styled.div`
 
 export const ShopGridCont = styled.div`
   width: 80%;
+  padding-top: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 20px;
+  column-gap: 62px;
+  row-gap: 72px;
 `;
 
-export const ShopFilterCont = styled.div`
-  width: 18%;
-  margin-right: 2%;
-  height: 700px;
-  background-color: grey;
-  top: 0;
-  position: relative;
-  align-self: flex-start;
-`;
+export const ShopFooterCont = styled.div`
+  padding: 90px 0;
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  font-size: 26px;
+`; 
