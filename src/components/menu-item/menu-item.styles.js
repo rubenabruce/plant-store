@@ -42,7 +42,7 @@ export const ImageContainerCont = styled.div`
   height: 85%;
   margin-bottom: 5px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 3px;
 
   &:hover {
 

@@ -3,7 +3,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import HeadRoom from 'react-headroom';
+
 import Header from './components/header/header.component';
+import AnnouncementBanner from './components/announcement-banner/announcement-banner.component';
 import Homepage from './pages/homepage/homepage.component';
 import SignIn from './components/sign-in/sign-in.component';
 import SignUp from './components/sign-up/sign-up.component';
@@ -19,6 +22,10 @@ import { setCurrentUser } from './redux/user/user.actions';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    scroll: false
+  }
 
   unsubscribeFromAuth = null;
 
@@ -48,8 +55,12 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-      <Header />
-      <Switch>
+        <HeadRoom className='header-container'>
+          <AnnouncementBanner />
+          <Header />
+        </HeadRoom>
+
+        <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path='/collections' component={CollectionsDirectory} />
           <Route exact path='/signin' render={() => 

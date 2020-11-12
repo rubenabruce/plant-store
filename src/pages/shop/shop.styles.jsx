@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
+import {ReactComponent as DownArrow } from '../../assets/down-arrow.svg';
+
 export const ShopPageCont = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  padding-top: 50px;
 `;
 
 export const ShopPageHeader = styled.div`
@@ -55,3 +57,7 @@ export const ShopFooterCont = styled.div`
   margin-left: auto;
   font-size: 26px;
 `; 
+
+export const DownArrowCont = styled(DownArrow)`
+  cursor: pointer;
+`;

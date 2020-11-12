@@ -16,8 +16,7 @@ export const HeaderContainer = styled.div`
   box-shadow: 0 0.0625rem 0.25rem 0 rgba(61,66,80,.18);
   background-color: #fefefe;
   border-bottom: 1px solid grey;
-  position: fixed;
-  top: 0;
+  position: relative;
   left: 0;
   right: 0;
   max-width: 1700px;

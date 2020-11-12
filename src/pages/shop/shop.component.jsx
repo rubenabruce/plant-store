@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -6,17 +6,23 @@ import { selectCollectionItems } from '../../redux/shop/shop.selectors';
 
 import MenuItem from '../../components/menu-item/menu-item.component';
 import ShopFilter from '../../components/shop-filter/shop-filter.component';
-import {ReactComponent as DownArrow } from '../../assets/down-arrow.svg';
+import SortByFilter from '../../components/sort-by-filter/sort-by-filter.component';
 
-import { ShopPageCont, ShopPageHeader, ShopMainCont, ShopGridCont, ShopFooterCont } from './shop.styles'
+import { ShopPageCont, ShopPageHeader, ShopMainCont, ShopGridCont, ShopFooterCont, DownArrowCont } from './shop.styles'
 
 const ShopPage = ({ items }) => {
+  
+  const [sortBy, toggleSortBy] = useState(false);
+
   return ( 
-    <ShopPageCont>
+    <ShopPageCont>  
 
       <ShopPageHeader>
         <span className='collection-type'>Collection Type</span>
-        <span className='sort-by'>Sort by <DownArrow /></span>
+        <span className='sort-by'>Sort by <DownArrowCont onClick={() => toggleSortBy(!sortBy)}/></span>
+        {
+          sortBy ? (<SortByFilter />) : null
+        }
       </ShopPageHeader>
 
       <ShopMainCont>
