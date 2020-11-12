@@ -1,62 +1,43 @@
-import React from 'react';
+import styled, { css } from 'styled-components';
 
-import CustomButton from '../../components/custom-button/custom-button.component';
+const FlexCollumnStyles = css`
+  display: flex;
+  flex-direction: column;
+`;
 
-const ShopItemPage = ({ item }) => {
-  return ( 
-    <div className='shop-item-page-cont'>
+const FlexRowStyles = css`
+  display: flex;
+  flex-direction: row;
+`;
 
-      <div className='shop-item'>
-        
-        <div className='item-images'>
+export const ShopItemPageCont = styled.div`
+  width: 100%;
+  height: 95vh;
+  padding: 80px 0;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0;
 
-          <div className='main-image' />
+  ${FlexCollumnStyles}
+`;
 
-          <div className='other-images-cont'>
+export const ShopItemCont = styled.div`
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  margin: 80px 0;
 
-            <span className='arrow' />
+  ${FlexRowStyles}
+`;
 
-            <div className='other-images'>
+export const RecommendedContainer = styled.div`
+  /* height: 400px; */
+  width: 100%;
+  margin: 60px auto;
+  background-color: grey;
+  border-top: 3px solid #bcbcbc;
 
-            </div>
-
-            <span className='arrow' />
-
-
-          </div>
-
-        </div>
-
-        <div className='item-desc'>
-
-          <h2>Snake Plant</h2>
-
-          <h4>Price</h4>
-
-          <div className='item-sizes'>
-            <span className='height'></span>
-            <span className='diameter'></span>
-          </div>
-
-          <p className='item-desc'></p>
-
-          <div className='quantity-container'>
-            <span>Quantity</span>
-            <div className='quantity-adjust' />
-          </div>
-
-          <CustomButton>Add to cart</CustomButton>
-
-
-
-        </div>
-
-      </div>
-
-      <div className='recommended-cont'></div>
-
-    </div>
-  );
-}
- 
-export default ShopItemPage;
+`;
