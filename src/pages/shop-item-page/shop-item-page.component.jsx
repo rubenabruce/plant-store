@@ -3,11 +3,16 @@ import React from 'react';
 import ItemPageImages from '../../components/item-page-images/item-page-images.component';
 import ItemPageDetails from '../../components/item-page-details/item-page-details.component';
 import SlidingBar from '../../components/sliding-bar/sliding-bar.component';
-// import MenuItem from '../../components/menu-item/menu-item.component';
 
 import { ShopItemPageCont, ShopItemCont, RecommendedContainer } from './shop-item-page.styles';
 
-const ShopItemPage = ({ item }) => {
+const ShopItemPage = () => {
+  const item = {
+    id: 10,
+    imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+    name: "Brown Brim",
+    price: 25
+  }
   return ( 
     <ShopItemPageCont>
 
@@ -15,7 +20,7 @@ const ShopItemPage = ({ item }) => {
         
         <ItemPageImages />
 
-        <ItemPageDetails />
+        <ItemPageDetails item={item} />
 
       </ShopItemCont>
 

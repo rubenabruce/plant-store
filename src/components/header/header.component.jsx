@@ -18,11 +18,11 @@ const Header = ({ currentUser, hidden }) => (
 
     </LogoContainer>
     <OptionsContainer>
-      <OptionContainerLink to='/collections'>
+      <OptionContainerLink to='/shop'>
         Shop
       </OptionContainerLink>
       <OptionContainerLink to='/collections'>
-        Contact
+        Collections
       </OptionContainerLink>
       {
         currentUser ?

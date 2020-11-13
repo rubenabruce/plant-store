@@ -43,6 +43,10 @@ const getStyles = ({ gridId }) => {
   }
 }
 
+const getOtherStyles = (props) => {
+  return props.otherStyles ? props.otherStyles : '';
+}
+
 export const CollectionItemCont = styled.div`
   background-image: ${({imageUrl}) => `url(${imageUrl})`};
   background-color: grey;
@@ -56,7 +60,8 @@ export const CollectionItemCont = styled.div`
 
   ${getStyles}
 
-  
+  ${getOtherStyles}
+
   &:hover {
     background-blend-mode: multiply;
 

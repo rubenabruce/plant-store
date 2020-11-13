@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import CollectionItem from '../collection-item/collection-item.component';
+
 import CustomButton from '../custom-button/custom-button.component';
 
 const ifEven = (id) => {
@@ -30,9 +32,9 @@ export const ContentCont = styled.div`
   align-items: ${props => ifEven(props.id) ? 'flex-end' : 'flex-start'};
 `;
 
-export const ImageCont = styled.img`
+export const ImageCont = styled(CollectionItem)`
   width: 50%;
-
+  height: 100%;
 `;
 
 export const TitleCont = styled.h1`

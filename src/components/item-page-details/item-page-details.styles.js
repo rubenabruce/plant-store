@@ -69,3 +69,7 @@ export const ValueCont = styled.span`
   margin: 0 10px;
   font-weight: 600;
 `;
+
+export const CareInstructionCont = styled.div`
+  font-size: 20px;
+`;

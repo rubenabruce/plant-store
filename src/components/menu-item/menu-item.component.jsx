@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
 
 import { addItem } from '../../redux/cart/cart.actions'
 
 import { MenuItemCont, ImageContainerCont, ImageCont, ItemFooterCont, CustomButtonCont } from "./menu-item.styles";
 
-const MenuItem = ({ item, addItem }) => {
-  const {imageUrl, name, price} = item
+const MenuItem = ({ item, addItem, history, match}) => {
+  const {id, imageUrl, name, price} = item;
   return (
-    <MenuItemCont>
-      <ImageContainerCont className='background-image-cont'><ImageCont className='background-image' imageUrl={imageUrl} /></ImageContainerCont>
+    <MenuItemCont className='menu-item'>
+      <ImageContainerCont onClick={() => history.push(`${match.path}/${id}`)} className='background-image-cont'>
+        <ImageCont className='background-image' imageUrl={imageUrl} />
+      </ImageContainerCont>
       <ItemFooterCont className='item-footer'>
         <span className='name'>{name}</span>
         <span className='price'>£{price}</span>
@@ -23,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
  
-export default connect(null, mapDispatchToProps)(MenuItem);
+export default withRouter(connect(null, mapDispatchToProps)(MenuItem));
