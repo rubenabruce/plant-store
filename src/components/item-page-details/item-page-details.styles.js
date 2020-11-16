@@ -12,17 +12,13 @@ const FlexRowStyles = css`
   flex-direction: row;
 `;
 
-const ItemSectionStyles = css`
-  width: 48%;
-  height: 100%;
-  ${FlexCollumnStyles}
-`;
-
 export const ItemDetailsCont = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   font-size: 24px;
-  ${ItemSectionStyles}
+  width: 52%;
+  height: 100%;
+  ${FlexCollumnStyles}
 `;
 
 export const ItemName = styled.h2`

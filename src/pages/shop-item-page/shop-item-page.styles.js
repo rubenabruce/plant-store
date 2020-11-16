@@ -14,13 +14,13 @@ export const ShopItemPageCont = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-
+  padding-bottom: 200px;  
   ${FlexCollumnStyles}
 `;
 
 export const ShopItemCont = styled.div`
   width: 90%;
-  height: 80vh;
+  height: 75vh;
   margin: auto;
   position: relative;
   justify-content: space-between;
@@ -34,7 +34,12 @@ export const RecommendedContainer = styled.div`
   height: 500px;
   width: 90%;
   padding: 800px auto;
+  border-top: 1px solid black;
 
-  border-top: 2px solid #bcbcbc;
-
+  & h3 {
+    font-weight: 400;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 32px;
+  }
 `;

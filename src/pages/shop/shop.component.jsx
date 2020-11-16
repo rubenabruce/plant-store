@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import { selectCollectionItems } from '../../redux/shop/shop.selectors';
@@ -10,10 +11,11 @@ import SortByFilter from '../../components/sort-by-filter/sort-by-filter.compone
 
 import { ShopPageCont, ShopPageHeader, ShopMainCont, ShopGridCont, ShopFooterCont, DownArrowCont } from './shop.styles'
 
-const ShopPage = ({ items }) => {
+const ShopPage = ({ items, location }) => {
   
   const [sortBy, toggleSortBy] = useState(false);
-
+  console.log(location.search)
+  // const collectionType = location.search()
   return ( 
     <ShopPageCont>  
 
@@ -48,4 +50,4 @@ const mapStateToProps = createStructuredSelector({
   items: selectCollectionItems
 });
 
-export default connect(mapStateToProps)(ShopPage);
+export default withRouter(connect(mapStateToProps)(ShopPage));

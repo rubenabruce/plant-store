@@ -1,26 +1,33 @@
-import React from 'react';
-import { connect } from 'react-redux'; 
-import { createStructuredSelector } from 'reselect';
-import { selectCollectionItems } from '../../redux/shop/shop.selectors';
+import React, { useState } from 'react';
 
-import MenuItem from '../menu-item/menu-item.component';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+
+import Arrow from '../arrow/arrow.component';
 
 import { SlidingBarCont } from "./sliding-bar.styles";
 
-const SlidingBar = ({ collectionItems }) => {
+const ArrowLeft = Arrow({ direction: 'left', className: 'arrow-svg arrow-prev' });
+const ArrowRight = Arrow({ direction: 'right', className: 'arrow-svg arrow-next' });
+
+const SlidingBar = ({ data }) => {
+  const [selected, setSelected] = useState(1);
+
+  const onSelect = key => {
+    setSelected({key})
+  };
+
   return (  
     <SlidingBarCont>
-      {
-        collectionItems
-        .filter((item, index) => index < 6)
-        .map((item) => <MenuItem key={item.id} item={item}/>)
-      }
+      <ScrollMenu 
+        data={data}
+        arrowLeft={ArrowLeft}
+        arrowRight={ArrowRight}
+        selected={selected}
+        onSelect={onSelect}
+        translate={20}
+      />
     </SlidingBarCont>
   );
 }
- 
-const mapStateToProps = createStructuredSelector({
-  collectionItems: selectCollectionItems
-});
 
-export default connect(mapStateToProps)(SlidingBar);
+export default SlidingBar;

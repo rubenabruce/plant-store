@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ItemImagesCont = styled.div`
   justify-content: space-between;
   align-items: center;
-  width: 48%;
+  width: 44%;
   height: 100%;
   display: flex;
   flex-direction: column;
