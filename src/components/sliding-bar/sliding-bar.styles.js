@@ -11,6 +11,14 @@ export const SlidingBarCont = styled.div`
   & .menu-item {
     margin: 0 20px;
     min-width: 300px;
+    
+    @media screen and (max-width: 800px) {
+      height: 200px;
+      min-width: 120px;
+      width: 120px;
+      font-size: 12px;
+      margin: 0 10px;
+    }
   }
 
   & .horizontal-menu {
@@ -24,6 +32,9 @@ export const SlidingBarCont = styled.div`
     & .scroll-menu-arrow {
         padding: 20px;
         cursor: pointer;
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
 
         & .arrow-svg {
           transform: translate(0, -80px)

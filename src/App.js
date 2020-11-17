@@ -20,7 +20,8 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
-import './App.css';
+// import './App.css';
+import { GlobalStyle } from './global.styles';
 
 class App extends Component {
 
@@ -56,6 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
+        <GlobalStyle />
         <HeadRoom className='header-container'>
           <AnnouncementBanner />
           <Header />

@@ -8,6 +8,11 @@ export const ItemImagesCont = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
 `;
 
 export const MainImageCont = styled.div`
@@ -23,6 +28,10 @@ export const MainImage = styled.img`
   width: 100%;
   margin: auto;
   position: relative;
+
+  @media screen and (max-width: 800px) {
+    padding-bottom: 15px;
+  }
 `;
 
 export const OtherImagesNavCont = styled.div`
@@ -30,6 +39,10 @@ export const OtherImagesNavCont = styled.div`
   flex-direction: row;
   width: 100%;
   height: 18%;
+
+  @media screen and (max-width: 800px) {
+    height: 100px;
+  }
 `;
 
 export const OtherImagesCont = styled.div`

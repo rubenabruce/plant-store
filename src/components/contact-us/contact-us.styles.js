@@ -8,6 +8,12 @@ export const ContactUsCont = styled.form`
   display: flex;
   height: 500px;
   flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-top: 70px;
+    padding-bottom: 70px;
+  }
 `;
 
 export const ContactHeaderCont = styled.h2`
@@ -22,10 +28,16 @@ export const NameEmailCont = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 80px auto auto;
+
+  @media screen and (max-width: 800px) {
+    margin: auto;
+  }
 `;
 
 export const FormInputCont = styled(FormInput)`
-
+  @media screen and (max-width: 800px) {
+    width: 90%;  
+  }
 `;
 
 export const MessageInputCont = styled.textarea`

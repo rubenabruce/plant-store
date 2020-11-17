@@ -15,10 +15,14 @@ const FlexRowStyles = css`
 export const ItemDetailsCont = styled.div`
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 24px;
+  font-size: 18px;
   width: 52%;
   height: 100%;
   ${FlexCollumnStyles}
+
+  @media screen and (max-width: 800px) {
+    width: 100%;  
+  }
 `;
 
 export const ItemName = styled.h2`
@@ -27,17 +31,35 @@ export const ItemName = styled.h2`
   border-bottom: solid 1px #bcbcbc;
   width: 100%;
   text-align: left;  
+  
 `;
 
 export const ItemPrice = styled.h3`
   font-size: 36px;
   font-weight: 400;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 30px;
+  }
 `
 
 export const ItemSizes = styled.div`
   justify-content: space-between;
   width: 80%;
   ${FlexRowStyles}
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin: 10px 0;
+  }
+`;
+
+export const ItemDesc = styled.p`
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+  }
 `;
 
 export const CustomButtonCont = styled(CustomButton)`
@@ -46,10 +68,19 @@ export const CustomButtonCont = styled(CustomButton)`
   align-items: center;
   background-color: #00C236;
   font-size: 24px;
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+    height: unset;
+    font-size: 20px;
+  }
 `;
 
 export const QuantityCont = styled.div`
   ${FlexRowStyles}
+
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+  }
 `;
 
 export const QuantityAdjustCont = styled.span`
@@ -68,4 +99,15 @@ export const ValueCont = styled.span`
 
 export const CareInstructionCont = styled.div`
   font-size: 20px;
+
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+    font-size: 18px;
+
+
+    & h2 {
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+  }
 `;

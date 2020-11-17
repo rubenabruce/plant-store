@@ -6,4 +6,9 @@ export const ContactSectionCont = styled.div`
   display: flex;
   justify-content: space-between;
   margin: auto;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    height: unset;
+  }
 `;

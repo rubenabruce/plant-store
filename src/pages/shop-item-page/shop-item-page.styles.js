@@ -16,6 +16,11 @@ export const ShopItemPageCont = styled.div`
   align-items: center;
   padding-bottom: 200px;  
   ${FlexCollumnStyles}
+
+  @media screen and (max-width: 800px) {
+    padding-bottom: 0;
+  }
+
 `;
 
 export const ShopItemCont = styled.div`
@@ -28,6 +33,12 @@ export const ShopItemCont = styled.div`
   margin: 80px 0;
 
   ${FlexRowStyles}
+
+  @media screen and (max-width: 800px) {
+    ${FlexCollumnStyles}
+    height: unset;
+    margin: 40px 0;
+  }
 `;
 
 export const RecommendedContainer = styled.div`
@@ -35,6 +46,10 @@ export const RecommendedContainer = styled.div`
   width: 90%;
   padding: 800px auto;
   border-top: 1px solid black;
+
+  @media screen and (max-width: 800px) {
+    height: unset;
+  }
 
   & h3 {
     font-weight: 400;

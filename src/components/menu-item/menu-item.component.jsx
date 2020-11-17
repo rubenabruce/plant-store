@@ -16,8 +16,9 @@ const MenuItem = ({ item, addItem, history, match}) => {
       <ItemFooterCont className='item-footer'>
         <span className='name'>{name}</span>
         <span className='price'>£{price}</span>
-        <CustomButtonCont onClick={() => addItem(item)} className='custom-button'>Add to cart</CustomButtonCont>
       </ItemFooterCont>
+      <CustomButtonCont onClick={() => addItem(item)} className='custom-button'>Add to cart</CustomButtonCont>
+
     </MenuItemCont>
   ); 
 }

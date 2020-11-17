@@ -7,7 +7,7 @@ const FeaturedItem = ({ item }) => {
   const { id, title, paragraph } = item
   return ( 
     <FeaturedItemCont id={id} >
-      <ImageCont item={item} otherStyles={`height: 100%; width: 50%;`} alt='Featured-item'/>
+      <ImageCont item={item} alt='Featured-item'/>
       <ContentCont id={id}>
         <TitleCont>{title}</TitleCont>
         <ParagraphCont>{paragraph}</ParagraphCont>  

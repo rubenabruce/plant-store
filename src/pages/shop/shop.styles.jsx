@@ -31,6 +31,10 @@ export const ShopPageHeader = styled.div`
     font-size: 20px;
     font-weight: 400;
   }
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export const ShopMainCont = styled.div`
@@ -39,15 +43,27 @@ export const ShopMainCont = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 90%;
+  }
 `;
 
 export const ShopGridCont = styled.div`
   width: 80%;
-  padding-top: 40px;
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 62px;
-  row-gap: 72px;
+  row-gap: 86px;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+    row-gap: 36px;
+    width: 100%;
+  }
 `;
 
 export const ShopFooterCont = styled.div`

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 
 export const MenuItemCont = styled.div`
-  height: 350px;
-  width: 80%;
+  height: 450px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ export const MenuItemCont = styled.div`
     & .custom-button {
       min-width: 60px;
       opacity: 1;
-      top: -40px;
+      top: -20px;
     }
 
     & .price {
@@ -35,6 +35,10 @@ export const MenuItemCont = styled.div`
     }
   }
 
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    height: 310px;
+  }
 `;
 
 export const ImageContainerCont = styled.div`
@@ -80,14 +84,38 @@ export const ItemFooterCont = styled.div`
     top: 0;
   }
 
+  @media screen and (max-width: 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & .name {
+      margin-top: 0;
+    }
+
+    & .price {
+      margin-top: 0;
+      padding: 0;
+    }
+  }
 `;
 
 export const CustomButtonCont = styled(CustomButton)`
   min-width: 0px;
+  width: 100%;
   margin-top: 12px;
   font-size: 12px;
   opacity: 0;
+  padding: 0;
   position: relative;
   top: 0px;
   transition: all 400ms cubic-bezier(0.25, 0.45, 0.45, 0.95);
+
+  @media screen and (max-width: 800px) {
+    opacity: 1;
+    font-size: 10px;
+    width: 100%;
+    height: 35px;
+    align-items: center;
+  }
 `;

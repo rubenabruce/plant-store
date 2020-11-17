@@ -21,6 +21,11 @@ export const SignInContainer = styled.div`
   padding: 80px 0;
   background-color: #fefefe;
   top: 20vh;
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    padding: 10px;
+  }
 `;
 
 export const TitleCont = styled.h2`
@@ -32,6 +37,10 @@ export const TitleCont = styled.h2`
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -43,6 +52,17 @@ export const ButtonsContainer = styled.div`
   & .sign-in-button {
     margin-right: 5px;
   }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin: 20px auto;
+
+
+    & button {
+      width: 100%;
+      min-width: unset;
+    }
+  }
 `;
 
 export const AlternativeContainer = styled.div`
@@ -51,8 +71,13 @@ export const AlternativeContainer = styled.div`
   justify-content: space-evenly;
   width: 80%;
   text-align: center;
-
+  align-items: center;
+  
   & span {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-bottom: 20px;
   }
 `;

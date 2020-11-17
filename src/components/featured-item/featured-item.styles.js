@@ -20,6 +20,10 @@ export const FeaturedItemCont = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 100px 0;
+  
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const ContentCont = styled.div`
@@ -30,11 +34,22 @@ export const ContentCont = styled.div`
   flex-direction: column;
   text-align: ${props => ifEven(props.id) ? 'right' : 'left'};
   align-items: ${props => ifEven(props.id) ? 'flex-end' : 'flex-start'};
+  
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    text-align: center;
+    align-items: center;
+  }
 `;
 
 export const ImageCont = styled(CollectionItem)`
   width: 50%;
   height: 100%;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 export const TitleCont = styled.h1`
