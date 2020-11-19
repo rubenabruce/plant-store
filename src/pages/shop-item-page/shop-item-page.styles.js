@@ -50,11 +50,17 @@ export const RecommendedContainer = styled.div`
   @media screen and (max-width: 800px) {
     height: unset;
   }
-
-  & h3 {
-    font-weight: 400;
-    font-size: 32px;
-    text-align: center;
-    padding-top: 32px;
-  }
 `;
+
+export const RecommendedHeader = styled.h3`
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  padding-top: 32px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 24px;
+  }
+
+`;
+ 

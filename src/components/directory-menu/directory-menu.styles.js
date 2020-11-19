@@ -88,7 +88,7 @@ export const ContentCont = styled.div`
   text-align: ${({side}) => side};
   align-items: ${({side}) => side};
   justify-content: center;
-  width: 60%;
+  width: 50%;
   top: 30%;
   ${({side}) => side}: 10%;
   position: relative;

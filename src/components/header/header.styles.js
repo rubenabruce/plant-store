@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
@@ -103,6 +103,15 @@ export const IconsContainer = styled.div`
     margin-right: 5%;
 `
 
+const SearchBoxOut = css`
+    border: none;
+    height: 100%;
+    padding: 5px;
+    display: inline;
+    opacity: 1;
+    width: 170px;
+`;
+
 export const SearchContainer = styled.div`
     display: flex;
     align-items: center;
@@ -114,6 +123,10 @@ export const SearchContainer = styled.div`
         transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
         width: 0px;
         font-family: 'Montserrat';
+
+        :focus {
+            ${SearchBoxOut}            
+        }
     }
 
     &:hover {        
@@ -122,13 +135,7 @@ export const SearchContainer = styled.div`
 
 
         & input {
-            border: none;
-            height: 100%;
-            padding: 5px;
-            display: inline;
-            opacity: 1;
-            width: 170px;
-            
+            ${SearchBoxOut}            
         }
 
         & .searchIcon {

@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import HeadRoom from 'react-headroom';
 
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import Spinner from './components/spinner/spinner.component';
 import Header from './components/header/header.component';
 import AnnouncementBanner from './components/announcement-banner/announcement-banner.component';
-import Homepage from './pages/homepage/homepage.component';
-import SignIn from './components/sign-in/sign-in.component';
-import SignUp from './components/sign-up/sign-up.component';
-import CollectionsDirectory from './pages/collection-directory/collection-directory.component';
-import CheckoutPage from './pages/checkout/checkout.component';
-import ShopPage from './pages/shop/shop.component';
-import ShopItemPage from './pages/shop-item-page/shop-item-page.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
-// import './App.css';
 import { GlobalStyle } from './global.styles';
+
+const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
+const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
+const SignUp = lazy(() => import('./components/sign-up/sign-up.component'));
+const CollectionsDirectory = lazy(() => import('./pages/collection-directory/collection-directory.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const ShopItemPage = lazy(() => import('./pages/shop-item-page/shop-item-page.component'));
 
 class App extends Component {
 
@@ -64,21 +66,25 @@ class App extends Component {
         </HeadRoom>
 
         <Switch>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
           <Route exact path='/' component={Homepage} />
-          <Route path='/collections' component={CollectionsDirectory} />
-          <Route exact path='/signin' render={() => 
-            this.props.currentUser 
-            ? (<Redirect to='/' />) 
-            : (<SignIn/>)
-          } />
-          <Route exact path='/signup' render={() => 
-            this.props.currentUser 
-            ? (<Redirect to='/' />) 
-            : (<SignUp/>)
-          } /> 
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/shop' component={ShopPage} />
-          <Route path='/shop/:itemId' component={ShopItemPage} />
+              <Route path='/collections' component={CollectionsDirectory} />
+              <Route exact path='/signin' render={() => 
+                this.props.currentUser 
+                ? (<Redirect to='/' />) 
+                : (<SignIn/>)
+              } />
+              <Route exact path='/signup' render={() => 
+                this.props.currentUser 
+                ? (<Redirect to='/' />) 
+                : (<SignUp/>)
+              } /> 
+              <Route exact path='/checkout' component={CheckoutPage} />
+              <Route exact path='/shop' component={ShopPage} />
+              <Route path='/shop/:itemId' component={ShopItemPage} />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </div>
     );

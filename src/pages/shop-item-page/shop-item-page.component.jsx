@@ -8,7 +8,7 @@ import ItemPageDetails from '../../components/item-page-details/item-page-detail
 import SlidingBar from '../../components/sliding-bar/sliding-bar.component';
 import MenuItem from '../../components/menu-item/menu-item.component';
 
-import { ShopItemPageCont, ShopItemCont, RecommendedContainer } from './shop-item-page.styles';
+import { ShopItemPageCont, ShopItemCont, RecommendedContainer, RecommendedHeader } from './shop-item-page.styles';
 
 const ShopItemPage = ({ collectionItems }) => {
   const item = {
@@ -30,7 +30,7 @@ const ShopItemPage = ({ collectionItems }) => {
       </ShopItemCont>
 
       <RecommendedContainer>
-        <h3>You might also like...</h3>
+        <RecommendedHeader>You might also like...</RecommendedHeader>
         <SlidingBar data={collectionItems
           .filter((item, index) => index < 6)
           .map((item) => <MenuItem key={item.id} item={item}/>)}>
