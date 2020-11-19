@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const HalfContainerStyles = css`
+  width: 50%;
+  height: 90%;
+  transition: all 10s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+`;
+
 
 export const DirectoryMenuCont = styled.div`
   width: 100%;
@@ -8,83 +19,79 @@ export const DirectoryMenuCont = styled.div`
   padding-top: 40px;
   justify-content: center;
   align-items: center;
-
-  & .half-container-right {
-    width: 50%;
-    height: 90%;
-    overflow: hidden;
+`;
 
 
-    /* &:hover {
+export const LeftCont = styled.div`
+  ${HalfContainerStyles}
+  left: 0;
 
-      width: 70%;
-      transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-
-      .half-container-left {
-        width:  30%;
-        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  &:hover {
+    & ~ .images-container {
+      & .image-cont-left {
+        width: 700px;
       }
-
-
-      .container-right {
-        width: 600px;
-        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-      }
-      
-      .container-left {
-        width: 1px;
-        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-      }
-
-    
-    } */
+    }
   }
 
-  & .half-container-left {
-    width: 50%;
-    height: 90%;
-    overflow: hidden;
+`;
 
-    /* &:hover {
+export const RightCont = styled.div`
+  ${HalfContainerStyles}
+  right: 0;
 
-      .container-left {
-        width: 600px;
-        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  &:hover {
+    & ~ .images-container {
+      & .image-cont-right {
+        width: 700px;
       }
-
-      .container-right {
-        width: 1px;
-        transition: all 30s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-      }
-
-
-    } */
+    }
   }
+`;
+
+export const ImagesContainer = styled.div`
+  width: 700px;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+
+  & .image-cont-left {
+    &:hover {
+      width: 800px;
+    }
+  }
+
+  & .image-cont-right {
+    &:hover {
+      width: 800px;
+    }
+  }
+`;
+
+export const ImageSideCont = styled.div`
+  overflow: hidden;
+  transition: all 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  width: 350px;
+  height: 100%;
 `;
 
 export const BackgroundImageCont = styled.img`
-  width: 100%;
-  ${({side}) => side}: 50%;
+  width: 700px;
+  float: ${({side}) => side};
   bottom: 0;
   position: relative;
-  /* width: 600px; */
-  /* background-position: ${({side}) => side};
-  background-size: cover;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`}; */
 `;
 
 export const ContentCont = styled.div`
-  /* height: 90px; */
-  padding: 0 25px;
   display: flex;
   flex-direction: column;
   text-align: ${({side}) => side};
   align-items: ${({side}) => side};
   justify-content: center;
-  width: 30%;
-  top: 34%;
-  ${({side}) => side}: 8%;
-  position: absolute;
+  width: 60%;
+  top: 30%;
+  ${({side}) => side}: 10%;
+  position: relative;
   z-index: 10;
 `;
 
@@ -99,13 +106,5 @@ export const SubtitleCont = styled.span`
   font-weight: lighter;
   font-size: 16px;
   margin-bottom: 20px;
-`;
-
-export const BackgroundImageContainersCont = styled.div`
-  width: 300px;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  /* margin-${({side}) => side}: auto; */
 `;
 
