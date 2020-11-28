@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring'; 
 
 import CollectionItem from '../collection-item/collection-item.component';
 
@@ -12,7 +13,7 @@ const ifEven = (id) => {
   }
 }
 
-export const FeaturedItemCont = styled.div`
+export const FeaturedItemCont = styled(animated.div)`
   width: 100%;
   height: 70vh;
   display: flex;

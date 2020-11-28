@@ -1,4 +1,6 @@
 import React from 'react';
+// import { animated, config, useSprings } from 'react-spring';
+// import { Waypoint } from 'react-waypoint';
 
 import DirectoryMenu from '../../components/directory-menu/directory-menu.component'
 import Parallax from '../../components/parallax/parallax.component'

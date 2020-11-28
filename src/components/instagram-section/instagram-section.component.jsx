@@ -3,6 +3,7 @@ import React from 'react';
 import { InstagramSectionCont, TitleCont, InstafeedCont } from "./instagram-section.styles";
 
 const InstagramSection = () => {
+
   return (  
     <InstagramSectionCont>
       <TitleCont>Follow us <a href='https://www.instagram.com/ninasplantsofficial/'>@NinasPlantsOfficial</a></TitleCont>
