@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { animated, config, useTransition } from 'react-spring';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -14,6 +15,13 @@ import { ShopPageCont, ShopPageHeader, ShopMainCont, ShopGridCont, ShopFooterCon
 const ShopPage = ({ items, location }) => {
   
   const [sortBy, toggleSortBy] = useState(false);
+  const dropdownTransition = useTransition(sortBy, null, {
+    from: { height: '0px' },
+    enter: { height: '300px' },
+    leave: { height: '0px' },
+    config: config.slow
+  })
+
   console.log(location.search)
   // const collectionType = location.search()
   return ( 
@@ -21,9 +29,11 @@ const ShopPage = ({ items, location }) => {
 
       <ShopPageHeader>
         <span className='collection-type'>Collection Type</span>
-        <span className='sort-by'>Sort by <DownArrowCont onClick={() => toggleSortBy(!sortBy)}/></span>
+        <span className='sort-by'>Sort by <DownArrowCont onClick={() => toggleSortBy(!sortBy)} style={ sortBy ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } }/></span>
         {
-          sortBy ? (<SortByFilter />) : null
+          dropdownTransition.map(({item, key, props: animation}) => (
+            item && <SortByFilter key={ key } animation={ animation } />
+          )) 
         }
       </ShopPageHeader>
 
@@ -37,7 +47,7 @@ const ShopPage = ({ items, location }) => {
             .map(item => (
               <MenuItem  key={item.id} item={item}>{item.name}</MenuItem>
             ))
-          }
+          }   
         </ShopGridCont>
 
       </ShopMainCont>

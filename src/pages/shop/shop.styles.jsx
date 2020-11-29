@@ -76,4 +76,5 @@ export const ShopFooterCont = styled.div`
 
 export const DownArrowCont = styled(DownArrow)`
   cursor: pointer;
+  transition: all 600ms ease-in-out;
 `;

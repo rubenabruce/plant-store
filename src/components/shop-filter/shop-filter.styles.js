@@ -8,6 +8,7 @@ export const FilterFieldCont = styled.div`
 
 export const DownArrowCont = styled(DownArrow)`
   cursor: pointer;
+  transition: all 600ms ease-in-out;
 `;
 
 export const ShopFilterCont = styled.div`
@@ -46,6 +47,7 @@ export const FilterFieldHeaderCont = styled.span`
 
 export const FilterOptionsCont = styled.div`
   background-color: white;
-
+  transition: all 1s ease-in-out;
+  overflow: hidden;
 `;
 

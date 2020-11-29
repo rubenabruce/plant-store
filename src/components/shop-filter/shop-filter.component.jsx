@@ -40,60 +40,52 @@ class ShopFilter extends Component {
     return (    
       <ShopFilterCont>
         <FilterFieldCont className='type-field-cont'>
-          <FilterFieldHeaderCont>Type <DownArrowCont onClick={() => this.setState({typeOptions: !typeOptions})}/></FilterFieldHeaderCont>
-          {
-            typeOptions ? (
-              <FilterOptionsCont className='type-options'>
-                <CheckboxInput 
-                  name='type' 
-                  label='Succulants' 
-                  handleChange={this.handleChange} 
-                  value='succulants'
-                />
-                <CheckboxInput 
-                  name='type' 
-                  label='Pots' 
-                  handleChange={this.handleChange} 
-                  value='pots'
-                />
-                <CheckboxInput 
-                  name='type' 
-                  label='Cactus' 
-                  handleChange={this.handleChange} 
-                  value='cactus'
-                />
-              </FilterOptionsCont>
-            ) : null
-          }
-          
+          <FilterFieldHeaderCont>Type <DownArrowCont onClick={() => this.setState({typeOptions: !typeOptions})} style={ typeOptions ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } } /></FilterFieldHeaderCont>
+            <FilterOptionsCont style={ typeOptions ? { height: '90px' } : { height: '0px'} } className='type-options'>
+              <CheckboxInput 
+                name='type' 
+                label='Succulants' 
+                handleChange={this.handleChange} 
+                value='succulants'
+              />
+              <CheckboxInput 
+                name='type' 
+                label='Pots' 
+                handleChange={this.handleChange} 
+                value='pots'
+              />
+              <CheckboxInput 
+                name='type' 
+                label='Cactus' 
+                handleChange={this.handleChange} 
+                value='cactus'
+              />
+            </FilterOptionsCont>
+        
           
         </FilterFieldCont>
         <FilterFieldCont className='height-field-cont'>
-          <FilterFieldHeaderCont>Height <DownArrowCont onClick={() => this.setState({heightOptions: !heightOptions})}/></FilterFieldHeaderCont>
-            {
-              heightOptions ? (
-                <FilterOptionsCont className='height-options'>
-                  <CheckboxInput 
-                    name='height' 
-                    label='1cm - 10cm' 
-                    handleChange={this.handleChange} 
-                    value='>10cm'
-                  />
-                  <CheckboxInput 
-                    name='type' 
-                    label='Pots' 
-                    handleChange={this.handleChange} 
-                    value='pots'
-                  />
-                  <CheckboxInput 
-                    name='type' 
-                    label='Cactus' 
-                    handleChange={this.handleChange} 
-                    value='cactus'
-                  />
-                </FilterOptionsCont>
-              ) : null
-            }
+          <FilterFieldHeaderCont>Height <DownArrowCont onClick={() => this.setState({heightOptions: !heightOptions})} style={ heightOptions ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' }} /></FilterFieldHeaderCont>
+            <FilterOptionsCont style={ heightOptions ? { height: '90px' } : { height: '0px'} } className='height-options'>
+              <CheckboxInput 
+                name='height' 
+                label='1cm - 10cm' 
+                handleChange={this.handleChange} 
+                value='>10cm'
+              />
+              <CheckboxInput 
+                name='type' 
+                label='Pots' 
+                handleChange={this.handleChange} 
+                value='pots'
+              />
+              <CheckboxInput 
+                name='type' 
+                label='Cactus' 
+                handleChange={this.handleChange} 
+                value='cactus'
+              />
+            </FilterOptionsCont>
         </FilterFieldCont> 
       </ShopFilterCont>  
     );

@@ -1,10 +1,11 @@
 import React from 'react';
+import { animated } from 'react-spring';
 
 import { SortByFilterCont, ContentCont, OptionCont } from './sort-by-filter.styles';
 
-const SortByFilter = () => {
+const SortByFilter = ({ animation }) => {
   return ( 
-    <SortByFilterCont>
+    <SortByFilterCont style={animation} >
       <ContentCont>
         <OptionCont>Newest to Oldest</OptionCont>
         <OptionCont>Price: High to Low</OptionCont>
