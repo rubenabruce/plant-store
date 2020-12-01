@@ -19,7 +19,6 @@ export const HeaderContainer = styled.div`
   position: relative;
   left: 0;
   right: 0;
-  max-width: 1700px;
   margin: auto;
   z-index:20;
 `;
@@ -42,7 +41,7 @@ export const LogoImg = styled.img`
 export const OptionsContainer = styled.div`
   width: 50%;
   height: 100%;
-  padding-left: 15%;
+  margin-left: 15%;
   display: flex;
   position: absolute;
   align-items: center;

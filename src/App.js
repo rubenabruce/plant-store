@@ -16,6 +16,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
+import CartDropdown from './components/cart-dropdown/cart-dropdown.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -64,6 +65,8 @@ class App extends Component {
           <AnnouncementBanner />
           <Header />
         </HeadRoom>
+
+        <CartDropdown />
 
         <Switch>
         <ErrorBoundary>

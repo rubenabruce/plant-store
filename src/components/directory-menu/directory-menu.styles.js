@@ -92,7 +92,7 @@ export const ContentCont = styled.div`
   top: 30%;
   ${({side}) => side}: 10%;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 `;
 
 export const TitleCont = styled.h1`

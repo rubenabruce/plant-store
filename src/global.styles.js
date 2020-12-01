@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Open Sans Condensed';
     font-family: 'Montserrat';
-    max-width: 1700px;
     display: flex;
     justify-content: center;
     background-color: #f0f0f0;

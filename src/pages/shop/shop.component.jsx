@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { animated, config, useTransition } from 'react-spring';
+import { config, useTransition } from 'react-spring';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';

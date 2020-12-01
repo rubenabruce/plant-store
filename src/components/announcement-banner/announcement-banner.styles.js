@@ -7,7 +7,6 @@ export const BannerCont = styled.div`
   align-items: center;
   height: 3vh;
   width: 100%;
-  max-width: 1700px;
   position: relative;
   margin: auto;
   z-index: 50;
