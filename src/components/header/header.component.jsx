@@ -10,12 +10,12 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-import { LogoContainer, HeaderContainer, OptionContainerLink, OptionContainerSignOut, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
+import { LogoContainer, LogoImg, HeaderContainer, OptionContainerLink, OptionContainerSignOut, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
 
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
-
+      <LogoImg src={require('../../assets/plants-logo-25.png')} alt="Nina's plants shop logo." />
     </LogoContainer>
     <OptionsContainer>
       <OptionContainerLink to='/shop'>
