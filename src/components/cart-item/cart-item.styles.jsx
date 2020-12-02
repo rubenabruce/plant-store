@@ -1,6 +1,8 @@
+import { animated } from 'react-spring';
 import styled from 'styled-components';
 
-export const CartItemCont = styled.div`
+
+export const CartItemCont = styled(animated.div)`
   width: 100%;
   display: flex;
   padding: 20px 0;

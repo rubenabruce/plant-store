@@ -1,3 +1,4 @@
+import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
 
 const buttonStyles = css`
@@ -43,10 +44,10 @@ const getButtonStyles = props => {
 }
 
 const getOtherStyles = props => {
-  return props.otherStyles ? props.otherStyles : '';
+  return props.otherstyles ? props.otherstyles : '';
 }
 
-export const CustomButtonContainer = styled.button`
+export const CustomButtonContainer = styled(animated.button)`
   min-width: 165px;
   width: auto;
   height: 50px;
