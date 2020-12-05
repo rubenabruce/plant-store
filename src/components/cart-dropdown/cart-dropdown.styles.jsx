@@ -48,8 +48,12 @@ export const EmptyMessage = styled.span`
   font-size: 18px;
 `;
 
+export const BottomCont = styled(animated.div)`
+  width: 100%;
+`;
+
 export const SubTotalCont = styled.div`
-  margin: 20px;
+  margin: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;

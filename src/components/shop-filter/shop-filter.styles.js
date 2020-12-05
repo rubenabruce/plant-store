@@ -1,3 +1,4 @@
+import { animated } from 'react-spring';
 import styled from 'styled-components';
 
 import {ReactComponent as DownArrow } from '../../assets/down-arrow.svg';
@@ -11,7 +12,7 @@ export const DownArrowCont = styled(DownArrow)`
   transition: all 600ms ease-in-out;
 `;
 
-export const ShopFilterCont = styled.div`
+export const ShopFilterCont = styled(animated.div)`
   width: 18%;
   margin-right: 2%;
   margin-top: 20px;
@@ -47,7 +48,7 @@ export const FilterFieldHeaderCont = styled.span`
 
 export const FilterOptionsCont = styled.div`
   background-color: white;
-  transition: all 1s ease-in-out;
+  transition: all 600ms ease-in-out;
   overflow: hidden;
 `;
 

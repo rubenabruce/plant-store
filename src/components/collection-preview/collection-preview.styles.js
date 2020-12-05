@@ -1,7 +1,9 @@
+import { animated } from 'react-spring';
 import styled from 'styled-components';
 
 export const CollectionPreviewCont = styled.div`
   margin: auto;
+  width: 80%;
 `;
 
 export const TitleCont = styled.h1`
@@ -12,9 +14,8 @@ export const TitleCont = styled.h1`
   /* display: none; */
 `;
 
-export const PreviewCont = styled.div`
+export const PreviewCont = styled(animated.div)`
   display: grid; 
-  width: 90%;
   height: 70vh;
   margin: auto;
   grid-template-columns: repeat(4,1fr);
@@ -22,5 +23,5 @@ export const PreviewCont = styled.div`
   grid-row-gap: 15px;
   grid-column-gap: 15px;
   /* border-top: solid 3px #bcbcbc; */
-  padding: 40px 0 40px 0;
+  padding: 15px 0 0 0;
 `;

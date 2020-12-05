@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
+
 import CustomButton from '../custom-button/custom-button.component';
 
-export const MenuItemCont = styled.div`
+export const MenuItemCont = styled(animated.div)`
   height: 450px;
   width: 90%;
   display: flex;

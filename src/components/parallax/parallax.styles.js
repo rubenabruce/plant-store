@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { animated } from "react-spring";
 
-export const ParallaxImage = styled(animated.div)`
+export const ParallaxImage = styled.div`
   height: 40vh;
   margin: 100px 0;
   width: 100%;

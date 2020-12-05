@@ -8,8 +8,8 @@ import CustomButton from '../custom-button/custom-button.component';
 import { selectCartItems, selectCartTotal, selectCartHidden } from '../../redux/cart/cart.selectors';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
-import { CartDropdownContainer, CartHeader, CartHeaderExit, CartHeaderH2, CartItemsContainer, EmptyMessage, SubTotalCont } from "./cart-dropdown.styles";
-import { config, animated, useTransition, useChain, useSpring } from 'react-spring';
+import { CartDropdownContainer, CartHeader, CartHeaderExit, CartHeaderH2, CartItemsContainer, EmptyMessage, SubTotalCont, BottomCont } from "./cart-dropdown.styles";
+import { config, useTransition, useChain, useSpring } from 'react-spring';
 
 const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
 
@@ -44,7 +44,8 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
   const buttonSpringRef = useRef();
   const buttonSpring = useSpring({
     ref: buttonSpringRef,
-    opacity: hidden ? 1 : 0, transform: hidden ? 'translate3d(0, 0, 0)' : 'translate3d(0,  100%, 0)',
+    transform: hidden ? 'translate3d(0, 0%, 0)' : 'translate3d(0, 100%, 0)',
+    opacity: hidden ? 1 : 0, 
     config: config.slow 
   })
 
@@ -64,7 +65,8 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
             )
           }
         </CartItemsContainer>
-        <animated.div style={buttonSpring}>
+
+        <BottomCont style={buttonSpring}>
           <SubTotalCont>
             <span>Subtotal: </span> <span>£{total}</span>
           </SubTotalCont>
@@ -74,8 +76,8 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
           }}>
             GO TO CHECKOUT
           </CustomButton>
-        
-        </animated.div>
+        </BottomCont>
+
       </CartDropdownContainer>
     ))
 

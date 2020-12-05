@@ -1,5 +1,4 @@
 import React from 'react';
-import { animated } from 'react-spring';
 
 import { SortByFilterCont, ContentCont, OptionCont } from './sort-by-filter.styles';
 

@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
   height: 8vh;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 0 0.0625rem 0.25rem 0 rgba(61,66,80,.18);
   background-color: #fefefe;
   border-bottom: 1px solid grey;
@@ -23,6 +23,15 @@ export const HeaderContainer = styled.div`
   z-index:20;
 `;
 
+export const NavContainer = styled.div`
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+`;
+
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
@@ -30,7 +39,6 @@ export const LogoContainer = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 100px;
   cursor: pointer;
 `;
 
@@ -41,11 +49,11 @@ export const LogoImg = styled.img`
 export const OptionsContainer = styled.div`
   width: 50%;
   height: 100%;
-  margin-left: 15%;
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: flex-start;
+  margin-left: 100px;
 
   a {
   font-size: 20px;
@@ -108,7 +116,6 @@ export const IconsContainer = styled.div`
     /* justify-content: space-between; */
     /* width: 8%; */
     align-items: center;
-    margin-right: 5%;
 `
 
 const SearchBoxOut = css`

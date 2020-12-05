@@ -1,3 +1,4 @@
+import { animated } from 'react-spring';
 import styled from 'styled-components';
 
 import {ReactComponent as DownArrow } from '../../assets/down-arrow.svg';
@@ -11,7 +12,7 @@ export const ShopPageCont = styled.div`
   padding-top: 50px;
 `;
 
-export const ShopPageHeader = styled.div`
+export const ShopPageHeader = styled(animated.div)`
   width: 80%;
   display: flex;
   justify-content: space-between;

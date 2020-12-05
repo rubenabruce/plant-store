@@ -6,14 +6,16 @@ import { selectCollections} from '../../redux/shop/shop.selectors';
 
 import CollectionPreview from '../collection-preview/collection-preview.component';
 
-import { CollectionsOverviewCont } from './collections-overview.styles'
+import { CollectionsOverviewCont, CollectionOverviewHeader } from './collections-overview.styles'
 
 const CollectionsOverview = ({ collections }) => {
-  console.log(collections);
   return ( 
   <CollectionsOverviewCont>
+    <CollectionOverviewHeader>Trending Plants</CollectionOverviewHeader>
     {
-      collections.map(({ id, ...otherCollectionProps}) => (
+      collections
+      .filter((item, idx) => idx < 2)
+      .map(({ id, ...otherCollectionProps}) => (
         <CollectionPreview key={id} previewGridId={id} {...otherCollectionProps} />
       ))
     }

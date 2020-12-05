@@ -38,7 +38,7 @@ class ShopFilter extends Component {
   render() { 
     const { typeOptions, heightOptions } = this.state
     return (    
-      <ShopFilterCont>
+      <ShopFilterCont style={this.props.animation}>
         <FilterFieldCont className='type-field-cont'>
           <FilterFieldHeaderCont>Type <DownArrowCont onClick={() => this.setState({typeOptions: !typeOptions})} style={ typeOptions ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } } /></FilterFieldHeaderCont>
             <FilterOptionsCont style={ typeOptions ? { height: '90px' } : { height: '0px'} } className='type-options'>

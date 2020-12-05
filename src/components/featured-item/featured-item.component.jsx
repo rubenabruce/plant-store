@@ -1,10 +1,10 @@
 import React from 'react';
-import { animated, config, useSpring } from 'react-spring';
+import { config, useSpring } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 
 import { FeaturedItemCont, ContentCont, ImageCont,CustomButtonCont, TitleCont, ParagraphCont } from './featured-item.styles';
 
-const FeaturedItem = ({ item, animation }) => {
+const FeaturedItem = ({ item }) => {
   const { id, title, paragraph } = item;
 
   const checkEven = (id) => {
@@ -15,7 +15,7 @@ const FeaturedItem = ({ item, animation }) => {
     }
   }
 
-  const [props, set, stop] = useSpring(() => ({
+  const [props, set] = useSpring(() => ({
     opacity: 0.1,
     transform: checkEven(id) ? 'translate3d(15%, 0, 0)' : 'translate3d(-15%, 0, 0)',
     config: config.molasses

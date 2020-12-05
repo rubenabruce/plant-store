@@ -1,3 +1,4 @@
+import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
 
 const itemOne = css`
@@ -9,35 +10,38 @@ const itemOne = css`
 
 const itemTwo = css`
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 5;
 `;
 
-const itemThree = css`
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 3;
-  grid-column-end: 3;
-`;
+// const itemThree = css`
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+//   grid-column-start: 3;
+//   grid-column-end: 3;
+// `;
 
-const itemFour = css`
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 4;
-  grid-column-end: 4;
-`;
+// const itemFour = css`
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+//   grid-column-start: 4;
+//   grid-column-end: 4;
+// `;
+
+// const itemFive = css`
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+//   grid-column-start: 4;
+//   grid-column-end: 4;
+// `;
 
 const getStyles = ({ gridId }) => {
   switch (gridId) {
-    case '0': 
+    case '01': 
       return itemOne;
-    case '1':
+    case '02':
       return itemTwo;
-    case '2': 
-      return itemThree;
-    case '3':
-      return itemFour;
     default:
       return '';
   }
@@ -47,7 +51,7 @@ const getOtherStyles = (props) => {
   return props.otherStyles ? props.otherStyles : '';
 }
 
-export const CollectionItemCont = styled.div`
+export const CollectionItemCont = styled(animated.div)`
   background-image: ${({imageUrl}) => `url(${imageUrl})`};
   background-color: grey;
   background-position: center;

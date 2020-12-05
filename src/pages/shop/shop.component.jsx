@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { config, useTransition } from 'react-spring';
+import { config, useSpring, useTransition } from 'react-spring';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -22,12 +22,27 @@ const ShopPage = ({ items, location }) => {
     config: config.slow
   })
 
+  const itemsTransition = useTransition(items, item => item.id, {
+    trail: 100,
+    from: { opacity: 0, transform: 'translate3d(0, 100%, 0)'},
+    enter: { opacity: 1, transform: 'translate3d(0, 0, 0)'},
+    leave: { opacity: 0, transform: 'translate3d(0, 100%, 0)'}
+  })
+
+  const headerSpring = useSpring({
+    from: {opacity: 0, transform: 'translate3d(50%, 0, 0)'}, to: {opacity: 1, transform: 'translate3d(0, 0, 0)'}, config: config.slow
+  })
+  
+  const filterSpring = useSpring({
+    from: {opacity: 0, transform: 'translate3d(0, 50%, 0)'}, to: {opacity: 1, transform: 'translate3d(0, 0, 0)'}, config: config.slow
+  })
+
   console.log(location.search)
   // const collectionType = location.search()
   return ( 
     <ShopPageCont>  
 
-      <ShopPageHeader>
+      <ShopPageHeader style={headerSpring}>
         <span className='collection-type'>Collection Type</span>
         <span className='sort-by'>Sort by <DownArrowCont onClick={() => toggleSortBy(!sortBy)} style={ sortBy ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } }/></span>
         {
@@ -39,13 +54,13 @@ const ShopPage = ({ items, location }) => {
 
       <ShopMainCont>
 
-        <ShopFilter />
+        <ShopFilter animation={filterSpring}/>
 
         <ShopGridCont>
-          {items
+          {itemsTransition
             .filter((item, idx) => idx < 10)
-            .map(item => (
-              <MenuItem  key={item.id} item={item}>{item.name}</MenuItem>
+            .map(({item, key, props: animation}) => (
+              <MenuItem animation={animation} key={key} item={item}>{item.name}</MenuItem>
             ))
           }   
         </ShopGridCont>
