@@ -1,45 +1,22 @@
 import styled from 'styled-components';
 
 export const CheckoutPageCont = styled.div`
-  width: 55%;
-  min-height: 90vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 50px auto 0;
-  justify-content: center;
-
-  button {
-    margin-left: auto;
-    margin-top: 50px;
-  }
-`;
-
-export const CheckoutHeaderCont = styled.div`
-  width: 100%;
-  padding: 10px 0;
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid darkgrey;
 `;
 
-export const HeaderBlockCont = styled.div`
-  text-transform: capitalize;
-  width: 23%;
+export const UserDetailsCont = styled.div``;
 
-  &:last-child {
-    width: 8%;
-  }
-`;
+export const ContactDetailsCont = styled.div``;
 
-export const TotalCont = styled.div`
-  margin-top: 30px;
-  margin-left: auto;
-  font-size: 36px;
-`;
+export const DeliveryDetailsCont = styled.div``;
 
-export const TestWarningCont = styled.div`
-  color: red;
-  text-align: center;
-  margin-top: 40px;
-`;
+export const AdditionalNotesCont = styled.div``;
+
+export const SectionHeader = styled.h3``;
+
+export const SectionPara = styled.p``;
+
+export const CartCont = styled.div``;

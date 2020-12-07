@@ -22,9 +22,10 @@ const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
 const SignUp = lazy(() => import('./components/sign-up/sign-up.component'));
 const CollectionsDirectory = lazy(() => import('./pages/collection-directory/collection-directory.component'));
-const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const CartPage = lazy(() => import('./pages/cart/cart.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const ShopItemPage = lazy(() => import('./pages/shop-item-page/shop-item-page.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
 class App extends Component {
 
@@ -83,6 +84,7 @@ class App extends Component {
                 ? (<Redirect to='/' />) 
                 : (<SignUp/>)
               } /> 
+              <Route exact path='/cart' component={CartPage} />
               <Route exact path='/checkout' component={CheckoutPage} />
               <Route exact path='/shop' component={ShopPage} />
               <Route path='/shop/:itemId' component={ShopItemPage} />
