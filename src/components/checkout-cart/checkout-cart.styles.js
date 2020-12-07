@@ -2,41 +2,22 @@ import styled, { css } from 'styled-components';
 
 export const CartDropdownContainer = styled.div`
   position: relative;
-  width: 450px;
-  height: 100vh;
+  margin-top: 70px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: #FEFEFE;
   top: 0;
-  align-items: center;
+  align-items: left;
   right: 0;
-  z-index: 5;
   border-radius: 0 0 6px 6px;
-  box-shadow:-3px 0px 3px 0px;
   overflow-x: scroll;
-`;
-
-export const CartHeader = styled.div`
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-`;
-
-export const CartHeaderH2 = styled.h2`
-
-`;
-
-export const CartHeaderExit = styled.span`
-  position: absolute;
-  right: 20px;
-  cursor: pointer;
-  font-size: 22px;
 `;
 
 export const CartItemsContainer = styled.div`
   display: flex;
+  width: 80%;
   flex-direction: column;
 `;
 
@@ -47,7 +28,7 @@ export const EmptyMessage = styled.span`
 `;
 
 export const BottomCont = styled.div`
-  width: 100%;
+  width: 80%;
 `;
 
 const SectionDetailsStyles = css`

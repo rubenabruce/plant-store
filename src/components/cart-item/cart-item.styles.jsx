@@ -12,7 +12,7 @@ export const CartItemCont = styled(animated.div)`
 `;
 
 export const ItemCont = styled.img`
-  width: 30%;
+  width: ${({itemImageSize}) => itemImageSize ? itemImageSize : 30}%;
 `;
 
 export const ItemDetailsCont = styled.div`

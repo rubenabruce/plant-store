@@ -15,7 +15,7 @@ const StripeCheckoutButton = ({ price }) => {
       name='Ninas Plants'
       billingAddress
       shippingAddress
-      image='https://sendeyo.com/up/d/f3eb2117da'
+      image={require('../../assets/plants-logo-25.png')}
       description={`Your total is £${price}`}
       amount={priceForStripe}
       panelLabel='Pay now'

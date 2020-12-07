@@ -6,16 +6,15 @@ import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector
 
 import CartItem from '../cart-item/cart-item.component';
 
-import { CartDropdownContainer, CartHeader, CartHeaderH2, CartItemsContainer, EmptyMessage, SectionDetails, BottomCont, SectionDetailsCollumn, DetailsFlex } from "./checkout-cart.styles";
+import { CartDropdownContainer, CartItemsContainer, EmptyMessage, SectionDetails, BottomCont, SectionDetailsCollumn, DetailsFlex } from "./checkout-cart.styles";
 
 const CheckoutCart = ({ cartItems, total }) => {
   return ( 
     <CartDropdownContainer>
-      <CartHeader><CartHeaderH2>Cart</CartHeaderH2></CartHeader>
       <CartItemsContainer>
         {
           cartItems.length ? (
-            cartItems.map((item) => (<CartItem key={item.id} item={item} ></CartItem>))
+            cartItems.map((item) => (<CartItem itemImageSize='20' key={item.id} item={item} ></CartItem>))
           ) : (
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )
