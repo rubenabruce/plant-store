@@ -32,8 +32,8 @@ const CheckoutCart = ({ cartItems, total }) => {
 
         </SectionDetailsCollumn>
 
-        <SectionDetails>
-          <span>Total: </span> <span>-- </span>
+        <SectionDetails className='total'>
+          <span>Total: </span> <span> <b>--</b> </span>
         </SectionDetails>
       </BottomCont>
 

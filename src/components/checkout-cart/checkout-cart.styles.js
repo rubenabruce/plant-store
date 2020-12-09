@@ -29,6 +29,10 @@ export const EmptyMessage = styled.span`
 
 export const BottomCont = styled.div`
   width: 80%;
+
+  & .total {
+    font-size: 24px;
+  }
 `;
 
 const SectionDetailsStyles = css`
@@ -37,6 +41,7 @@ const SectionDetailsStyles = css`
   width: 100%;  
   padding: 20px 0;
   border-bottom: 1px solid #C4C4C4;
+
 `;
 
 export const SectionDetails = styled.div`

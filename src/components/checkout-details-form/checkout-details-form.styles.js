@@ -1,14 +1,6 @@
-import styled from 'styled-components';
-
-import CustomButton from '../../components/custom-button/custom-button.component';
-import FormInput from '../../components/form-input/form-input.component';
-
-export const CheckoutPageCont = styled.div`
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
+import styled from "styled-components";
+import CustomButton from "../custom-button/custom-button.component";
+import FormInput from "../form-input/form-input.component";
 
 export const UserDetailsCont = styled.div`
   width: 100%;
@@ -17,6 +9,7 @@ export const UserDetailsCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 `;
 
 
