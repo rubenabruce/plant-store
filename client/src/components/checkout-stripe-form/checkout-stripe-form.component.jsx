@@ -6,8 +6,9 @@ import {
   CardCvcElement,
   CardExpiryElement
 } from "@stripe/react-stripe-js";
+import axios from 'axios';
 
-import useResponsiveFontSize from "./useResponsiveFontSize";
+import useResponsiveFontSize from "../checkout-details-form/useResponsiveFontSize";
 
 import { CheckoutFormCont, FormCont, SectionCont, SectionHeader, SectionPara, ButtonCont  } from './checkout-stripe-form.styles';
 

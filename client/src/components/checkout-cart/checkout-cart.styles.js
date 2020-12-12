@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const CartDropdownContainer = styled.div`
-  position: relative;
+  position: sticky;
   margin-top: 70px;
-  width: 90%;
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 20px;

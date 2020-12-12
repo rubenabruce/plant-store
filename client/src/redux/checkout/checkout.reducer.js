@@ -1,7 +1,14 @@
 import { CheckoutActionTypes } from './checkout.types';
 
 const INITIAL_STATE = {
-  userDetails: null
+  userDetails: {
+    email: '',
+    fullname: '',
+    postcode: '',
+    street: '',
+    number: '',
+    addNotes: ''
+  }
 }
 
 const checkoutReducer = (state = INITIAL_STATE, action) => {
