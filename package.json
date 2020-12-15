@@ -6,10 +6,10 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "client": "cd client && npm start",
+    "client": "cd client && npm run start",
     "server": "nodemon server.js",
     "build": "cd client && npm run build",
-    "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
@@ -19,6 +19,8 @@
     "cors": "2.8.5",
     "dotenv": "7.0.0",
     "express": "^4.16.4",
+    "react-confetti": "^6.0.0",
+    "react-use": "^15.3.4",
     "stripe": "^6.28.0"
   },
   "devDependencies": {
