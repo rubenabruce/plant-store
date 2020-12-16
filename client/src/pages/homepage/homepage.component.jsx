@@ -38,7 +38,8 @@ const Homepage = () => {
         <span>Ruben Aaronovitch-Bruce</span>
       </Parallax>
 
-      <ContactSection/>
+      <ContactSection />
+        
 
     </animated.div>
   );

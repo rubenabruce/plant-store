@@ -41,7 +41,7 @@ class ShopFilter extends Component {
       <ShopFilterCont style={this.props.animation}>
         <FilterFieldCont className='type-field-cont'>
           <FilterFieldHeaderCont>Type <DownArrowCont onClick={() => this.setState({typeOptions: !typeOptions})} style={ typeOptions ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } } /></FilterFieldHeaderCont>
-            <FilterOptionsCont style={ typeOptions ? { height: '90px' } : { height: '0px'} } className='type-options'>
+            <FilterOptionsCont style={ typeOptions ? { height: '100px' } : { height: '0px'} } className='type-options'>
               <CheckboxInput 
                 name='type' 
                 label='Succulants' 
@@ -66,7 +66,7 @@ class ShopFilter extends Component {
         </FilterFieldCont>
         <FilterFieldCont className='height-field-cont'>
           <FilterFieldHeaderCont>Height <DownArrowCont onClick={() => this.setState({heightOptions: !heightOptions})} style={ heightOptions ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' }} /></FilterFieldHeaderCont>
-            <FilterOptionsCont style={ heightOptions ? { height: '90px' } : { height: '0px'} } className='height-options'>
+            <FilterOptionsCont style={ heightOptions ? { height: '100px' } : { height: '0px'} } className='height-options'>
               <CheckboxInput 
                 name='height' 
                 label='1cm - 10cm' 

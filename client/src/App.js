@@ -27,6 +27,7 @@ const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const ShopItemPage = lazy(() => import('./pages/shop-item-page/shop-item-page.component'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const PaymentSuccess = lazy(() => import('./pages/success/payment-success.component'));
+const ContactUsPage = lazy(() => import('./pages/contact-us-page/contact-us-page.component'));
 
 class App extends Component {
 
@@ -90,6 +91,7 @@ class App extends Component {
               <Route exact path='/shop' component={ShopPage} />
               <Route path='/shop/:itemId' component={ShopItemPage} />
               <Route path='/success' component={PaymentSuccess} />
+              <Route exact path='/contact' component={ContactUsPage} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

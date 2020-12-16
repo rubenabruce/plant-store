@@ -1,58 +1,72 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-import { ContactUsCont, ContactHeaderCont, NameEmailCont, FormInputCont, MessageInputCont, CustomButtonCont } from "./contact-us.styles";
+import { ContactUsCont, ContactHeaderCont, ContactPara, NameEmailCont, FormInputCont, MessageInputCont, CustomButtonCont } from "./contact-us.styles";
 
-class ContactUs extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      name: '',
-      email: '',
-      message: ''
-    }
-  }
+const ContactUs = ({ otherstyles, children, widthadjust }) => {
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '' 
+  });
 
-  handleSubmit = event => {
+  const { name, email, subject, message } = details;
+
+  const handleSubmit = event => {
     event.preventDefault();
+    console.log(`Your name: ${name}, your email: ${email}, your subject: ${subject},  your message ${message}`)
+  };
 
-    const { name, email, message } = this.state;
-
-    console.log(`Your name: ${name}, your email: ${email}, your message ${message}`)
-  }
-
-  handleChange = event => {
+  const handleChange = event => {
     const { value, name } = event.target;
 
-    this.setState({[name]: value})
-  }
+    setDetails({ ...details, [name]: value})
+  };
 
-  render() {
-    return ( 
-      <ContactUsCont>
-        <ContactHeaderCont>Contact Us</ContactHeaderCont>
-        <NameEmailCont>
-          <FormInputCont 
-            type='text' 
-            label='Name' 
-            handleChange={this.handleChange} 
-            value={this.state.name} 
-            required 
-          />
-          <FormInputCont 
-            name='email' 
-            type='email' 
-            handleChange={this.handleChange} 
-            value={this.state.email} 
-            label='email' 
-            required
-          />
-        </NameEmailCont>
-        <MessageInputCont type='text' placeholder='Enter message here...'></MessageInputCont>
-        <CustomButtonCont>Submit!</CustomButtonCont>
-      </ContactUsCont>
-    );
-  }
-}
+  return ( 
+    <ContactUsCont otherstyles={otherstyles} onSubmit={handleSubmit}>
+      <ContactHeaderCont>Contact Us</ContactHeaderCont>
+      <ContactPara>{children}</ContactPara>
+      <NameEmailCont>
+        <FormInputCont 
+          name='name'
+          type='text' 
+          label='Name' 
+          handleChange={handleChange} 
+          value={name} 
+          required
+          widthchange={widthadjust}
+        />
+        <FormInputCont 
+          name='email' 
+          type='email' 
+          handleChange={handleChange} 
+          value={email} 
+          label='Email' 
+          required
+          widthchange={widthadjust}
+
+        />
+      </NameEmailCont>
+      <FormInputCont 
+        name='subject'
+        type='text'
+        handleChange={handleChange} 
+        value={subject} 
+        label='Subject' 
+        required
+        widthchange='90%'
+      />
+      <MessageInputCont
+        name='message' 
+        type='text' 
+        onChange={handleChange} 
+        value={message}
+        placeholder='Enter message here...' 
+      />
+      <CustomButtonCont type='submit'>Submit!</CustomButtonCont>
+    </ContactUsCont>
+  );
+};
  
 export default ContactUs;

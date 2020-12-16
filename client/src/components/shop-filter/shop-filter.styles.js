@@ -38,8 +38,6 @@ export const FilterFieldHeaderCont = styled.span`
   align-items: center;
   font-size: 22px;
   padding: 20px 0;
-  border-bottom: 1px solid #D2D2D2;
-  margin-bottom: 20px;  
 
   @media screen and (max-width: 800px) {
     width: 100%;
@@ -47,8 +45,10 @@ export const FilterFieldHeaderCont = styled.span`
 `;
 
 export const FilterOptionsCont = styled.div`
+  border-bottom: 1px solid #D2D2D2;
   background-color: white;
   transition: all 600ms ease-in-out;
   overflow: hidden;
+  width: 90%;
 `;
 

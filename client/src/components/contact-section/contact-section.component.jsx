@@ -8,7 +8,7 @@ import { ContactSectionCont } from "./contact-section.styles";
 const ContactSection = () => {
   return ( 
     <ContactSectionCont>
-      <InstagramSection />
+      <InstagramSection />  
       <ContactUs />  
     </ContactSectionCont>
   );

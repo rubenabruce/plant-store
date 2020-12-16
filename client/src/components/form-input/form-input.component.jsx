@@ -2,8 +2,8 @@ import React from 'react';
 
 import { GroupCont, FormInputCont, FormInputLabelCont } from "./form-input.styles";
 
-const FormInput = ({handleChange, label, ...otherProps}) => (
-  <GroupCont>
+const FormInput = ({handleChange, label, widthchange, ...otherProps}) => (
+  <GroupCont style={{width: widthchange}}>
     <FormInputCont onChange={handleChange} {...otherProps}></FormInputCont>
     {
       label ? (

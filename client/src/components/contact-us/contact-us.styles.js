@@ -3,12 +3,21 @@ import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 
+
+const getOtherStyles = props => {
+  if (props.otherstyles) {
+    return props.otherstyles
+  } 
+}
+
 export const ContactUsCont = styled.form`
+
   width: 50%;
   display: flex;
   height: 500px;
   flex-direction: column;
-
+  align-items: center;
+  ${getOtherStyles}
   @media screen and (max-width: 800px) {
     width: 100%;
     margin-top: 70px;
@@ -18,9 +27,13 @@ export const ContactUsCont = styled.form`
 
 export const ContactHeaderCont = styled.h2`
   font-size: 36;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   width: 100%;
+`;
+
+export const ContactPara = styled.p`
+  margin-top: 50px;
 `;
 
 export const NameEmailCont = styled.div`
@@ -35,6 +48,7 @@ export const NameEmailCont = styled.div`
 `;
 
 export const FormInputCont = styled(FormInput)`
+  
   @media screen and (max-width: 800px) {
     width: 90%;  
   }
@@ -42,12 +56,12 @@ export const FormInputCont = styled(FormInput)`
 
 export const MessageInputCont = styled.textarea`
   width: 90%;
-  height: 200px;
+  height: 140px;
   border: 1px solid grey;
   font-family: 'Montserrat';
   font-size: 18px;
   padding: 10px;
-  border-radius: 18px;
+  border-radius: 10px;
   margin: 0 auto auto auto;
 `;
 
