@@ -43,7 +43,7 @@ const ShopPage = ({ items, location }) => {
     <ShopPageCont>  
 
       <ShopPageHeader style={headerSpring}>
-        <span className='collection-type'>Collection Type</span>
+        <span className='collection-type'>The Collection Type</span>
         <span className='sort-by'>Sort by <DownArrowCont onClick={() => toggleSortBy(!sortBy)} style={ sortBy ? { transform: 'rotate(180deg)' } : {  transform: 'rotate(0deg)' } }/></span>
         {
           dropdownTransition.map(({item, key, props: animation}) => (
