@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
@@ -118,47 +117,10 @@ export const IconsContainer = styled.div`
     align-items: center;
 `
 
-const SearchBoxOut = css`
-    border: none;
-    height: 100%;
-    padding: 5px;
-    display: inline;
-    opacity: 1;
-    width: 170px;
-`;
-
 export const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     margin-right: 50px;
-    transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-    
-    input{
-        opacity: 0;
-        transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-        width: 0px;
-        font-family: 'Montserrat';
-
-        :focus {
-            ${SearchBoxOut}            
-        }
-    }
-
-    &:hover {        
-        border: 1px solid black;
-        border-radius: 4px;
-
-
-        & input {
-            ${SearchBoxOut}            
-        }
-
-        & .searchIcon {
-            background-color: white;
-            filter: invert(1);
-        }
-    }
-
 `;
 
 export const SearchIconCont = styled(SearchIcon)`

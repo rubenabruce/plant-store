@@ -9,7 +9,7 @@ import CheckoutDetailsForm from '../../components/checkout-details-form/checkout
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
-import { CheckoutPageCont, CheckoutFormsCont } from "./checkout.styles";
+import { CheckoutPageCont } from "./checkout.styles";
 
 const stripePromise = loadStripe('pk_test_51Hbm1xJeBPhfjVElRetrx5ZqiIoiys0SAL21SewKDEcO2F7FENkiMinuKr9VmYz6tKfNJt2oncQ6GWpwg8NUpUdV00SVPyUDX0');
 

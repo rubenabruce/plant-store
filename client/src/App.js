@@ -17,6 +17,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
 import CartDropdown from './components/cart-dropdown/cart-dropdown.component';
+import NavDropdown from './components/nav-dropdown/nav-dropdown.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -28,6 +29,7 @@ const ShopItemPage = lazy(() => import('./pages/shop-item-page/shop-item-page.co
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const PaymentSuccess = lazy(() => import('./pages/success/payment-success.component'));
 const ContactUsPage = lazy(() => import('./pages/contact-us-page/contact-us-page.component'));
+const DeliveryPage = lazy(() => import('./pages/delivery/delivery.component'));
 
 class App extends Component {
 
@@ -69,7 +71,10 @@ class App extends Component {
           <Header />
         </HeadRoom>
 
+        <NavDropdown />
+
         <CartDropdown />
+
 
         <Switch>
         <ErrorBoundary>
@@ -92,6 +97,7 @@ class App extends Component {
               <Route path='/shop/:itemId' component={ShopItemPage} />
               <Route path='/success' component={PaymentSuccess} />
               <Route exact path='/contact' component={ContactUsPage} />
+              <Route exact path='/delivery' component={DeliveryPage} />              
             </Suspense>
           </ErrorBoundary>
         </Switch>

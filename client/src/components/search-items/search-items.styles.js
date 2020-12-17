@@ -1,12 +1,12 @@
 import styled from 'styled-components';
+import { animated } from "react-spring";
 
-export const CollectionSearchCont = styled.div`
+export const CollectionSearchCont = styled(animated.div)`
   display: flex;
   flex-direction: column;
   width: 90%;
   margin: auto;
   text-align: center;
-  height: 100%;
   justify-content: center;
 
   & span {

@@ -11,3 +11,8 @@ export const selectCollectionItems = createSelector(
   [selectCollections],
   collections => collections[0].items
 )
+
+export const selectNavDropdownHidden = createSelector(
+  [selectShop],
+  shop => shop.navHidden
+)

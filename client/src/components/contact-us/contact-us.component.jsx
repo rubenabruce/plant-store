@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import axios   from "axios";
 
 import { ContactUsCont, ContactHeaderCont, ContactPara, NameEmailCont, FormInputCont, MessageInputCont, CustomButtonCont } from "./contact-us.styles";
 
 const ContactUs = ({ otherstyles, children, widthadjust }) => {
+  const [result, setResult] = useState(null);
+  
   const [details, setDetails] = useState({
     name: '',
     email: '',
@@ -14,7 +17,22 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(`Your name: ${name}, your email: ${email}, your subject: ${subject},  your message ${message}`)
+    axios
+      .post('/send', { ...details })
+      .then(response => {
+        setResult(response);
+        setDetails({
+          name: '',
+          email: '',
+          subject: '',
+          message: '' 
+        })
+      })
+      .catch(() => {
+        setResult({ success: false, message: 'Oh no, something went wrong. Please try again later!'})
+      })
+
+    console.log(result)
   };
 
   const handleChange = event => {
