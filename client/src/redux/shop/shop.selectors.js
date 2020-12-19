@@ -16,3 +16,8 @@ export const selectNavDropdownHidden = createSelector(
   [selectShop],
   shop => shop.navHidden
 )
+
+export const selectSideNavHidden = createSelector(
+  [selectShop],
+  shop => shop.sideNavHidden
+)

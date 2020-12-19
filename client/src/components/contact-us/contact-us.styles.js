@@ -42,7 +42,7 @@ export const NameEmailCont = styled.div`
   justify-content: space-between;
   margin: 80px auto auto;
 
-  @media screen and (max-width: 800px) {
+  @ screen and (max-width: 800px) {
     margin: auto;
   }
 `;

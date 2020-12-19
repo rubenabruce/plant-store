@@ -1,47 +1,25 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { useDispatch } from 'react-redux';
+import { useWindowSize } from 'react-use';
 
-import { auth } from '../../firebase/firebase.utils';
+import { toggleNavHidden, toggleSideNavHidden } from "../../redux/shop/shop.actions";
 
-import { toggleNavHidden } from "../../redux/shop/shop.actions";
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-
+import BurgerBtn from '../../assets/Hamburger_icon.svg.png';
 import CartIcon from '../cart-icon/cart-icon.component';
+import NavOptions from '../nav-options/nav-options.component';
+import Logo from '../logo/logo.component';
 
-import { LogoContainer, LogoImg, NavContainer, HeaderContainer, OptionContainerLink, OptionContainerSignOut, OptionsContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
+import { BurgerBtnCont, NavContainer, HeaderContainer, IconsContainer, SearchIconCont, SearchContainer } from "./header.styles";
 
-const Header = ({ currentUser }) => {
+const Header = () => {
   const dispatch = useDispatch();
+  const { width } = useWindowSize();
   return (
   <HeaderContainer>
     <NavContainer>
-      <LogoContainer to='/'>
-        <LogoImg src={require('../../assets/plants-logo-25.png')} alt="Nina's plants shop logo." />
-      </LogoContainer>
-      <OptionsContainer>
-        <OptionContainerLink  to='/shop'>
-          Shop
-        </OptionContainerLink>
-        <OptionContainerLink to='/collections'>
-          Collections
-        </OptionContainerLink>
-        <OptionContainerLink to='/contact'>
-          Contact Us
-        </OptionContainerLink>
-        <OptionContainerLink to='/delivery'>
-          Delivery
-        </OptionContainerLink>
-        {
-          currentUser ?
-          <OptionContainerSignOut onClick={() => auth.signOut()}>Sign out</OptionContainerSignOut>
-          :
-          <OptionContainerLink to='/signin'>
-            Sign In
-          </OptionContainerLink>
-        }
-      </OptionsContainer>
-
+      <BurgerBtnCont src={BurgerBtn} onClick={() => dispatch(toggleSideNavHidden())} alt='Burger button, click to open side navigation menu.' />
+      <Logo />
+      { width < 800 ? null : <NavOptions /> }
       <IconsContainer>
         <SearchContainer>
           <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
@@ -53,8 +31,5 @@ const Header = ({ currentUser }) => {
   </HeaderContainer>
 )}
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-});
- 
-export default connect(mapStateToProps)(Header);
+
+export default Header;

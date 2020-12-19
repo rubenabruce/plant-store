@@ -8,12 +8,17 @@ export const DeliveryPageCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  
 `;
 
 export const DeliveryInfoCont = styled.div`
   height: 89vh;
   width: 100%;
   display: flex;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const InformationCont = styled.div`
@@ -27,6 +32,10 @@ export const InformationCont = styled.div`
   text-align: center;
   padding: 5% 10%;
 
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    height: 100%;
+  }
   & h2 {
     font-size: 36px;
     font-weight: 400;

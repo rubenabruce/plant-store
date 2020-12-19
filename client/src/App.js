@@ -18,6 +18,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { GlobalStyle } from './global.styles';
 import CartDropdown from './components/cart-dropdown/cart-dropdown.component';
 import NavDropdown from './components/nav-dropdown/nav-dropdown.component';
+import SideNav from './components/side-nav/side-nav.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -72,7 +73,7 @@ class App extends Component {
         </HeadRoom>
 
         <NavDropdown />
-
+        <SideNav />
         <CartDropdown />
 
 

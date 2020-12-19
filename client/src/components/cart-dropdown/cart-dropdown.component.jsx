@@ -2,14 +2,15 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
+import { config, useTransition, useChain, useSpring } from 'react-spring';
 
 import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
+
 import { selectCartItems, selectCartTotal, selectCartHidden } from '../../redux/cart/cart.selectors';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 import { CartDropdownContainer, CartHeader, CartHeaderExit, CartHeaderH2, CartItemsContainer, EmptyMessage, SubTotalCont, BottomCont } from "./cart-dropdown.styles";
-import { config, useTransition, useChain, useSpring } from 'react-spring';
 
 const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
 
