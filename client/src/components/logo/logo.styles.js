@@ -9,6 +9,11 @@ export const LogoContainer = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    position: absolute;
+    left: 40%;
+  }
 `;
 
 export const LogoImg = styled.img`

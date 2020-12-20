@@ -87,4 +87,4 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
   );
 };
  
-export default ContactUs;
+export default  ContactUs;

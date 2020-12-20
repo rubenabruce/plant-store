@@ -13,9 +13,9 @@ export const SlidingBarCont = styled.div`
     min-width: 300px;
     
     @media screen and (max-width: 800px) {
-      height: 200px;
-      min-width: 120px;
-      width: 120px;
+      height: 300px;
+      min-width: 180px;
+      width: 180px;
       font-size: 12px;
       margin: 0 10px;
     }

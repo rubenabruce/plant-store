@@ -16,7 +16,13 @@ export const CartDropdownContainer = styled(animated.div)`
   z-index: 5;
   border-radius: 0 0 6px 6px;
   box-shadow: -2px -2px;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 800px) {
+    width: 100vw;
+    right: unset;
+  }
 `;
 
 export const CartHeader = styled.div`

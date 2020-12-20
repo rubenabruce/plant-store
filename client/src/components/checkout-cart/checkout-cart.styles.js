@@ -13,7 +13,12 @@ export const CartDropdownContainer = styled.div`
   align-items: left;
   right: 0;
   border-radius: 0 0 6px 6px;
-  overflow-x: scroll;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    position: relative;
+    align-items: center;
+  }
 `;
 
 export const CartItemsContainer = styled.div`

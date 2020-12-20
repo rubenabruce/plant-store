@@ -6,13 +6,13 @@ import {
   CardElement
 } from "@stripe/react-stripe-js";
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addDeliveryCost } from '../../redux/checkout/checkout.actions';
 
 import ErrorMessage from '../error-message/error-message.component';
 import useResponsiveFontSize from "../checkout-details-form/useResponsiveFontSize";
 
 import { SectionCont, SectionHeader, FormInputCont, SectionPara, CheckoutFormsCont, ButtonCont } from './checkout-details-form.styles.js';
-
-
 
 const useOptions = () => {
   const fontSize = useResponsiveFontSize();
@@ -41,13 +41,17 @@ const useOptions = () => {
   };
   
   const CheckoutDetailsForm = ({ total }) => {
+  const dispatch = useDispatch();
   let history = useHistory();
+  const [completeTotal, setCompleteTotal] = useState(total)
   const [isProcessing, setIsProcessing] = useState(false);  
   const [cardComplete, setCardComplete] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
   const [userCredentials, setUserCredentials] = useState({
-    email: '', 
+    email: '',
+    phoneNumber: '',
     fullname: '',
+    city: '',
     postcode: '',
     street: '',
     number: '',
@@ -58,13 +62,16 @@ const useOptions = () => {
   const elements = useElements();
   const options = useOptions();
   
-  const { email, fullname, postcode, street, number, addNotes } = userCredentials;
+  const { email, phoneNumber, fullname, city, postcode, street, addNotes } = userCredentials;
+
   const billing_details = {
     address: {
-      line1: `${street} ${number}`,
+      city: `${city}`,
+      line1: `${street}`,
       postal_code: `${postcode}`
     },
     email: email,
+    phone: phoneNumber,
     name: fullname,
   }
 
@@ -125,6 +132,34 @@ const useOptions = () => {
     const { name, value } = event.target;
 
     setUserCredentials({ ...userCredentials, [name]: value })
+
+    if (postcode) {
+      const district = postcode.substring(0, 3).toUpperCase();
+      switch (district) {
+        case 'BN2':
+          dispatch(addDeliveryCost('0'))
+          setCompleteTotal(total + 0);
+          break;
+        case 'BN1':
+          dispatch(addDeliveryCost('3'))
+          setCompleteTotal(total + 3);
+          break;
+        case 'BN3':
+          dispatch(addDeliveryCost('4'))
+          setCompleteTotal(total + 4);
+          break;
+        case 'BN4':
+          dispatch(addDeliveryCost('6'))
+          setCompleteTotal(total +6);
+          break;
+        case 'BN5':
+          dispatch(addDeliveryCost('10'))
+          setCompleteTotal(total +10);
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   return ( 
@@ -133,14 +168,15 @@ const useOptions = () => {
         <SectionHeader>Contact details</SectionHeader>
         <SectionPara>We use your email address to send you confirmation and  updates on your order.</SectionPara>
         <FormInputCont type='email' name='email' label='Email (required)' value={email} handleChange={handleChange} required />
+        <FormInputCont type='number' name='phoneNumber' label='Phone number (required)' value={phoneNumber} handleChange={handleChange} required />
       </SectionCont> 
       <SectionCont>
         <SectionHeader>Delivery details</SectionHeader>
         <SectionPara></SectionPara>
         <FormInputCont type='text' name='fullname' label='Fullname (required)' value={fullname} handleChange={handleChange} required />
+        <FormInputCont type='text' name='city' label='City/Town (required)' value={city} handleChange={handleChange} required />
         <FormInputCont type='text' name='postcode' label='Postcode (required)' value={postcode} handleChange={handleChange} required />
-        <FormInputCont type='text' name='number' label='Street Number (required)' value={number} handleChange={handleChange} required />
-        <FormInputCont type='text' name='street' label='Street Name (required)' value={street} handleChange={handleChange} required /> 
+        <FormInputCont type='text' name='street' label='Street Address (required)' value={street} handleChange={handleChange} required /> 
       </SectionCont> 
       <SectionCont>
         <SectionHeader>Additional notes</SectionHeader>
@@ -157,7 +193,7 @@ const useOptions = () => {
       }}/>
       {checkoutError && <ErrorMessage>{checkoutError.message}</ErrorMessage>}
       <ButtonCont type="submit" className={isProcessing ? 'is-processing' : ''} disabled={!stripe || isProcessing}>
-        {isProcessing ? 'Processing...' : 'Place Order' }
+        {isProcessing ? 'Processing...' : `PLACE ORDER £${completeTotal}` }
       </ButtonCont>
     </CheckoutFormsCont>
   );

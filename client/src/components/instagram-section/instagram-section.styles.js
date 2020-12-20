@@ -7,6 +7,7 @@ export const InstagramSectionCont = styled.div`
   
   @media screen and (max-width: 800px) {
     width: 100%;
+    margin-bottom: 70px;
   }
 `;
 

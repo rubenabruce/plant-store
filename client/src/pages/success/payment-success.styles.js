@@ -22,6 +22,14 @@ export const PaymentSuccessModel = styled.div`
   justify-content: space-around;
   align-items: center;
   color: #e0e0e0;
+  font-size: 26px;
+  text-align: center;
+
+  @media screen and (max-width: 800px) {
+    font-size: unset;
+    width: 90%;
+    height: 80%;
+  }
 `;
 
 export const Group = styled.div`

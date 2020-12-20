@@ -1,14 +1,7 @@
 import { CheckoutActionTypes } from './checkout.types';
 
 const INITIAL_STATE = {
-  userDetails: {
-    email: '',
-    fullname: '',
-    postcode: '',
-    street: '',
-    number: '',
-    addNotes: ''
-  }
+  deliveryCost: ''
 }
 
 const checkoutReducer = (state = INITIAL_STATE, action) => {
@@ -18,8 +11,14 @@ const checkoutReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userDetails: action.payload
       }
-    default:
-      return state;
+    case CheckoutActionTypes.ADD_DELIVERY_COST:
+      return {
+        ...state, 
+        deliveryCost: action.payload
+      }
+    default: {
+      return state
+    }
   }
 }
 

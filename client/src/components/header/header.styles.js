@@ -62,9 +62,13 @@ export const IconsContainer = styled.div`
 `
 
 export const SearchContainer = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+
+  @media screen and (max-width: 800px) {
+    margin-right: 10px;
+  }
 `;
 
 export const SearchIconCont = styled(SearchIcon)`

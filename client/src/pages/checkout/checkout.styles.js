@@ -5,10 +5,15 @@ export const CheckoutPageCont = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+
 `;
 
 export const CheckoutFormsCont = styled.div`
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;

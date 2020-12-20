@@ -6,3 +6,8 @@ export const selectCheckoutDetails = createSelector(
   [selectCheckout],
   checkout => checkout.userDetails
 );
+
+export const selectDeliveryCost = createSelector(
+  [selectCheckout],
+  checkout => checkout.deliveryCost
+);
