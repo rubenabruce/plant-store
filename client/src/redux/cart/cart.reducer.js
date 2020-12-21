@@ -18,22 +18,27 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         hidden: !state.hidden
       }
     case cartActionTypes.CART_NOTIFICATION_HIDDEN:
-      return {
-        ...state,
-        notificationHidden: {
-          hidden: true,
-          newItem: ''
+      if (action) {
+        return {
+          ...state, 
+          notificationHidden: {
+            hidden: true,
+            newItem: ''
+          }
         }
       }
     case cartActionTypes.ADD_ITEM:
-      return {
-        ...state,
-        cartItems: addItemToCart(state.cartItems, action.payload),
-        notificationHidden: {
-          hidden: false,
-          newItem: action.payload
+      if (action.payload) {
+        return {
+          ...state,
+          cartItems: addItemToCart(state.cartItems, action.payload),
+          notificationHidden: {
+            hidden: false,
+            newItem: action.payload
+          }
         }
       }
+
     case cartActionTypes.REMOVE_ITEM:
       return {
         ...state,
