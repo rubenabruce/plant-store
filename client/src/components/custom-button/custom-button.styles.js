@@ -62,6 +62,7 @@ export const CustomButtonContainer = styled(animated.button)`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 5px;
 
   ${getButtonStyles}

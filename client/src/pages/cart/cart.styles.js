@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
 export const CheckoutPageCont = styled.div`
   width: 55%;
@@ -34,12 +35,20 @@ export const HeaderBlockCont = styled.div`
 
 export const TotalCont = styled.div`
   margin-top: 30px;
-  margin-left: auto;
   font-size: 36px;
+  display: flex;
+  width:100%;
+  justify-content: space-between;
 `;
 
 export const TestWarningCont = styled.div`
   color: red;
   text-align: center;
   margin-top: 40px;
+`;
+
+export const CustomButtonCont = styled(CustomButton)`
+  width: 100%;
+  margin-bottom: 100px;
+
 `;

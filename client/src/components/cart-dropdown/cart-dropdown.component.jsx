@@ -72,7 +72,7 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
             <span>Subtotal: </span> <span>£{total}</span>
           </SubTotalCont>
           <CustomButton otherstyles={`width: 100%;font-size: 12px`} onClick={() => {
-            history.push('/checkout');
+            history.push('/cart');
             dispatch(toggleCartHidden());
           }}>
             GO TO CHECKOUT

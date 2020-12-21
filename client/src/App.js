@@ -9,6 +9,10 @@ import ErrorBoundary from './components/error-boundary/error-boundary.component'
 import Spinner from './components/spinner/spinner.component';
 import Header from './components/header/header.component';
 import AnnouncementBanner from './components/announcement-banner/announcement-banner.component';
+import CartDropdown from './components/cart-dropdown/cart-dropdown.component';
+import NavDropdown from './components/nav-dropdown/nav-dropdown.component';
+import SideNav from './components/side-nav/side-nav.component';
+import CartNotification from './components/cart-notification/cart-notification.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -16,9 +20,6 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
-import CartDropdown from './components/cart-dropdown/cart-dropdown.component';
-import NavDropdown from './components/nav-dropdown/nav-dropdown.component';
-import SideNav from './components/side-nav/side-nav.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -70,12 +71,12 @@ class App extends Component {
         <HeadRoom className='header-container'>
           <AnnouncementBanner />
           <Header />
+          <CartNotification />  
+          <NavDropdown />
         </HeadRoom>
 
-        <NavDropdown />
         <SideNav />
         <CartDropdown />
-
 
         <Switch>
         <ErrorBoundary>
