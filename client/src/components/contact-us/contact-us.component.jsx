@@ -15,7 +15,7 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
 
   const { name, email, subject, message } = details;
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     axios
       .post('/send', { ...details })
@@ -31,8 +31,6 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
       .catch(() => {
         setResult({ success: false, message: 'Oh no, something went wrong. Please try again later!'})
       })
-
-    console.log(result)
   };
 
   const handleChange = event => {

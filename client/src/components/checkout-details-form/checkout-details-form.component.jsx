@@ -95,7 +95,7 @@ const useOptions = () => {
     }
 
     const { data: clientSecret } = await axios.post('http://localhost:5000/payment', { 
-      amount: total * 100
+      amount: completeTotal * 100
     });
     
     const cardElement = elements.getElement(CardElement);

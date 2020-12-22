@@ -80,8 +80,7 @@ app.post('/payment', async (req, res) => {
       amount: amount, 
       currency:'GBP'
     });
-  
-  
+    
     return res.status(200).send(paymentIntent.client_secret);
     
   } catch (error) {
