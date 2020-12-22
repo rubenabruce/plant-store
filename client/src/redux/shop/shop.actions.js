@@ -7,3 +7,11 @@ export const toggleNavHidden = () => ({
 export const toggleSideNavHidden = () => ({
   type: shopActionTypes.TOGGLE_SIDE_NAV_HIDDEN
 })
+
+export const cartNotificationHidden = () => ({
+  type: shopActionTypes.CART_NOTIFICATION_HIDDEN
+})
+
+export const cartNotificationShow = () => ({
+  type: shopActionTypes.CART_NOTIFICATION_SHOW
+})

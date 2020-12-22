@@ -3,13 +3,14 @@ import { connect, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useTransition } from 'react-spring';
 import { createStructuredSelector } from 'reselect';
-import { cartNotificationHidden } from '../../redux/cart/cart.actions';
-import { selectNotificationHidden } from '../../redux/cart/cart.selectors';
+import { selectNewItem } from '../../redux/cart/cart.selectors';
+import { cartNotificationHidden } from '../../redux/shop/shop.actions';
+import { selectNotificationHidden } from '../../redux/shop/shop.selectors';
 
 import { CartNotificationCont, CartNotificationItems, ItemName, ExitContatiners, ViewCartBtn, ExitBtn } from "./cart-notification.styles";
 
-const CartNotification = ({ notificationHidden }) => {
-  const { hidden, newItem } = notificationHidden; 
+const CartNotification = ({ notificationHidden, newItem }) => {
+  const { hidden } = notificationHidden; 
   const history = useHistory();
   const dispatch = useDispatch();
   const transition = useTransition(!hidden, null, {
@@ -41,7 +42,8 @@ const CartNotification = ({ notificationHidden }) => {
 }
  
 const mapStateToProps = createStructuredSelector({
-  notificationHidden: selectNotificationHidden
+  notificationHidden: selectNotificationHidden,
+  newItem: selectNewItem
 });
 
 export default connect(mapStateToProps)(CartNotification);

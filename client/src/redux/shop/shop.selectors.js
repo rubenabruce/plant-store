@@ -21,3 +21,8 @@ export const selectSideNavHidden = createSelector(
   [selectShop],
   shop => shop.sideNavHidden
 )
+
+export const selectNotificationHidden = createSelector(
+  [selectShop],
+  shop => shop.notificationHidden
+)

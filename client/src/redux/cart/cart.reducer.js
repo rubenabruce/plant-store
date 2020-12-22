@@ -3,10 +3,7 @@ import { addItemToCart, removeItemFromCart } from './cart.utils';
 
 const INITIAL_STATE = {
   hidden: true,
-  notificationHidden: {
-    hidden: true,
-    newItem: ''
-  },
+  newItem: '',
   cartItems: []
 };
 
@@ -17,28 +14,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         hidden: !state.hidden
       }
-    case cartActionTypes.CART_NOTIFICATION_HIDDEN:
-      if (action) {
-        return {
-          ...state, 
-          notificationHidden: {
-            hidden: true,
-            newItem: ''
-          }
-        }
-      }
     case cartActionTypes.ADD_ITEM:
-      if (action.payload) {
-        return {
-          ...state,
-          cartItems: addItemToCart(state.cartItems, action.payload),
-          notificationHidden: {
-            hidden: false,
-            newItem: action.payload
-          }
-        }
+      return {
+        ...state,
+        newItem: action.payload,
+        cartItems: addItemToCart(state.cartItems, action.payload),
       }
-
     case cartActionTypes.REMOVE_ITEM:
       return {
         ...state,

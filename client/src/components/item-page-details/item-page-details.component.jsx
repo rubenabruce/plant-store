@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 
 import { addItem } from '../../redux/cart/cart.actions';
+import { cartNotificationShow } from '../../redux/shop/shop.actions';
 
 import { ItemDetailsCont, ItemName, ItemPrice, ItemSizes, ItemDesc,  CustomButtonCont, QuantityCont, QuantityAdjustCont, ArrowCont, ValueCont, CareInstructionCont } from "./item-page-details.styles";
 
-const ItemPageDetails = ({ item, addItem }) => {
+const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -30,7 +31,7 @@ const ItemPageDetails = ({ item, addItem }) => {
         </QuantityAdjustCont>
       </QuantityCont>
 
-      <CustomButtonCont onClick={() => addItem(item)} className='custom-button'>Add to cart</CustomButtonCont>
+      <CustomButtonCont onClick={() => {addItem(item); cartNotificationShow()}} className='custom-button'>Add to cart</CustomButtonCont>
 
       <CareInstructionCont>
         <h2>How to care for:</h2>
@@ -43,7 +44,8 @@ const ItemPageDetails = ({ item, addItem }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+  addItem: item => dispatch(addItem(item)),
+  cartNotificationShow: () => dispatch(cartNotificationShow())
 });
   
 export default connect(null, mapDispatchToProps)(ItemPageDetails);
