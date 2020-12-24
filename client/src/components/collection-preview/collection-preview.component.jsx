@@ -27,7 +27,7 @@ const CollectionPreview = ({ items, previewGridId }) => {
     <CollectionPreviewCont>
       <Waypoint onEnter={onEnter} onLeave={onLeave}>
         <PreviewCont>
-          <CollectionItem animation={spring} gridId={`0${previewGridId}`} item={items[0]} routing='succulants' />
+          <CollectionItem animation={spring} gridid={`0${previewGridId}`} item={items[0]} routing='succulants' />
           <CollectionItem animation={spring} item={items[1]} routing='pots' />
           <CollectionItem animation={spring} item={items[2]} routing='cactus' />
           <CollectionItem animation={spring} item={items[3]} routing='all' />

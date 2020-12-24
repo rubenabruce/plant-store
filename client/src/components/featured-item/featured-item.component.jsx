@@ -1,10 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { config, useSpring } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 
 import { FeaturedItemCont, ContentCont, ImageCont,CustomButtonCont, TitleCont, ParagraphCont } from './featured-item.styles';
 
 const FeaturedItem = ({ item }) => {
+  const history = useHistory();
   const { id, title, paragraph } = item;
 
   const checkEven = (id) => {
@@ -38,7 +40,7 @@ const FeaturedItem = ({ item }) => {
         <ContentCont id={id}>
           <TitleCont>{title}</TitleCont>
           <ParagraphCont>{paragraph}</ParagraphCont>  
-          <CustomButtonCont>{title}</CustomButtonCont>
+          <CustomButtonCont onClick={() => history.push('/shop')}>{title}</CustomButtonCont>
         </ContentCont>
       </FeaturedItemCont>
     </Waypoint>

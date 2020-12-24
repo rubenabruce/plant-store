@@ -24,4 +24,9 @@ export const PreviewCont = styled(animated.div)`
   grid-column-gap: 15px;
   /* border-top: solid 3px #bcbcbc; */
   padding: 15px 0 0 0;
+
+  @media screen and (max-width: 800px) {
+    grid-template-rows: unset;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

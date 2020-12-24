@@ -11,8 +11,7 @@ const itemOne = css`
 const itemTwo = css`
   grid-row-start: 1;
   grid-row-end: 3;
-  grid-column-start: 3;
-  grid-column-end: 5;
+
 `;
 
 // const itemThree = css`
@@ -36,8 +35,8 @@ const itemTwo = css`
 //   grid-column-end: 4;
 // `;
 
-const getStyles = ({ gridId }) => {
-  switch (gridId) {
+const getStyles = ({ gridid }) => {
+  switch (gridid) {
     case '01': 
       return itemOne;
     case '02':

@@ -20,6 +20,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
+import Footer from './components/footer/footer.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -32,6 +33,7 @@ const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const PaymentSuccess = lazy(() => import('./pages/success/payment-success.component'));
 const ContactUsPage = lazy(() => import('./pages/contact-us-page/contact-us-page.component'));
 const DeliveryPage = lazy(() => import('./pages/delivery/delivery.component'));
+const TnCPage = lazy(() => import('./pages/tnc/tnc.component'));
 
 class App extends Component {
 
@@ -100,9 +102,12 @@ class App extends Component {
               <Route path='/success' component={PaymentSuccess} />
               <Route exact path='/contact' component={ContactUsPage} />
               <Route exact path='/delivery' component={DeliveryPage} />              
+              <Route exact path='/tnc' component={TnCPage} />
             </Suspense>
           </ErrorBoundary>
         </Switch>
+
+        <Footer />
       </div>
     );
   }
