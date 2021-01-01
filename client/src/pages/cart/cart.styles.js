@@ -9,10 +9,14 @@ export const CheckoutPageCont = styled.div`
   align-items: center;
   margin: 50px auto 0;
   justify-content: center;
-
+  
   button {
     margin-left: auto;
     margin-top: 50px;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
   }
 `;
 
@@ -22,14 +26,27 @@ export const CheckoutHeaderCont = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
+
+  @media screen and (max-width: 800px) {
+    font-size: 10px;
+  }
+  
 `;
 
 export const HeaderBlockCont = styled.div`
   text-transform: capitalize;
   width: 23%;
 
+  @media screen and (max-width: 800px) {
+    width: unset;
+  }
+
   &:last-child {
     width: 8%;
+
+    @media screen and (max-width: 800px) {
+      width: unset;
+    }
   }
 `;
 

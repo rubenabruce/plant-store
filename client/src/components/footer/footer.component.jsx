@@ -4,7 +4,15 @@ import { config, useSpring } from "react-spring";
 import { FooterCont, NavCont, LinkCont, InstaCont, TitleCont } from "./footer.styles";
 
 const Footer = () => {
-  const fade = useSpring({from: {opacity: 0}, opacity: 1, config: config.slow})
+  const fade = useSpring({
+    from: {
+      opacity: 0
+    }, 
+    to: {
+      opacity: 1
+    }, 
+    config: config.slow
+  })
 
   return ( 
     <FooterCont style={fade}>

@@ -12,6 +12,11 @@ export const FooterCont = styled(animated.div)`
   height: 160px;
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    height: unset;
+  }
 `;
 
 export const NavCont = styled.div`
@@ -21,6 +26,13 @@ export const NavCont = styled.div`
   justify-content: space-evenly;
   align-items: center;
   color: white;
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto 10px;
+    
+  }
 `;
 
 export const InstaCont = styled.div`
@@ -32,6 +44,12 @@ export const InstaCont = styled.div`
   color: white;
   flex-direction: column;
   margin-left: auto;
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    margin: 25px auto;
+    text-align: center;
+  }
 `;
 
 export const LinkCont = styled(Link)`
@@ -41,6 +59,10 @@ export const LinkCont = styled(Link)`
 
   &:hover {
     color: #65A15A;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
   }
 `;
 
@@ -58,5 +80,9 @@ export const TitleCont = styled.h2`
     &:hover {
       color: #4e7b46;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    text-align: center;
   }
 `;

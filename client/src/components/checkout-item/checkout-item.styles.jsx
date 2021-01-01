@@ -11,7 +11,14 @@ export const CheckoutItemCont = styled.div`
   border-bottom: 1px solid darkgrey;
   padding: 15px 0;
   font-size: 20px;
-  align-items: center;`;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+    
+  }
+`;
 
 export const ImageContainerCont = styled.div`
   width: 23%;
@@ -41,9 +48,20 @@ export const ValueCont = styled.span`
   margin: 0 10px;
 `;
 
-export const PriceCont = styled.span`${StyledWidth}`;
+export const PriceCont = styled.span`
+  ${StyledWidth}   
+  /* @media screen and (max-width: 800px) {
+    width: unset;
+  } */
+`;
 
 export const RemoveButtonCont = styled.div`
   padding-left: 12px;
   cursor: pointer;
+
+
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+    padding-right: 12px;
+  }
  `;

@@ -15,6 +15,10 @@ export const TnCHeader = styled.h1`
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const Content = styled.div`
@@ -26,6 +30,10 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
+  
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export const SubHeader = styled.h4`

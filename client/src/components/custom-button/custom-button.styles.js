@@ -67,4 +67,8 @@ export const CustomButtonContainer = styled(animated.button)`
 
   ${getButtonStyles}
   ${getOtherStyles}
+
+  @media screen and (max-width: 800px) {
+    font-size: 13px;
+  }
 `;

@@ -16,6 +16,10 @@ export const ParallaxImage = styled.div`
     background-color: black;
     opacity: 0.3;
   }
+
+  @media screen and (max-width: 800px) {
+    margin: 100px 0 0;
+  }
 `;
 
 export const ContentCont = styled.div`

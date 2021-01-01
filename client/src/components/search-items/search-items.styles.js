@@ -4,7 +4,7 @@ import { animated } from "react-spring";
 export const CollectionSearchCont = styled(animated.div)`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 60%;
   margin: auto;
   text-align: center;
   justify-content: center;
@@ -20,4 +20,8 @@ export const CollectionSearchCont = styled(animated.div)`
     font-family: 'Montserrat';
 
   }
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }  
 `;

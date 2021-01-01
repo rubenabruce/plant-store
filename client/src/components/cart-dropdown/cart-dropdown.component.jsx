@@ -66,7 +66,7 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
             )
           }
         </CartItemsContainer>
-
+        { cartItems.length ? (
         <BottomCont style={buttonSpring}>
           <SubTotalCont>
             <span>Subtotal: </span> <span>£{total}</span>
@@ -77,7 +77,7 @@ const CartDropdown = ({ cartItems, hidden, total, history, dispatch }) => {
           }}>
             GO TO CHECKOUT
           </CustomButton>
-        </BottomCont>
+        </BottomCont> ) : null }
 
       </CartDropdownContainer>
     ))

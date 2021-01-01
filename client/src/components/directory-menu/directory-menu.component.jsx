@@ -8,7 +8,7 @@ import outdoor from '../../assets/potted-plant6.jpg'
 import { DirectoryMenuCont, ImagesContainer, ImageSideCont, BackgroundImageCont, LeftCont, RightCont, ContentCont, TitleCont, SubtitleCont } from './directory-menu.styles';
 import { useHistory } from 'react-router-dom';
 
-const DirectoryMenu = (props) => {
+const DirectoryMenu = () => {
   const history = useHistory();
   return ( 
     <DirectoryMenuCont>

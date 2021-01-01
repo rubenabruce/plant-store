@@ -46,13 +46,11 @@ const NavDropdown = ({ hideNavDropdown }) => {
   return (
     
     <NavDropdownCont style={spring}>
-      <div style={{width: '60%'}}>
         {
           transition.map(({ item, key, props }) => (
             item && <SearchItems key={key} animation={props} />
           ))
         }     
-      </div> 
     </NavDropdownCont>
   );
 }

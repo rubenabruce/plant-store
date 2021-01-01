@@ -7,4 +7,8 @@ export const FeaturedSectionCont = styled.div`
   justify-content: space-around;
   position: relative;
   margin: 100px auto;
+
+  @media screen and (max-width: 800px) {
+    margin: 50px auto;
+  }
 `;

@@ -57,6 +57,10 @@ export const TitleCont = styled.h1`
   font-weight: normal;
   padding-bottom: 34px;
   font-size: 46px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 36px; 
+  }
 `;
 
 export const ParagraphCont = styled.p`
@@ -69,5 +73,9 @@ export const CustomButtonCont = styled(CustomButton)`
   margin-top: 33px;
   height: 30%;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    width: unset;
+  }
 `;
 
