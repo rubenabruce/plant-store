@@ -39,7 +39,6 @@ export const BinCont = styled(BinSvg)`
 `;
 
 export const QuantityCont = styled.span`
-  padding-left: 20px;
   display: flex;
   width: 20%;
 `;

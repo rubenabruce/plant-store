@@ -28,7 +28,7 @@ const CartNotification = ({ notificationHidden, newItem }) => {
   return ( 
     transition.map(({ item, key, props: animation }) => ( 
       item &&
-      <CartNotificationCont key={key} style={animation}>
+      <CartNotificationCont onClick={() => {dispatch(cartNotificationHidden()); history.push('/cart');}} key={key} style={animation}>
         <CartNotificationItems>
           <ItemName>{newItem.name} added to cart</ItemName>
           <ExitContatiners>

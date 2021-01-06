@@ -9,8 +9,7 @@ const getOtherStyles = props => {
   } 
 }
 
-export const ContactUsCont = styled.form`
-
+export const ContactUsParent = styled.div`
   width: 50%;
   display: flex;
   height: 500px;
@@ -22,6 +21,13 @@ export const ContactUsCont = styled.form`
     width: 100%;
     padding-bottom: 70px;
   }
+`;
+
+export const ContactUsCont = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;
 
 export const ContactHeaderCont = styled.h2`
@@ -73,4 +79,8 @@ export const MessageInputCont = styled.textarea`
 export const CustomButtonCont = styled(CustomButton)`
   width: 90%;
   margin: auto auto 0 auto;
+
+  &.is-processing {
+    background-color: #B2E1BA
+  }
 `;

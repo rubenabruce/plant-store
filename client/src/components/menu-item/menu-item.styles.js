@@ -40,6 +40,32 @@ export const MenuItemCont = styled(animated.div)`
   @media screen and (max-width: 800px) {
     width: 100%;
     height: 310px;
+
+    &:hover {
+      & .custom-button {
+        min-width: initial;
+        opacity: initial;
+        top: initial;
+      }
+
+      & .price {
+        top: initial;
+        opacity: initial;
+      }
+
+      & .name {
+        font-weight: initial;
+
+      }
+
+      cursor: initial;
+    
+      & .background-image {
+        transform: initial;
+        transition: initial;
+        opacity:initial;
+      }
+    }
   }
 `;
 

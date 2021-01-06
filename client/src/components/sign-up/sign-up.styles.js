@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const SignUpOverlay = styled.div`
-  position: fixed;
+  position: relative ;
   background: #00000050;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   overflow: scroll;
   left: 0;
 `;
 
 export const SignUpContainer = styled.div`
-  width: 40vw; 
-  border-radius: 20px;
+  width: 100%; 
+  height: 100%;
   position: relative;
   margin: auto;
   display: flex;
@@ -21,12 +21,6 @@ export const SignUpContainer = styled.div`
   align-items: center;
   padding: 40px 0;
   background-color: #fefefe;
-  top: 10vh;
-
-  @media screen and (max-width: 800px) {
-    width: 90%;
-    padding: 10px;
-  }
 `;
 
 export const TitleCont = styled.h2`

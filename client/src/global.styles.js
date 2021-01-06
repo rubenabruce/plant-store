@@ -39,4 +39,8 @@ export const GlobalStyle = createGlobalStyle`
     z-index: 100;
 
   }
+
+  .headroom {
+    z-index: 100 !important;
+  }
 `;

@@ -22,6 +22,7 @@ export const ShopPageHeader = styled(animated.div)`
   border-bottom: 1px solid #A7A7A7;
   padding-bottom: 15px;
   margin-bottom: 20px;
+  z-index: 10;
 
   & .collection-type {
     font-size: 22px;

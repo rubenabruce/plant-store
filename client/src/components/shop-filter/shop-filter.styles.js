@@ -27,6 +27,7 @@ export const ShopFilterCont = styled(animated.div)`
     align-self: center;
     border-right: none;
     height: unset;
+    margin-right: unset;
   }
 `;
 
@@ -50,5 +51,9 @@ export const FilterOptionsCont = styled.div`
   transition: all 600ms ease-in-out;
   overflow: hidden;
   width: 90%;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 

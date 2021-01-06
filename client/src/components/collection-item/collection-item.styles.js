@@ -1,5 +1,5 @@
-import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
+import { animated } from 'react-spring';
 
 const itemOne = css`
   grid-row-start: 1;
@@ -11,15 +11,12 @@ const itemOne = css`
 const itemTwo = css`
   grid-row-start: 1;
   grid-row-end: 3;
-
 `;
 
-// const itemThree = css`
-//   grid-row-start: 2;
-//   grid-row-end: 3;
-//   grid-column-start: 3;
-//   grid-column-end: 3;
-// `;
+const itemThree = css`
+  grid-column-start: 3;
+  grid-column-end: 5;
+`;
 
 // const itemFour = css`
 //   grid-row-start: 2;
@@ -41,6 +38,10 @@ const getStyles = ({ gridid }) => {
       return itemOne;
     case '02':
       return itemTwo;
+    case '12':
+      return itemTwo;
+    case '22':
+      return itemThree;
     default:
       return '';
   }
@@ -70,6 +71,16 @@ export const CollectionItemCont = styled(animated.div)`
 
     .collection-item-content {
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &:hover {
+      background-blend-mode: initial;
+  
+      .collection-item-content {
+        opacity: initial;
+      }
     }
   }
 `;

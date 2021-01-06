@@ -13,7 +13,7 @@ export const CartDropdownContainer = styled(animated.div)`
   top: 0;
   align-items: center;
   right: 0;
-  z-index: 5;
+  z-index: 101;
   border-radius: 0 0 6px 6px;
   box-shadow: -2px -2px;
   overflow-y: scroll;

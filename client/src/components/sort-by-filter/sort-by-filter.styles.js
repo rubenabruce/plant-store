@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-
 export const SortByFilterCont = styled(animated.div)`
   width: 200px;
-  right: 10%;
-  top: 22%;
-  height: 300px;
+  right: 0;
+  top: 100%;
   position: absolute;
   background-color: #F1F1F1;
   border-radius: 8px;

@@ -2,8 +2,7 @@ import React from 'react';
 
 import { SortByFilterCont, ContentCont, OptionCont } from './sort-by-filter.styles';
 
-const SortByFilter = ({ animation }) => {
-  return ( 
+const SortByFilter = ({ animation }) => ( 
     <SortByFilterCont style={animation} >
       <ContentCont>
         <OptionCont>Newest to Oldest</OptionCont>
@@ -12,7 +11,7 @@ const SortByFilter = ({ animation }) => {
         <OptionCont>Recommended</OptionCont>
       </ContentCont>
     </SortByFilterCont>
-  );
-}
+);
+
  
 export default SortByFilter;

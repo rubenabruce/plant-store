@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const SignInOverlay = styled.div`
-  position: fixed;
+  position: relative;
   background: #00000050;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
 `;
 
 export const SignInContainer = styled.div`
-  width: 40vw; 
-  border-radius: 20px;
+  width: 100%; 
+  height: 100%;
   position: relative;
   margin: auto;
   display: flex;
@@ -20,12 +20,7 @@ export const SignInContainer = styled.div`
   align-items: center;
   padding: 80px 0;
   background-color: #fefefe;
-  top: 20vh;
 
-  @media screen and (max-width: 800px) {
-    width: 90%;
-    padding: 10px;
-  }
 `;
 
 export const TitleCont = styled.h2`

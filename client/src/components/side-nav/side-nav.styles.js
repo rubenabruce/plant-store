@@ -5,7 +5,7 @@ export const SideNavCont = styled(animated.div)`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 6;
+  z-index: 101;
   top: 0;
   left: 0;
   padding: 30px 0;

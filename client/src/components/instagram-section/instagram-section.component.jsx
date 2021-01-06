@@ -20,7 +20,7 @@ const InstagramSection = () => {
   };
 
   return (  
-    <Waypoint onEnter={onEnter} onLeave={onLeave}>
+    <Waypoint scrollableAncestor={window} onEnter={onEnter} onLeave={onLeave}>
       <InstagramSectionCont>
         <TitleCont>Follow us <a href='https://www.instagram.com/ninasplantsofficial/'>@NinasPlantsOfficial</a></TitleCont>
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>

@@ -33,8 +33,7 @@ const FeaturedItem = ({ item }) => {
 
   return (
 
-    <Waypoint onEnter={onEnter} onLeave={onLeave}  >
-
+    <Waypoint scrollableAncestor={window} style={{height: '400px'}} onEnter={onEnter} onLeave={onLeave}  >
       <FeaturedItemCont style={props} id={id} >
         <ImageCont item={item} alt='Featured-item'/>
         <ContentCont id={id}>

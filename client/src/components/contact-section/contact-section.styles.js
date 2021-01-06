@@ -10,5 +10,6 @@ export const ContactSectionCont = styled.div`
   @media screen and (max-width: 800px) {
     flex-direction: column;
     height: unset;
+    margin: 60px auto 0 auto;
   }
 `;
