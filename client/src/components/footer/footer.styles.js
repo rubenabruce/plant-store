@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-
 import { Link } from 'react-router-dom';
 
 export const FooterCont = styled(animated.div)`
@@ -20,12 +19,13 @@ export const FooterCont = styled(animated.div)`
 `;
 
 export const NavCont = styled.div`
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   color: white;
+  margin-right: auto;
 
   @media screen and (max-width: 800px) {
     width: 90%;
@@ -36,7 +36,7 @@ export const NavCont = styled.div`
 `;
 
 export const InstaCont = styled.div`
-  width: 40%;
+  width: 45%;
   height: 100%;
   display: flex;
   align-items: flex-start;
@@ -49,6 +49,7 @@ export const InstaCont = styled.div`
     width: 90%;
     margin: 25px auto;
     text-align: center;
+    align-items: center;
   }
 `;
 

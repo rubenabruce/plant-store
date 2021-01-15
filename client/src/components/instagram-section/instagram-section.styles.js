@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
 export const InstagramSectionCont = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
   
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px), (max-width: 1100px) {
     width: 100%;
     margin-bottom: 70px;
   }
@@ -44,5 +45,12 @@ export const InstafeedCont = styled.div`
       width: 100%;
     }
 
+  }
+`;
+
+export const InstaImage = styled(animated.img)`
+
+  @media screen and (max-width: 1100px) {
+    margin: auto;
   }
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { animated, useTrail } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 
-import { InstagramSectionCont, TitleCont, InstafeedCont } from "./instagram-section.styles";
+import { InstagramSectionCont, TitleCont, InstafeedCont, InstaImage } from "./instagram-section.styles";
 
 const InstagramSection = () => {
 
@@ -26,7 +26,7 @@ const InstagramSection = () => {
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
         <InstafeedCont id='instafeed'>
           {
-            trail.map((animation, i) => (<animated.img style={animation} key={i} src='https://picsum.photos/170' alt='instagram' />))
+            trail.map((animation, i) => (<InstaImage style={animation} key={i} src='https://picsum.photos/170' alt='instagram' />))
           }
         </InstafeedCont>
       </InstagramSectionCont>

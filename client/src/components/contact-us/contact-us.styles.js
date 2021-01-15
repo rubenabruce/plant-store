@@ -17,7 +17,7 @@ export const ContactUsParent = styled.div`
   align-items: center;
   ${getOtherStyles}
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px), (max-width: 1100px) {
     width: 100%;
     padding-bottom: 70px;
   }
