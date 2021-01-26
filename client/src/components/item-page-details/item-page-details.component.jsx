@@ -8,15 +8,16 @@ import { ItemDetailsCont, ItemName, ItemPrice, ItemSizes, ItemDesc,  CustomButto
 
 const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
   const [quantity, setQuantity] = useState(1);
+  const { name, latinName, potsize, price, height, id } = item;
 
   return (
     <ItemDetailsCont>
-      <ItemName>Snake Plant</ItemName>
-      <ItemPrice>£12</ItemPrice>
+      <ItemName>{name}</ItemName>
+      <ItemPrice>£{price}</ItemPrice>
 
       <ItemSizes>
-        <span className='height'>Plant Height: <b>30cm</b></span>
-        <span className='diameter'>Pot Diameter: <b>12cm</b></span>
+        <span className='height'>Plant Height: <b>{height}cm</b></span>
+        <span className='diameter'>Pot Diameter: <b>{potsize}cm</b></span>
       </ItemSizes>
 
       <ItemDesc className='item-desc'>Lorem ipsum odor amet, consectetuer adipiscing elit. Ac purus in massa egestas mollis varius;

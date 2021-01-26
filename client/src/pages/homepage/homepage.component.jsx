@@ -7,7 +7,7 @@ import FeaturedSection from '../../components/featured-section/featured-section.
 import ContactSection from '../../components/contact-section/contact-section.component';
 
 import './homepage.styles.scss';
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+// import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 
 const Homepage = () => {
 
@@ -30,8 +30,6 @@ const Homepage = () => {
       </Parallax>
 
       <FeaturedSection/>
-
-      <CollectionsOverview />
 
       <Parallax imageUrl='https://cdn.shopify.com/s/files/1/1802/1289/files/FOREST_17-46_1024x1024.jpg?v=1496927395' header='A review about ninas plants ya danoooooo' para='Ruben Aaronovitch-Bruce'>
         <h2>"A review about ninas plants"</h2>

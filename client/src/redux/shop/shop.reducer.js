@@ -2,7 +2,7 @@ import SHOP_DATA from './shop.data';
 import { shopActionTypes } from "./shop.types";
 
 const INITIAL_STATE = {
-  collections: SHOP_DATA,
+  collections: null,
   navHidden: false,
   sideNavHidden: false,
   notificationHidden: {
@@ -35,6 +35,11 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         notificationHidden: {
           hidden: false
         }
+      }
+    case shopActionTypes.UPDATE_COLLECTIONS:
+      return {
+        ...state,
+        collections: action.payload
       }
     default:
       return state;

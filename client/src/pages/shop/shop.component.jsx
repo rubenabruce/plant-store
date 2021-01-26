@@ -64,7 +64,7 @@ const ShopPage = ({ items, location }) => {
         </ShopGridCont>
 
       </ShopMainCont>
-      <ShopFooterCont>1    2    3</ShopFooterCont>
+      <ShopFooterCont></ShopFooterCont>
     </ShopPageCont>
   );
 }

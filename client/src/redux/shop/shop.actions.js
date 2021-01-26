@@ -15,3 +15,8 @@ export const cartNotificationHidden = () => ({
 export const cartNotificationShow = () => ({
   type: shopActionTypes.CART_NOTIFICATION_SHOW
 })
+
+export const updateCollections = (collectionsMap) => ({
+  type: shopActionTypes.UPDATE_COLLECTIONS,
+  payload: collectionsMap
+})

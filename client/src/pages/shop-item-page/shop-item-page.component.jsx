@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'; 
-import { createStructuredSelector } from 'reselect';
-import { selectCollectionItems } from '../../redux/shop/shop.selectors';
+import { selectCollectionItemById, selectCollectionItems } from '../../redux/shop/shop.selectors';
 
 import ItemPageImages from '../../components/item-page-images/item-page-images.component';
 import ItemPageDetails from '../../components/item-page-details/item-page-details.component';
@@ -9,23 +8,24 @@ import SlidingBar from '../../components/sliding-bar/sliding-bar.component';
 import MenuItem from '../../components/menu-item/menu-item.component';
 
 import { ShopItemPageCont, ShopItemCont, RecommendedContainer, RecommendedHeader } from './shop-item-page.styles';
+import collectionsOverviewComponent from '../../components/collections-overview/collections-overview.component';
 
-const ShopItemPage = ({ collectionItems }) => {
-  const item = {
-    id: 10,
-    imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-    otherImageUrls: ["https://i.ibb.co/ZYW3VTp/brown-brim.png", "https://i.ibb.co/ZYW3VTp/brown-brim.png", "https://i.ibb.co/ZYW3VTp/brown-brim.png", "https://i.ibb.co/ZYW3VTp/brown-brim.png", "https://i.ibb.co/ZYW3VTp/brown-brim.png", "https://i.ibb.co/ZYW3VTp/brown-brim.png"],
-    name: "Brown Brim",
-    price: 25
+const ShopItemPage = ({ item, collectionItems }) => {
+  const [currentItem, setCurrentItem] = useState(item);
+  
+  if (item !== currentItem) {
+    setCurrentItem(item)
   }
+  
+  console.log(currentItem )
   return ( 
     <ShopItemPageCont>
 
       <ShopItemCont>
         
-        <ItemPageImages item={item}/>
+        <ItemPageImages item={currentItem}/>
 
-        <ItemPageDetails item={item} />
+        <ItemPageDetails item={currentItem} />
 
       </ShopItemCont>
 
@@ -42,8 +42,9 @@ const ShopItemPage = ({ collectionItems }) => {
   );
 }
 
-const mapStateToProps = createStructuredSelector({
-  collectionItems: selectCollectionItems
+const mapStateToProps = (state, ownProps) => ({
+  item: selectCollectionItemById(ownProps.match.params.itemId)(state),
+  collectionItems: selectCollectionItems(state)
 });
  
 export default connect(mapStateToProps)(ShopItemPage);

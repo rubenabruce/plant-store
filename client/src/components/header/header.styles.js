@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import {ReactComponent as UserCircle} from '../../assets/user-circle.svg'
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
 
 
@@ -42,38 +43,50 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const LogoImg = styled.img`
-    height: 70%;
+  height: 70%;
 `;
 
 export const BurgerBtnCont = styled.img`
-    display: none;
-    height: 70%;
+  display: none;
+  height: 70%;
 
-    @media screen and (max-width: 800px) {
-        display: inline-block;
-    }
+  @media screen and (max-width: 800px) {
+    display: inline-block;
+  }
 `;
 
 export const IconsContainer = styled.div`
-    display: flex;
-    /* justify-content: space-between; */
-    /* width: 8%; */
-    align-items: center;
-`
+  display: flex;
+  /* justify-content: space-between; */
+  /* width: 8%; */
+  align-items: center;
+`;
 
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 50px;
+  margin: 0px 30px;
 
   @media screen and (max-width: 800px) {
-    margin-right: 10px;
+    margin: 0 10px;
   }
 `;
 
-export const SearchIconCont = styled(SearchIcon)`
+const IconsStyles = css`
   width: 28px;
   height: 28px;
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+`;
+
+export const SearchIconCont = styled(SearchIcon)`
+  ${IconsStyles}
+`;
+
+export const AccountIconCont = styled(UserCircle)`
+  height: 34px;
+
+  & .account-icons-svg-path {
+    ${IconsStyles}
+  }
 `;
