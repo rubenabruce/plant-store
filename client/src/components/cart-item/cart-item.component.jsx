@@ -10,7 +10,7 @@ const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeIt
   const {images, price, name, quantity} = item;
     
   useEffect(() => {
-    if (images[0]) {
+    if (images) {
       downloadFiles(images[0])
         .then(imageUrl => setImage(imageUrl))
         .catch(e => console.log(e))
