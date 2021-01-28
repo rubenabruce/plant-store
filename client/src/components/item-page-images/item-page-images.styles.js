@@ -25,12 +25,12 @@ export const MainImageCont = styled.div`
 
 export const MainImage = styled.img`
   max-height: 100%;
-  width: 100%;
   margin: auto;
   position: relative;
 
   @media screen and (max-width: 800px) {
     padding-bottom: 15px;
+    width: 100%;
   }
 `;
 

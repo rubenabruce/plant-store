@@ -1,24 +1,37 @@
-import React from 'react';
-
-import plantImg from '../../assets/snake-plant.jpg';
+import React, { useEffect, useState } from 'react';
+import { downloadFiles } from '../../firebase/firebase.utils';
 
 import { ItemImagesCont, MainImageCont, MainImage, OtherImagesNavCont, OtherImagesCont, OtherImage } from "./item-page-images.styles";
 
-const ItemPageImages = ({ item }) => {
+const ItemPageImages = ({ images }) => {
+  const [imageUrls, setImageUrls] = useState([]);
+
+  console.log('itempageimages', images)
+  console.log('itempageimages', imageUrls)
+
+
+  useEffect(() => {
+    images.forEach(imageRef => {
+      downloadFiles(imageRef)
+        .then(imageUrl => setImageUrls(oldArr => [...oldArr, imageUrl]))
+        .catch(e => console.log(e))
+      });
+  }, []);
+
   return ( 
     <ItemImagesCont>
 
       <MainImageCont>
-        <MainImage src={plantImg}/>
+        <MainImage src={imageUrls[0]}/>
       </MainImageCont>
 
       <OtherImagesNavCont>
         <OtherImagesCont>
-          <OtherImage src={plantImg} />
-          <OtherImage src={plantImg} />
-          <OtherImage src={plantImg} />
-          <OtherImage src={plantImg} />
-          <OtherImage src={plantImg} />
+          {
+            imageUrls.map((imageUrl, index) => 
+              <OtherImage key={index} src={imageUrl} />
+            )
+          }
         </OtherImagesCont>
       </OtherImagesNavCont>
 

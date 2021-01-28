@@ -73,13 +73,14 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   }, {});
 };
 
-export const downloadFiles = (imageUrl) => {
+export const downloadFiles = async (imageRef) => {
   const storageRef = storage.ref();
-  console.log('storageRef = ', storageRef)
-  console.log('storageRef child = ', storageRef.child(imageUrl));
-  storageRef.child(imageUrl).getDownloadURL()
+  // console.log('storageRef = ', storageRef)
+  // console.log('storageRef child = ', storageRef.child(imageRef));
+  return await storageRef.child(imageRef).getDownloadURL()
     .then((url) => {
-      console.log(url);
+      console.log('url', url);
+      // imageUrlRef.current = imageUrl;
       return url;
     })
     .catch((error) => {
@@ -96,9 +97,6 @@ export const downloadFiles = (imageUrl) => {
           // User canceled the upload
           console.log('Error Code:', error.code);
           break;
-    
-        // ...
-    
         case 'storage/unknown':
           // Unknown error occurred, inspect the server response
           console.log('Error Code:', error.code);
@@ -107,7 +105,7 @@ export const downloadFiles = (imageUrl) => {
           break;
       }
     })
-}
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

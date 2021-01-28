@@ -9,7 +9,7 @@ import { SlidingBarCont } from "./sliding-bar.styles";
 const ArrowLeft = Arrow({ direction: 'left', className: 'arrow-svg arrow-prev' });
 const ArrowRight = Arrow({ direction: 'right', className: 'arrow-svg arrow-next' });
 
-const SlidingBar = ({ data }) => {
+const SlidingBar = ({ data, wheel }) => {
   const [selected, setSelected] = useState(1);
 
   const onSelect = key => {
@@ -19,6 +19,7 @@ const SlidingBar = ({ data }) => {
   return (  
     <SlidingBarCont>
       <ScrollMenu 
+        wheel={false}
         data={data}
         arrowLeft={ArrowLeft}
         arrowRight={ArrowRight}

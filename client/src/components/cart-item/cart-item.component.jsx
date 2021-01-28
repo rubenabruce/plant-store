@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { downloadFiles } from '../../firebase/firebase.utils';
 import { addItem, clearItemFromCart, removeItem } from '../../redux/cart/cart.actions';
 
 import { CartItemCont, ItemCont, ItemDetailsCont, NamePriceCont, RowCont, BinCont, QuantityCont, ArrowCont, ValueCont} from "./cart-item.styles";
 
 const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem}) => {
-  const {imageUrl, price, name, quantity} = item;
+  const [image, setImage] = useState('');
+  const {images, price, name, quantity} = item;
+  
+  let imageRef = images[0];
+  
+  useEffect(() => {
+    downloadFiles(imageRef)
+      .then(imageUrl => setImage(imageUrl))
+      .catch(e => console.log(e))
+  }, [imageRef]);
+
+
   return (
   <CartItemCont style={animations}>
-    <ItemCont itemImageSize={itemImageSize} src={imageUrl} alt='item'/>
+    <ItemCont itemImageSize={itemImageSize} src={image} alt='item'/>
     <ItemDetailsCont>
       <RowCont>
         <NamePriceCont>{name}</NamePriceCont>

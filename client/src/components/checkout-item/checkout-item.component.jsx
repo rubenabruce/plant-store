@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { downloadFiles } from '../../firebase/firebase.utils';
 
 import { clearItemFromCart, removeItem, addItem } from '../../redux/cart/cart.actions';
 
@@ -15,11 +16,21 @@ import {
 } from "./checkout-item.styles";
 
 const CheckoutItem = ({item, clearItem, addItem, removeItem}) => {
-  const {imageUrl, price, name, quantity} = item;
+  const [image, setImage] = useState();
+  const {images, price, name, quantity} = item;
+
+  let imageRef = images[0];
+  
+  useEffect(() => {
+    downloadFiles(imageRef)
+      .then(imageUrl => setImage(imageUrl))
+      .catch(e => console.log(e))
+  }, [imageRef]);
+
   return (
     <CheckoutItemCont>
       <ImageContainerCont>
-        <img src={imageUrl} alt='item'/>
+        <img src={image} alt='item'/>
       </ImageContainerCont>
       <NameCont>{name}</NameCont>
       <QuantityCont>
