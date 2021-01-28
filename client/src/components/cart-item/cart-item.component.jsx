@@ -8,15 +8,16 @@ import { CartItemCont, ItemCont, ItemDetailsCont, NamePriceCont, RowCont, BinCon
 const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem}) => {
   const [image, setImage] = useState('');
   const {images, price, name, quantity} = item;
-  
-  let imageRef = images[0];
-  
+    
   useEffect(() => {
-    downloadFiles(imageRef)
-      .then(imageUrl => setImage(imageUrl))
-      .catch(e => console.log(e))
-  }, [imageRef]);
-
+    if (images[0]) {
+      downloadFiles(images[0])
+        .then(imageUrl => setImage(imageUrl))
+        .catch(e => console.log(e))
+    } else {
+      setImage(null)
+    }
+  }, [images]);
 
   return (
   <CartItemCont style={animations}>
