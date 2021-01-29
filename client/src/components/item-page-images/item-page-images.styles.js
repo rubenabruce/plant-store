@@ -8,9 +8,18 @@ export const ItemImagesCont = styled.div`
   display: flex;
   flex-direction: column;
 
+  .awssld {
+    height: 100%;
+
+    --organic-arrow-color: #4e7b46;
+    --control-bullet-color: #4e7b46;
+    --control-bullet-active-color: #65a15a;
+  }
+
   @media screen and (max-width: 800px) {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
+    height: 60vh;
   }
 
 `;
@@ -23,14 +32,15 @@ export const MainImageCont = styled.div`
   align-items: center;
 `;
 
-export const MainImage = styled.img`
+export const Images = styled.div`
   max-height: 100%;
-  margin: auto;
+  margin: 0 auto 0 0;
   position: relative;
 
   @media screen and (max-width: 800px) {
     padding-bottom: 15px;
     width: 100%;
+    margin: auto;
   }
 `;
 
@@ -49,7 +59,7 @@ export const OtherImagesCont = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   align-items: center;
 `;
 
@@ -62,7 +72,9 @@ export const OtherImage = styled.img`
     margin: auto 10px auto 0;
   }
 
-  &:last-child {
-    margin: auto 0 auto 10px;
-  }
-`; 
+  /* @media screen and (max-width: 800px) {
+   &:last-child {
+      margin: auto 0 auto 10px;
+    }
+  }   */
+`;

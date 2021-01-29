@@ -22,7 +22,7 @@ const MenuItem = ({ item, addItem, history, match, animation, cartNotificationSh
 
   return (
     <MenuItemCont style={animation} className='menu-item'>
-      <ImageContainerCont onClick={() => { history.push(`/shop/${id}`); window.location.reload(false); window.scrollTo(0, 0); }} className='background-image-cont'>
+      <ImageContainerCont onClick={() => { history.push(`/shop/${id}`); window.scrollTo(0, 0); }} className='background-image-cont'>
         <ImageCont className='background-image' imageUrl={image} />
       </ImageContainerCont>
       <ItemFooterCont className='item-footer'>

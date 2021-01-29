@@ -5,7 +5,7 @@ import { addItem, clearItemFromCart, removeItem } from '../../redux/cart/cart.ac
 
 import { CartItemCont, ItemCont, ItemDetailsCont, NamePriceCont, RowCont, BinCont, QuantityCont, ArrowCont, ValueCont} from "./cart-item.styles";
 
-const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem}) => {
+const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem, hideItemOptions}) => {
   const [image, setImage] = useState('');
   const {images, price, name, quantity} = item;
     
@@ -13,7 +13,7 @@ const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeIt
     if (images) {
       downloadFiles(images[0])
         .then(imageUrl => setImage(imageUrl))
-        .catch(e => console.log(e))
+        .catch(e => console.log(`error in useEffect: ${e}`))
     } else {
       setImage(null)
     }
@@ -27,14 +27,20 @@ const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeIt
         <NamePriceCont>{name}</NamePriceCont>
         <NamePriceCont>£{price}</NamePriceCont>
       </RowCont>
-      <RowCont>
-        <BinCont onClick={() => clearItem(item)}/>
-        <QuantityCont>
-          <ArrowCont onClick={() => removeItem(item)}>&#10094;</ArrowCont>
-          <ValueCont>{quantity}</ValueCont>
-          <ArrowCont onClick={() => addItem(item)}>&#10095;</ArrowCont>
-        </QuantityCont>
-      </RowCont>
+      {
+        hideItemOptions ? (
+            null
+          ) : (
+            <RowCont>
+              <BinCont onClick={() => clearItem(item)}/>
+              <QuantityCont>
+                <ArrowCont onClick={() => removeItem(item)}>&#10094;</ArrowCont>
+                <ValueCont>{quantity}</ValueCont>
+                <ArrowCont onClick={() => addItem(item)}>&#10095;</ArrowCont>
+              </QuantityCont>
+            </RowCont>
+        )
+      }
     </ItemDetailsCont>
   </CartItemCont>
 )}

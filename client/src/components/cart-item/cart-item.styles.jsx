@@ -15,7 +15,7 @@ export const ItemCont = styled.img`
 `;
 
 export const ItemDetailsCont = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
