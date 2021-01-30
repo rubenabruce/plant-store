@@ -6,12 +6,12 @@ import { downloadFiles, storage } from '../../firebase/firebase.utils';
 import { addItem } from '../../redux/cart/cart.actions'
 import { cartNotificationShow } from '../../redux/shop/shop.actions'
 
-import { MenuItemCont, ImageContainerCont, ImageCont, ItemFooterCont, CustomButtonCont } from "./menu-item.styles";
+import { MenuItemCont, ImageContainerCont, ImageCont, ItemFooterCont, CustomButtonCont, HeightPriceCont } from "./menu-item.styles";
 
-const MenuItem = ({ item, addItem, history, match, animation, cartNotificationShow}) => {
+const MenuItem = ({ item, addItem, history, animation, cartNotificationShow}) => {
   const [image, setImage] = useState();
   
-  const {id, images, name, price} = item;
+  const {id, images, height, name, price} = item;
   let imageRef = images[0];
   
   useEffect(() => {
@@ -27,7 +27,10 @@ const MenuItem = ({ item, addItem, history, match, animation, cartNotificationSh
       </ImageContainerCont>
       <ItemFooterCont className='item-footer'>
         <span className='name'>{name}</span>
-        <span className='price'>£{price}</span>
+        <HeightPriceCont> 
+          <span className='height-price height'>{height}cm</span>
+          <span className='height-price price'>£{price}</span>
+        </HeightPriceCont>
       </ItemFooterCont>
       <CustomButtonCont onClick={() => {addItem(item); cartNotificationShow();}} className='custom-button'>Add to cart</CustomButtonCont>
 

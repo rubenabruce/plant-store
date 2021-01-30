@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { useWindowSize } from 'react-use';
 import { createStructuredSelector } from 'reselect';
 
-import { auth } from '../../firebase/firebase.utils';
+// import { auth } from '../../firebase/firebase.utils';
 import { toggleSideNavHidden } from '../../redux/shop/shop.actions';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 
@@ -29,12 +29,12 @@ const NavOptions = ({ currentUser, otherstyles }) => {
         Delivery
       </OptionContainerLink>
       {
-        currentUser ?
-        <OptionContainerSignOut onClick={() => auth.signOut()}>Sign out</OptionContainerSignOut>
-        :
-        <OptionContainerLink onClick={closeSideNav} to='/signin'>
-          Sign In
-        </OptionContainerLink>
+        // currentUser ?
+        // <OptionContainerSignOut onClick={() => auth.signOut()}>Sign out</OptionContainerSignOut>
+        // :
+        // <OptionContainerLink onClick={closeSideNav} to='/signin'>
+        //   Sign In
+        // </OptionContainerLink>
       }
     </OptionsContainer>
   );

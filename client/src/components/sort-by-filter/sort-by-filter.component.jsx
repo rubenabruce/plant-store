@@ -5,10 +5,10 @@ import { SortByFilterCont, ContentCont, OptionCont } from './sort-by-filter.styl
 const SortByFilter = ({ animation }) => ( 
     <SortByFilterCont style={animation} >
       <ContentCont>
-        <OptionCont>Newest to Oldest</OptionCont>
-        <OptionCont>Price: High to Low</OptionCont>
-        <OptionCont>Price: Low to High</OptionCont>
-        <OptionCont>Recommended</OptionCont>
+        <OptionCont to='/shop?sortby=new-old'>Newest to Oldest</OptionCont>
+        <OptionCont to='/shop?sortby=phigh-plow'>Price: High to Low</OptionCont>
+        <OptionCont to='/shop?sortby=plow-phigh'>Price: Low to High</OptionCont>
+        <OptionCont to='/shop?sortby=small-big'>Size: Small to Big</OptionCont>
       </ContentCont>
     </SortByFilterCont>
 );

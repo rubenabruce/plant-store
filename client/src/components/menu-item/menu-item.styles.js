@@ -19,7 +19,12 @@ export const MenuItemCont = styled(animated.div)`
     }
 
     & .price {
-      top: -30px;
+      top: -33px;
+      font-weight: 600;
+    }
+
+    & .height {
+      top: -33px;
       opacity: 0;
     }
 
@@ -53,9 +58,13 @@ export const MenuItemCont = styled(animated.div)`
         opacity: initial;
       }
 
+      & .height {
+        top: initial;
+        opacity: initial;
+      }
+
       & .name {
         font-weight: initial;
-
       }
 
       cursor: initial;
@@ -75,11 +84,6 @@ export const ImageContainerCont = styled.div`
   margin-bottom: 5px;
   overflow: hidden;
   border-radius: 3px;
-
-  &:hover {
-
-
-  }
 `;
 
 export const ImageCont = styled.div`
@@ -88,8 +92,6 @@ export const ImageCont = styled.div`
   background-size: cover;
   height: 100%;
   width: 100%;
-
-  
 `;
 
 export const ItemFooterCont = styled.div`
@@ -104,7 +106,7 @@ export const ItemFooterCont = styled.div`
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.45, 0.95);
   }
 
-  & .price {
+  & .height-price {
     margin-top: 10px;
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.45, 0.95);
     position: relative;
@@ -124,6 +126,10 @@ export const ItemFooterCont = styled.div`
     & .price {
       margin-top: 0;
       padding: 0;
+    }
+
+    & .height {
+      display: none;
     }
   }
 `;
@@ -146,4 +152,11 @@ export const CustomButtonCont = styled(CustomButton)`
     height: 35px;
     align-items: center;
   }
+`;
+
+export const HeightPriceCont = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

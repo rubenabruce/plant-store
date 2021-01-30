@@ -13,8 +13,8 @@ import SortByFilter from '../../components/sort-by-filter/sort-by-filter.compone
 import { ShopPageCont, ShopPageHeader, ShopMainCont, ShopGridCont, ShopFooterCont, DownArrowCont } from './shop.styles'
 
 const ShopPage = ({ items, location }) => {
-  
   const [sortBy, toggleSortBy] = useState(false);
+  
   const dropdownTransition = useTransition(sortBy, null, {
     from: { height: '0px' },
     enter: { height: '300px' },

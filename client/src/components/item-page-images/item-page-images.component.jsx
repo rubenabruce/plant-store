@@ -5,7 +5,7 @@ import AwesomeSliderStyles from 'react-awesome-slider/src/styled/scale-out-anima
 
 import { downloadFiles } from '../../firebase/firebase.utils';
 
-import { ItemImagesCont, MainImageCont, MainImage, OtherImagesNavCont, OtherImagesCont, OtherImage, Images } from "./item-page-images.styles";
+import { ItemImagesCont, Images } from "./item-page-images.styles";
 
 const ItemPageImages = ({ images }) => {
   const [imageUrls, setImageUrls] = useState([]);
@@ -35,15 +35,4 @@ const ItemPageImages = ({ images }) => {
   );
 };
  
-
-
-// <OtherImagesNavCont>
-// <OtherImagesCont>
-//   {
-//     imageUrls.map((imageUrl, index) => 
-//       <OtherImage key={index} src={imageUrl} />
-//     )
-//   }
-// </OtherImagesCont>
-// </OtherImagesNavCont>
 export default ItemPageImages;

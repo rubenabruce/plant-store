@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 export const SortByFilterCont = styled(animated.div)`
   width: 200px;
@@ -22,7 +23,7 @@ export const ContentCont = styled.div`
   align-items: center;
 `;
 
-export const OptionCont = styled.span`
+export const OptionCont = styled(Link)`
   width: 100%;
   text-align: center;
   font-size: 14;

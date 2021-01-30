@@ -11,10 +11,14 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import NavOptions from '../nav-options/nav-options.component';
 import Logo from '../logo/logo.component';
 
+import { auth } from '../../firebase/firebase.utils';
+
 import { BurgerBtnCont, NavContainer, HeaderContainer, IconsContainer, SearchIconCont, SearchContainer, AccountIconCont } from "./header.styles";
+import { useHistory } from 'react-router-dom';
 
 const Header = ({ currentUser }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { width } = useWindowSize();
   return (
   <HeaderContainer>
@@ -23,7 +27,7 @@ const Header = ({ currentUser }) => {
       <Logo />
       { width < 800 ? null : <NavOptions /> }
       <IconsContainer>
-        <AccountIconCont />
+        <AccountIconCont onClick={() => currentUser ? auth.signOut() : history.push('/signin')} /> 
         <SearchContainer>
           <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
         </SearchContainer>
