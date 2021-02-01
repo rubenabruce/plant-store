@@ -33,6 +33,7 @@ const PaymentSuccess = lazy(() => import('./pages/success/payment-success.compon
 const ContactUsPage = lazy(() => import('./pages/contact-us-page/contact-us-page.component'));
 const DeliveryPage = lazy(() => import('./pages/delivery/delivery.component'));
 const TnCPage = lazy(() => import('./pages/tnc/tnc.component'));
+const Admin = lazy(() => import('./pages/admin/admin.component'));
 
 class App extends Component {
 
@@ -101,6 +102,11 @@ class App extends Component {
               <Route exact path='/contact' component={ContactUsPage} />
               <Route exact path='/delivery' component={DeliveryPage} />              
               <Route exact path='/tnc' component={TnCPage} />
+              <Route exact path='/admin' render={() => 
+                this.props.currentUser 
+                ? (<Admin />)
+                : (<Admin />) 
+              } /> 
             </Suspense>
           </ErrorBoundary>
         </Switch>
