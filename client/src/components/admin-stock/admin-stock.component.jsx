@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { addCollectionAndDocuments } from '../../firebase/firebase.utils';
 
-import { setUpdateData } from '../../redux/admin/admin.actions';
+import { setOriginalData, setUpdateData } from '../../redux/admin/admin.actions';
 import { selectOriginalData, selectUpdatedData } from '../../redux/admin/admin.selectors';
 
 import StockRow from '../admin-stock-row/admin-stock-row.component';
 
 import {AdminStockCont, CollectionTitle, StockTableCont, StockHeaderCont, TableHeader, ButtonsCont} from './admin-stock.styles';
 
-const AdminStock = (props) => {
-  const [original, setOriginal] = useState(props.originalData)
-  const [updated, setUpdated] = useState(props.updateData);
-  console.log(props)
-  
-  const plants = original.plants;
+const AdminStock = ({ originalData, updateData, setOriginalData, setUpdateData}) => {
+  const [original, setOriginal] = useState(originalData)
+  const [updated, setUpdated] = useState(updateData);
+  console.log('updated', updateData.plants.items[0])
+  console.log('original', originalData.plants.items[0])
 
   const handleUpdate = () => {
-    
+    setOriginal(updateData);
+    setOriginalData(updateData);
+    addCollectionAndDocuments('collections', updateData.plants);
   }
   
-  const handleReset = () => {
-
+  const handleReset = () => { 
+    // Problems with reset because of my onChange work-around at line 12 - admin-stock-row.component.jsx
+    setUpdated(originalData);
+    setUpdateData(originalData);
   }
 
   return ( 
     <AdminStockCont>
-      <CollectionTitle>{plants.title}</CollectionTitle>
+      <CollectionTitle>{original.plants.title}</CollectionTitle>
       <StockTableCont>
         <thead>
           <StockHeaderCont>
@@ -42,7 +46,7 @@ const AdminStock = (props) => {
         </thead>
         <tbody>
           {
-            plants.items.map((item) => (
+            original.plants.items.map((item) => (
               <StockRow key={item.id} item={item}/>
             ))
           }
@@ -57,12 +61,13 @@ const AdminStock = (props) => {
 }
 
 const mapDispatchToProps = dispatch => ({
+  setOriginalData: data => dispatch(setOriginalData(data)),
   setUpdateData: data => dispatch(setUpdateData(data))
 });
 
 const mapStateToProps = createStructuredSelector({
   originalData: selectOriginalData,
   updateData: selectUpdatedData
-})
+});
  
 export default connect(mapStateToProps, mapDispatchToProps)(AdminStock);

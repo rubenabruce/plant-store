@@ -23,7 +23,10 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
         ...state,
         updatedData: {
           plants: {
-            items: updateDataRow(state.updatedData.plants.items, action.payload)
+            id: "Plants",
+            items: updateDataRow(state.updatedData.plants.items, action.payload),
+            routeName: "plants",
+            title: "Plants"
           }          
         }
       }

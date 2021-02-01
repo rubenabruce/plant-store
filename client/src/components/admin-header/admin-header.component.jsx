@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { AdminHeaderCont } from './admin-header.styles';
+
 const AdminHeader = () => {
   return ( 
-    <div>
+    <AdminHeaderCont>
       <button>Current database</button>
       <button>New Plant</button>
-    </div>
+    </AdminHeaderCont>
   );
 }
  

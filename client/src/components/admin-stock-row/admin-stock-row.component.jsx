@@ -24,10 +24,10 @@ const StockRow = ({item, setUpdateDataItem, reduxItem}) => {
       <td><input type='number' onChange={handleChange} name='id' value={id} /></td>
       <td><input onChange={handleChange} name='name' value={name} /></td>
       <td><input onChange={handleChange} name='latinName' value={latinName} /></td>
-      <td><input type='number' onChange={handleChange} name='height' value={height} /></td>
-      <td><input type='number' onChange={handleChange} name='potsize' value={potsize} /></td>
-      <td><input type='number' onChange={handleChange} name='price' value={price} /></td>
-      <td><input type='number' onChange={handleChange} name='stock' value={stock} /></td>
+      <td><input min='0' type='number' onChange={handleChange} name='height' value={height} /></td>
+      <td><input min='0' type='number' onChange={handleChange} name='potsize' value={potsize} /></td>
+      <td><input min='0' type='number' onChange={handleChange} name='price' value={price} /></td>
+      <td><input min='0' type='number' onChange={handleChange} name='stock' value={stock} /></td>
       <td><input onChange={handleChange} name='images' value={images} /></td>
     </tr>
   );
