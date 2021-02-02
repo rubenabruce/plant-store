@@ -102,11 +102,7 @@ class App extends Component {
               <Route exact path='/contact' component={ContactUsPage} />
               <Route exact path='/delivery' component={DeliveryPage} />              
               <Route exact path='/tnc' component={TnCPage} />
-              <Route exact path='/admin' render={() => 
-                this.props.currentUser 
-                ? (<Admin />)
-                : (<Admin />) 
-              } /> 
+              <Route path='/admin' component={Admin} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

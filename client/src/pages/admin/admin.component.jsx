@@ -9,6 +9,7 @@ import { setOriginalData, setUpdateData } from '../../redux/admin/admin.actions'
 import AdminStock from '../../components/admin-stock/admin-stock.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import AdminHeader from '../../components/admin-header/admin-header.component';
+import AdminNewItem from '../../components/admin-new-item/admin-new-item.component';
 
 import { AdminPageCont } from './admin.styles'
 
@@ -40,7 +41,7 @@ class Admin extends Component {
       <AdminPageCont>
         <AdminHeader />
         <Route exact path={'/admin'} render={(props) => <AdminStockWithSpinner isLoading={loading} {...props}  />} />
-        <Route exact path={`/admin/new`} />
+        <Route exact path={`/admin/new`} component={AdminNewItem}/>
       </AdminPageCont>
     );
   }
