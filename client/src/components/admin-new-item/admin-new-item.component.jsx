@@ -12,7 +12,7 @@ const AdminNewItem = () => {
     name: '', 
     latinName: '', 
     height: '',
-    potSize: '',
+    potsize: '',
     price: '',
     stock: '',
     images: []
@@ -24,7 +24,7 @@ const AdminNewItem = () => {
   console.log('newItem: ', newItem);
   console.log('imageasfile', imageAsFiles)
 
-  const {id, name, latinName, height, potSize, price, stock, images} = newItem;
+  const {id, name, latinName, height, potsize, price, stock, images} = newItem;
 
   const handleChange = event => { 
     const {name, value} = event.target;
@@ -48,7 +48,7 @@ const AdminNewItem = () => {
     console.log('start of upload');
     console.log('files  ', files);
 
-    if (!id || !name || !latinName || !height || !potSize || !price || !stock || !images) {
+    if (!id || !name || !latinName || !height || !potsize || !price || !stock || !images) {
       console.error('One of the fields is incomplete');
       return;
     }
@@ -98,9 +98,9 @@ const AdminNewItem = () => {
           required 
           label='Pot size (cm)' 
           type='number' 
-          name='potSize' 
+          name='potsize' 
           handleChange={handleChange}
-          value={potSize}
+          value={potsize}
         />
         <FormInputCont 
           required 

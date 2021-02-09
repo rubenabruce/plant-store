@@ -14,3 +14,8 @@ export const setUpdateDataItem = row => ({
   type: AdminActionTypes.SET_UPDATE_DATA_ITEM,
   payload: row
 })
+
+export const deleteItem = row => ({
+  type: AdminActionTypes.DELETE_ITEM,
+  payload: row
+})

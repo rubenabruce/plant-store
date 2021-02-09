@@ -1,5 +1,5 @@
 import { AdminActionTypes } from "./admin.types";
-import { updateDataRow } from './admin.utils';
+import { deleteDataRow, updateDataRow } from './admin.utils';
 
 const INITIAL_STATE = {
   originalData: {},
@@ -28,6 +28,18 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
             routeName: "plants",
             title: "Plants"
           }          
+        }
+      }
+    case AdminActionTypes.DELETE_ITEM: 
+      return {
+        ...state,
+        updatedData: {
+          plants: {
+            id: "Plants",
+            items: deleteDataRow(state.updatedData.plants.items, action.payload),
+            routeName: "plants",
+            title: "Plants"
+          }
         }
       }
     default: 
