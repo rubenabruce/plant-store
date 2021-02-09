@@ -54,7 +54,7 @@ const AdminStock = ({ originalData, updateData, setOriginalData, setUpdateData})
       </StockTableCont>
       <ButtonsCont>
         <button onClick={handleUpdate}>Update</button>
-        <button onClick={handleReset}>Reset</button>
+        <button disabled onClick={handleReset}>Reset</button>
       </ButtonsCont>
     </AdminStockCont>
   );

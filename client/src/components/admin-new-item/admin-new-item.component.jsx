@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+
+import { addImagesToStorage, addItemToCollection } from '../../firebase/firebase.utils';
 
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -13,20 +15,53 @@ const AdminNewItem = () => {
     potSize: '',
     price: '',
     stock: '',
-    images: ''
-  })
+    images: []
+  });
+  const [imageAsFiles, setImageAsFiles] = useState();
+
+  const imagesRef = useRef();
+  
+  console.log('newItem: ', newItem);
+  console.log('imageasfile', imageAsFiles)
 
   const {id, name, latinName, height, potSize, price, stock, images} = newItem;
 
-  const handleChange = event => {
+  const handleChange = event => { 
     const {name, value} = event.target;
     setNewItem({...newItem, [name]: value})
+  }
+
+  const handleImageAsFile = (e) => {
+    const imageFiles = e.target.files;      
+    const files = Object.values(imageFiles);   
+    setImageAsFiles({imageFiles})
+    console.log('imageasfile', imageAsFiles);
+    
+    for (const file of files) {
+      setNewItem({...newItem, images: newItem.images.push(file.name)});
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const files = Object.values(imageAsFiles);
+    console.log('start of upload');
+    console.log('files  ', files);
+
+    if (!id || !name || !latinName || !height || !potSize || !price || !stock || !images) {
+      console.error('One of the fields is incomplete');
+      return;
+    }
+    
+    console.log('handlesubmitnewitme', newItem)
+    addItemToCollection(newItem);
+    addImagesToStorage(imageAsFiles);
   }
 
   return ( 
     <AdminNewItemCont>
       <AddNewItemHeader>Add New Item</AddNewItemHeader>
-      <NewItemForm>
+      <NewItemForm onSubmit={handleSubmit}>
         <FormInputCont 
           required
           label='Id' 
@@ -85,10 +120,10 @@ const AdminNewItem = () => {
         />
         <div>
           <span>Images: </span>
-          <input required type='file' name='images' multiple/>
+          <input required type='file' name='images' ref={imagesRef} onChange={handleImageAsFile}  multiple/>
         </div>
+        <CustomButton type='submit'>Add item to shop</CustomButton>
       </NewItemForm>
-      <CustomButton>Add item to shop</CustomButton>
     </AdminNewItemCont>
   );
 }

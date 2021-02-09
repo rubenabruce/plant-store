@@ -58,7 +58,58 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   return await batch.commit();
 };
 
+export const addItemToCollection = (item) => {
 
+  firestore.collection("collections").doc("Plants").update({
+    items: firebase.firestore.FieldValue.arrayUnion(item)
+  })
+  .then(docRef => {
+    console.log('Document written with ID: ', docRef)
+  })
+  .catch(error => {
+    console.error('Error adding document: ', error)
+  })
+  
+}
+
+export const addImagesToStorage = (images) => {
+  const storageRef = storage.ref();
+  console.log(images.imageFiles)
+  // images.forEach is not a function apparently      
+  Array.from(images.imageFiles).forEach(image => {
+    let uploadTask = storageRef.child(image.name).put(image);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done.');
+      },
+      (error) => {
+        switch (error.code) {
+          case 'storage/unauthorized':
+            // User doesn't have permission to access the object
+            console.log(error);
+            break;
+          case 'storage/canceled':
+            // User canceled the upload
+            console.log(error);
+            break;
+          case 'storage/unknown':
+            // Unknown error occurred, inspect error.serverResponse
+            console.log(error);
+            break;
+          default:
+            console.log(error);
+            break;
+        }
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadUrl) {
+          console.log('File available at ', downloadUrl)
+        });
+      })  
+  });
+}
 
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map(doc => {
