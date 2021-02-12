@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
@@ -12,6 +12,9 @@ import AdminHeader from '../../components/admin-header/admin-header.component';
 import AdminNewItem from '../../components/admin-new-item/admin-new-item.component';
 
 import { AdminPageCont } from './admin.styles'
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { createStructuredSelector } from 'reselect';
+import { useAuth } from '../../hooks/use-auth';
 
 const AdminStockWithSpinner = WithSpinner(AdminStock);
 
@@ -20,6 +23,12 @@ class Admin extends Component {
     loading: true
   }
 
+  admin= {
+    createdAt: {seconds: 1604151096, nanoseconds: 223000000},
+    displayName: "Ruben Aaronovitch-Bruce",
+    email: "rabruben1@gmail.com",
+    id: "NticDxKJyHO2sxJjN0dwJMUg0aT2"
+  }
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -36,6 +45,7 @@ class Admin extends Component {
   
   render() { 
     const { loading } = this.state;
+    console.log(this.props.currentUser)
 
     return ( 
       <AdminPageCont>
@@ -44,12 +54,17 @@ class Admin extends Component {
         <Route exact path={`/admin/new`} component={AdminNewItem}/>
       </AdminPageCont>
     );
+
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
  
 const mapDispatchToProps = dispatch => ({
   setOriginalData: collectionsMap => dispatch(setOriginalData(collectionsMap)),
   setUpdateData: collectionsMap => dispatch(setUpdateData(collectionsMap))
 });
 
-export default connect(null, mapDispatchToProps)(Admin);
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

@@ -7,9 +7,10 @@ import CustomButton from '../custom-button/custom-button.component';
 import { SignInOverlay, SignInContainer, TitleCont, ButtonsContainer, FormContainer, AlternativeContainer} from './sign-in.styles'
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { useAuth } from '../../hooks/use-auth';
 
 const SignIn = () => {
-
+  const auth = useAuth();
   const [userCredentials, setCredentials] = useState({ email: '', password: '' });
 
   const { email, password } = userCredentials;
@@ -17,12 +18,15 @@ const SignIn = () => {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      setCredentials({ email: '', password: '' });
-    } catch (error) {
-      console.log(`Error signing in: ${error}`);
-    }
+    auth.signin(email, password);
+    
+
+    // try {
+    //   await auth.signInWithEmailAndPassword(email, password);
+    //   setCredentials({ email: '', password: '' });
+    // } catch (error) {
+    //   console.log(`Error signing in: ${error}`);
+    // }
   };
 
   const handleChange = event => {
@@ -55,7 +59,7 @@ const SignIn = () => {
             required/>
           <ButtonsContainer>
             <CustomButton className='sign-in-button' type='submit'>Sign In</CustomButton>
-            <CustomButton type='button' isGoogleSignIn onClick={signInWithGoogle} >Sign In With Google</CustomButton>
+            <CustomButton type='button' isGoogleSignIn onClick={auth.signinwithgoogle} >Sign In With Google</CustomButton>
           </ButtonsContainer>
         </FormContainer>
       

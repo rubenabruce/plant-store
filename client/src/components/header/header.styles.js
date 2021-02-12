@@ -88,5 +88,7 @@ export const AccountIconCont = styled(UserCircle)`
 
   & .account-icons-svg-path {
     ${IconsStyles}
+
+    fill: ${props => props.active ? 'green' : 'black'};
   }
 `;

@@ -53,7 +53,8 @@ export const ShopMainCont = styled.div`
 `;
 
 export const ShopGridCont = styled.div`
-  width: 80%;
+  /* width: 80%;  with a filter section*/
+  width: 100%;
   padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

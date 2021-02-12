@@ -9,8 +9,9 @@ export const SlidingBarCont = styled.div`
   margin: 42px auto;
 
   & .menu-item {
-    margin: 0 20px;
+    margin: 0 40px;
     min-width: 300px;
+    width: 90%;
     
     @media screen and (max-width: 800px) {
       height: 300px;

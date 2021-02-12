@@ -51,9 +51,9 @@ const ShopPage = ({ items, location }) => {
       </ShopPageHeader>
 
       <ShopMainCont>
-
-        <ShopFilter animation={filterSpring}/>
-
+        {
+        // <ShopFilter animation={filterSpring}/>
+        }
         <ShopGridCont>
           {itemsTransition
             .filter((item, idx) => idx < 10)

@@ -20,7 +20,9 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
+import { ProvideAuth } from './hooks/use-auth';
 import { GlobalStyle } from './global.styles';
+import { PrivateRoute, SignInUpRoute } from './components/private-route/private-route';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -41,85 +43,45 @@ class App extends Component {
     scroll: false
   }
 
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
-        });
-      } else {
-        setCurrentUser(userAuth);
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
   render() {
     return (
-      <div className='app'>
-        <GlobalStyle />
-        <HeadRoom className='header-container'>
-          <AnnouncementBanner />
-          <Header />
-          <CartNotification />  
-          <NavDropdown />
-        </HeadRoom>
+      <ProvideAuth>
+        <div className='app'>
+          <GlobalStyle />
+          <HeadRoom className='header-container'>
+            <AnnouncementBanner />
+            <Header />
+            <CartNotification />  
+            <NavDropdown />
+          </HeadRoom>
 
-        <SideNav />
-        <CartDropdown />
+          <SideNav />
+          <CartDropdown />
 
-        <Switch>
-          <ErrorBoundary>
-            <Suspense fallback={<Spinner />}>
-              <Route exact path='/' component={Homepage} />
-              <Route path='/collections' component={CollectionsDirectory} />
-              <Route exact path='/signin' render={() => 
-                this.props.currentUser 
-                ? (<Redirect to='/' />) 
-                : (<SignIn/>)
-              } />
-              <Route exact path='/signup' render={() => 
-                this.props.currentUser 
-                ? (<Redirect to='/' />) 
-                : (<SignUp/>)
-              } /> 
-              <Route path='/shop' component={ShopRoutes} />
-              <Route exact path='/cart' component={CartPage} />
-              <Route exact path='/checkout' component={CheckoutPage} />
-              <Route path='/success' component={PaymentSuccess} />
-              <Route exact path='/contact' component={ContactUsPage} />
-              <Route exact path='/delivery' component={DeliveryPage} />              
-              <Route exact path='/tnc' component={TnCPage} />
-              <Route path='/admin' component={Admin} />
-            </Suspense>
-          </ErrorBoundary>
-        </Switch>
+          <Switch>
+            <ErrorBoundary>
+              <Suspense fallback={<Spinner />}>
+                <Route exact path='/' component={Homepage} />
+                <Route path='/collections' component={CollectionsDirectory} />
+                <SignInUpRoute path='/signup'><SignUp /></SignInUpRoute>
+                <SignInUpRoute path='/signin'><SignIn /></SignInUpRoute>
+                <Route path='/shop' component={ShopRoutes} />
+                <Route exact path='/cart' component={CartPage} />
+                <Route exact path='/checkout' component={CheckoutPage} />
+                <Route path='/success' component={PaymentSuccess} />
+                <Route exact path='/contact' component={ContactUsPage} />
+                <Route exact path='/delivery' component={DeliveryPage} />              
+                <Route exact path='/tnc' component={TnCPage} />
+                <PrivateRoute path='/admin'></PrivateRoute>
+              </Suspense>
+            </ErrorBoundary>
+          </Switch>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </ProvideAuth>
     );
   }
 }
 
-
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-})
-
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

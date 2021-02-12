@@ -5,7 +5,8 @@ import CustomButton from '../custom-button/custom-button.component';
 
 export const MenuItemCont = styled(animated.div)`
   height: 450px;
-  width: 90%;
+  /* width: 90%; with a filter section */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
