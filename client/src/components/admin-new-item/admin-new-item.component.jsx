@@ -38,7 +38,9 @@ const AdminNewItem = () => {
     console.log('imageasfile', imageAsFiles);
     
     for (const file of files) {
-      setNewItem({...newItem, images: newItem.images.push(file.name)});
+      if (Number.isInteger(file)) {
+        setNewItem({...newItem, images: newItem.images.push(file.name)});
+      }
     }
   }
 
