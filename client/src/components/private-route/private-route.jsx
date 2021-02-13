@@ -27,7 +27,7 @@ export function PrivateRoute({ children, ...rest }) {
     } else {
       setAdminUser(false)
     }
-  })
+  }, [auth.currentUser, admin.id, history])
   console.log(adminUser)
   console.log(admin)
 

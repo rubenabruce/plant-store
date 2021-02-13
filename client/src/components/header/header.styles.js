@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import {ReactComponent as UserCircle} from '../../assets/user-circle.svg'
+import {ReactComponent as UserCircle} from '../../assets/user-circle.svg';
+import {ReactComponent as UserCircleFilled} from '../../assets/user-circle-filled.svg';
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
 
 
@@ -60,6 +61,17 @@ export const IconsContainer = styled.div`
   /* justify-content: space-between; */
   /* width: 8%; */
   align-items: center;
+  & .active {
+    
+    & .account-icon-head {
+
+      fill: #784421 !important;
+    }
+    & .account-icon-body {
+
+      fill: #65a15a !important;
+    }
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -83,12 +95,13 @@ export const SearchIconCont = styled(SearchIcon)`
   ${IconsStyles}
 `;
 
-export const AccountIconCont = styled(UserCircle)`
+export const AccountIconCont = styled(UserCircleFilled)`
   height: 34px;
 
   & .account-icons-svg-path {
     ${IconsStyles}
 
-    fill: ${props => props.active ? 'green' : 'black'};
+
   }
+
 `;

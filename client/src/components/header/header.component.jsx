@@ -18,7 +18,7 @@ import Logo from '../logo/logo.component';
 
 import { BurgerBtnCont, NavContainer, HeaderContainer, IconsContainer, SearchIconCont, SearchContainer, AccountIconCont } from "./header.styles";
 
-const Header = ({ currentUser }) => {
+const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const auth = useAuth();
@@ -30,7 +30,7 @@ const Header = ({ currentUser }) => {
       <Logo />
       { width < 800 ? null : <NavOptions /> }
       <IconsContainer>
-        <AccountIconCont active={auth.currentUser ? 'true' : null} onClick={() => auth.currentUser ? auth.signout() : history.push('/signin')} /> 
+        <AccountIconCont className={auth.currentUser ? 'active' : ''} onClick={() => auth.currentUser ? auth.signout() : history.push('/signin')} /> 
         <SearchContainer>
           <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
         </SearchContainer>
