@@ -21,10 +21,14 @@ const AdminNewItem = () => {
 
   const imagesRef = useRef();
   
+  console.log('imageRef', imagesRef)
   console.log('newItem: ', newItem);
   console.log('imageasfile', imageAsFiles)
 
+
   const {id, name, latinName, height, potsize, price, stock, images} = newItem;
+
+  let newItemWithImageNames;
 
   const handleChange = event => { 
     const {name, value} = event.target;
@@ -33,29 +37,38 @@ const AdminNewItem = () => {
 
   const handleImageAsFile = (e) => {
     const imageFiles = e.target.files;      
-    const files = Object.values(imageFiles);   
     setImageAsFiles({imageFiles})
-    console.log('imageasfile', imageAsFiles);
-    
-    for (const file of files) {
-      if (Number.isInteger(file)) {
-        setNewItem({...newItem, images: newItem.images.push(file.name)});
-      }
-    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const files = Object.values(imageAsFiles);
     console.log('start of upload');
-    console.log('files  ', files);
 
     if (!id || !name || !latinName || !height || !potsize || !price || !stock || !images) {
       console.error('One of the fields is incomplete');
       return;
     }
+
+    const files = Object.values(imageAsFiles.imageFiles);   
+    console.log('files', files);
+    console.log('imageAsFueks', imageAsFiles);
     
-    console.log('handlesubmitnewitme', newItem)
+    let finalNewItem = newItem;
+    console.log('1', finalNewItem);
+    for (let i = 0; i < files.length;i++) {
+      finalNewItem = {...finalNewItem, images: newItem.images.push(files[i].name)};
+      console.log('2', finalNewItem);
+    }
+    
+    newItem.id = Number(newItem.id);
+    newItem.stock = Number(newItem.stock);
+    newItem.height = Number(newItem.height);
+    newItem.potsize = Number(newItem.potsize);
+    newItem.price = Number(newItem.price);
+
+    console.log(newItem);
+    console.log('3', finalNewItem);
+    
     addItemToCollection(newItem);
     addImagesToStorage(imageAsFiles);
   }
