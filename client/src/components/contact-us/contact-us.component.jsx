@@ -25,6 +25,7 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
       .post('/send', { ...details })
       .then(response => {
         setResult(response);
+        console.log(response)
         setDetails({
           name: '',
           email: '',
@@ -32,7 +33,8 @@ const ContactUs = ({ otherstyles, children, widthadjust }) => {
           message: '' 
         })
       })
-      .catch(() => {
+      .catch(err => {
+        console.log(err)
         setResult({ success: false, message: 'Oh no, something went wrong. Please try again later!'})
       })
   };

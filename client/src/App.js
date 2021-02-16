@@ -43,6 +43,10 @@ class App extends Component {
   state = {
     scroll: false
   }
+
+  // componentDidMount() {
+  //   addCollectionAndDocuments("collections", SHOP_DATA.plants)
+  // }
   
   render() {
     return (

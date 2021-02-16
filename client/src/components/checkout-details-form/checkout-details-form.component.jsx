@@ -14,6 +14,7 @@ import useResponsiveFontSize from "../checkout-details-form/useResponsiveFontSiz
 
 import { SectionCont, SectionHeader, FormInputCont, SectionPara, CheckoutFormsCont, ButtonCont } from './checkout-details-form.styles.js';
 import { updateStockFromPurchase } from '../../firebase/firebase.utils';
+import { removeAllCartItems } from '../../redux/cart/cart.actions';
 
 const useOptions = () => {
   const fontSize = useResponsiveFontSize();
@@ -122,15 +123,31 @@ const useOptions = () => {
       } else {
         // payment successful
         console.log(confirmedCardPayment); 
-        for (let item in cartItems) {
-          updateStockFromPurchase(item)
+        for (let i = 0;i < cartItems.length;i++) {
+          console.log(cartItems[i]);
+          updateStockFromPurchase(cartItems[i]);
         }
+
+        axios
+        .post('/send', {
+          name: billing_details.name,
+          email: billing_details.email,
+          recipt: true,
+          subject: 'New Sale!!',
+          message: `${billing_details.name} bought ${cartItems}. The address: ${billing_details.address}. All billing details: ${billing_details}` 
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(() => {
+          console.log({ success: false, message: 'Oh no, something went wrong. Please try again later!'})
+        })
+        dispatch(removeAllCartItems());
         history.push("/success");
       }
     }
   };
   
-
 
   const handleChange = event => {
     const { name, value } = event.target;

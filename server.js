@@ -3,6 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const transporter = require('./config');
+const dotenv = require('dotenv');
+dotenv.config();
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -32,10 +34,13 @@ app.listen(port, error => {
 app.post('/send', (req, res) => {
   // if something doesnt work in production, go to here:
   // https://medium.com/swlh/create-an-enquiry-form-in-react-and-send-email-using-nodejs-1c0cd590dce1
+
+  const mailList = req.body.recipt ? [req.body.email, process.env.email] : process.env.email
+
   try {
     const mailOptions = {
       from: req.body.email,
-      to: process.env.email,
+      to: mailList,
       subject: req.body.subject,
       html: 
       `
@@ -49,12 +54,14 @@ app.post('/send', (req, res) => {
         </ul>
       `
     };
-
+    
     transporter.sendMail(mailOptions, function (err, info) {
       if (err) {
+        console.log('firest err', err)
         res.status(500).send({
           success: false,
-          message: 'Something went wrong. Try again later'
+          message: 'Something went wrong. Try again later',
+          err
         });
       } else {
         res.send({
@@ -66,7 +73,8 @@ app.post('/send', (req, res) => {
   } catch (error) {
     res.status(500).send({
       success: false,
-      message: 'Something went wrong. Try again later'
+      message: 'Something went wrong. Try again later',
+      error
     })
   }
 })

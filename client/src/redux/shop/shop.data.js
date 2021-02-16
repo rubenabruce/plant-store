@@ -11,7 +11,7 @@ const SHOP_DATA = {
         price: 6,
         height: 25,
         potsize: 11,
-        stock: 0,
+        stock: 5,
         images: [
           "Devils Ivy.jpg"
         ]
@@ -23,7 +23,7 @@ const SHOP_DATA = {
         price: 13,
         height: 30,
         potsize: 11,
-        stock: 0,
+        stock: 5,
         images: [
           "String Of Hearts.jpg",
           "String Of Hearts 2.jpg",
@@ -37,7 +37,7 @@ const SHOP_DATA = {
         price: 55,
         height: 120,
         potsize: 23,
-        stock: 0,
+        stock: 5,
         images: [
           "Devils Ivy.jpg"
         ]
@@ -49,7 +49,7 @@ const SHOP_DATA = {
         price: 7,
         height: 45,
         potsize: 10,
-        stock: 0,
+        stock: 5,
         images: [
           "Dracaena Gemengd.jpg",
           "Dracaena Gemengd 2.jpg",
@@ -63,7 +63,7 @@ const SHOP_DATA = {
         price: 22,
         height: 80,
         potsize: 14,
-        stock: 0,
+        stock: 5,
         images: [
           "Devils Ivy.jpg",
           "Devils Ivy 2.jpg"
@@ -76,7 +76,7 @@ const SHOP_DATA = {
         price: 8,
         height: 35,
         potsize: 11,
-        stock: 0,
+        stock: 5,
         images: [
           "Rubber Plant.jpg",
           "Rubber Plant 2.jpg",
@@ -90,7 +90,7 @@ const SHOP_DATA = {
         price: 18,
         height: 65,
         potsize: 15,
-        stock: 0,
+        stock: 5,
         images: [
           "Monstera.jpg",
           "Monstera 2.jpg",
@@ -104,7 +104,7 @@ const SHOP_DATA = {
         price: 14,
         height: 60,
         potsize: 13,
-        stock: 0,
+        stock: 5,
         images: [
           "Zammy.jpg",
           "Zammy 2.jpg",

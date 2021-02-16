@@ -59,9 +59,9 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 };
 
 export const addItemToCollection = (item) => {
-
+  const newItemPath = `items.${item.id}`;
   firestore.collection("collections").doc("Plants").update({
-    items: firebase.firestore.FieldValue.arrayUnion(item)
+    [newItemPath]: item
   })
   .then(docRef => {
     console.log('Document written with ID: ', docRef)
@@ -166,11 +166,11 @@ export const downloadFiles = async (imageRef) => {
 };
 
 export const updateStockFromPurchase = (item) => {
-  console.log(firestore.collection("collections").doc("Plants"));
-
-  // Its tricky to update just one item withihn the array of items 
-  // possibility one: I retrieve the whole of the plants.items array and then simply update using another firebase.util function
-  // possibility two: I try and find a way to specifically access one item within firebase and update that item with correct stock
+  const collectionRef = firestore.collection("collections").doc("Plants");
+  const itemStockPath = `items.${item.id}.stock`;
+  collectionRef.update({
+    [itemStockPath]: firebase.firestore.FieldValue.increment(- item.quantity)
+  });
 }
 
 export const auth = firebase.auth();
