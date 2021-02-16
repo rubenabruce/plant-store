@@ -13,6 +13,7 @@ import ErrorMessage from '../error-message/error-message.component';
 import useResponsiveFontSize from "../checkout-details-form/useResponsiveFontSize";
 
 import { SectionCont, SectionHeader, FormInputCont, SectionPara, CheckoutFormsCont, ButtonCont } from './checkout-details-form.styles.js';
+import { updateStockFromPurchase } from '../../firebase/firebase.utils';
 
 const useOptions = () => {
   const fontSize = useResponsiveFontSize();
@@ -40,7 +41,7 @@ const useOptions = () => {
     return options;
   };
   
-  const CheckoutDetailsForm = ({ total }) => {
+  const CheckoutDetailsForm = ({ total, cartItems }) => {
   const dispatch = useDispatch();
   let history = useHistory();
   const [completeTotal, setCompleteTotal] = useState(total)
@@ -119,8 +120,11 @@ const useOptions = () => {
         console.log(confirmedCardPayment); 
         setCheckoutError(confirmedCardPayment.error);
       } else {
+        // payment successful
         console.log(confirmedCardPayment); 
-
+        for (let item in cartItems) {
+          updateStockFromPurchase(item)
+        }
         history.push("/success");
       }
     }

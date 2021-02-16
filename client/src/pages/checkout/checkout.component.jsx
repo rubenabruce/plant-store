@@ -14,7 +14,7 @@ import { CheckoutPageCont } from "./checkout.styles";
 const stripePromise = loadStripe('pk_test_51Hbm1xJeBPhfjVElRetrx5ZqiIoiys0SAL21SewKDEcO2F7FENkiMinuKr9VmYz6tKfNJt2oncQ6GWpwg8NUpUdV00SVPyUDX0');
 
 const CheckoutPage = ({ cartItems, total }) => {
-
+  console.log(cartItems)
   return ( 
     <CheckoutPageCont>
       

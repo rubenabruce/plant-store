@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { useParams, withRouter, useLocation, Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
-import useQuery from '../../hooks/use-query'; 
-
 import { selectCollectionItems } from '../../redux/shop/shop.selectors';
 
 import MenuItem from '../../components/menu-item/menu-item.component';

@@ -15,7 +15,7 @@ import SideNav from './components/side-nav/side-nav.component';
 import CartNotification from './components/cart-notification/cart-notification.component';
 import Footer from './components/footer/footer.component';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { addCollectionAndDocuments, auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -23,6 +23,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { ProvideAuth } from './hooks/use-auth';
 import { GlobalStyle } from './global.styles';
 import { PrivateRoute, SignInUpRoute } from './components/private-route/private-route';
+import SHOP_DATA from './redux/shop/shop.data';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -42,7 +43,7 @@ class App extends Component {
   state = {
     scroll: false
   }
-
+  
   render() {
     return (
       <ProvideAuth>

@@ -113,7 +113,9 @@ export const addImagesToStorage = (images) => {
 
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map(doc => {
-    const { title, items } = doc.data();
+    let { title, items } = doc.data();
+    // I need to change the items object into an array
+    items = Object.values(items)
 
     return {
       routeName: encodeURI(title.toLowerCase()),
@@ -162,6 +164,14 @@ export const downloadFiles = async (imageRef) => {
       }
     })
 };
+
+export const updateStockFromPurchase = (item) => {
+  console.log(firestore.collection("collections").doc("Plants"));
+
+  // Its tricky to update just one item withihn the array of items 
+  // possibility one: I retrieve the whole of the plants.items array and then simply update using another firebase.util function
+  // possibility two: I try and find a way to specifically access one item within firebase and update that item with correct stock
+}
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
