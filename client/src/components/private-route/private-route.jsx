@@ -15,6 +15,7 @@ export function PrivateRoute({ children, ...rest }) {
     email: "rabruben1@gmail.com",
     id: "NticDxKJyHO2sxJjN0dwJMUg0aT2"
   }
+
   console.log(auth.currentUser)
   useEffect(() => {
     if (auth.currentUser) {
@@ -28,8 +29,6 @@ export function PrivateRoute({ children, ...rest }) {
       setAdminUser(false)
     }
   }, [auth.currentUser, admin.id, history])
-  console.log(adminUser)
-  console.log(admin)
 
   return (
     <Route

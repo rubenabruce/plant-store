@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const transporter = require('./config');
+const hbs = require('nodemailer-express-handlebars');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -31,28 +32,43 @@ app.listen(port, error => {
   console.log(`Server running on port ${port}`);
 });
 
+app.get('/email', (req, res) => {
+  res.sendFile('./email-template.html');
+});
+
 app.post('/send', (req, res) => {
   // if something doesnt work in production, go to here:
   // https://medium.com/swlh/create-an-enquiry-form-in-react-and-send-email-using-nodejs-1c0cd590dce1
 
   const mailList = req.body.recipt ? [req.body.email, process.env.email] : process.env.email
 
+  transporter.use('compile', hbs({
+    viewEngine:{ 
+      extName: 'handlebars',
+      partialsDir: 'templates',
+      layoutsDir: 'templates',
+      defaultLayout: '',
+    },
+    viewPath: 'templates'
+  }))
+
   try {
     const mailOptions = {
       from: req.body.email,
       to: mailList,
       subject: req.body.subject,
-      html: 
-      `
-        <p>You have a new contact request from your website</p>
-        <h3>Contact Details</h3>
-        <ul>
-          <li>Name: ${req.body.name}</li>
-          <li>Email: ${req.body.email}</li>
-          <li>Subject: ${req.body.subject}</li>
-          <li>Message: ${req.body.message}</li>
-        </ul>
-      `
+      template: 'receipt-template',
+      context: {
+        name: req.body.name,
+        cartItems: req.body.cartItems,
+        recipt_id: req.body.recipt_id,
+        date: req.body.date,
+        total: req.body.total,
+        address: req.body.address,
+        phone: req.body.phone,
+        deliveryCost: req.body.deliveryCost,
+        addNotes: req.body.addNotes,
+      }
     };
     
     transporter.sendMail(mailOptions, function (err, info) {

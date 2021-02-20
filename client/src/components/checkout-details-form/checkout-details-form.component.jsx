@@ -49,6 +49,7 @@ const useOptions = () => {
   const [isProcessing, setIsProcessing] = useState(false);  
   const [cardComplete, setCardComplete] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
+  const [deliveryCost, setDeliveryCost] = useState();
   const [userCredentials, setUserCredentials] = useState({
     email: '',
     phoneNumber: '',
@@ -79,7 +80,7 @@ const useOptions = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const reciptId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
@@ -127,13 +128,20 @@ const useOptions = () => {
           console.log(cartItems[i]);
           updateStockFromPurchase(cartItems[i]);
         }
-
         axios
         .post('/send', {
           name: billing_details.name,
           email: billing_details.email,
+          phone: billing_details.phone,
+          addNotes: userCredentials.addNotes,
+          deliveryCost: deliveryCost,
+          cartItems: cartItems,
+          recipt_id: reciptId,
+          date: new Date(),
+          total: total,
+          address: billing_details.address,
           recipt: true,
-          subject: 'New Sale!!',
+          subject: 'Thanks for your order!',
           message: `${billing_details.name} bought ${cartItems}. The address: ${billing_details.address}. All billing details: ${billing_details}` 
         })
         .then(response => {
@@ -159,22 +167,27 @@ const useOptions = () => {
       switch (district) {
         case 'BN2':
           dispatch(addDeliveryCost('0'))
+          setDeliveryCost('0')
           setCompleteTotal(total + 0);
           break;
         case 'BN1':
           dispatch(addDeliveryCost('3'))
+          setDeliveryCost('3')
           setCompleteTotal(total + 3);
           break;
         case 'BN3':
           dispatch(addDeliveryCost('4'))
+          setDeliveryCost('4')
           setCompleteTotal(total + 4);
           break;
         case 'BN4':
           dispatch(addDeliveryCost('6'))
+          setDeliveryCost('6')
           setCompleteTotal(total +6);
           break;
         case 'BN5':
           dispatch(addDeliveryCost('10'))
+          setDeliveryCost('10')
           setCompleteTotal(total +10);
           break;
         default:
