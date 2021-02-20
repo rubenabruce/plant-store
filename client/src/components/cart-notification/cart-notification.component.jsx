@@ -30,7 +30,7 @@ const CartNotification = ({ notificationHidden, newItem }) => {
       item &&
       <CartNotificationCont onClick={() => {dispatch(cartNotificationHidden()); history.push('/cart');}} key={key} style={animation}>
         <CartNotificationItems>
-          <ItemName>{newItem.name} added to cart</ItemName>
+          <ItemName>{newItem.name} added to cart ({newItem.quantity})</ItemName>
           <ExitContatiners>
             <ViewCartBtn onClick={() => {dispatch(cartNotificationHidden()); history.push('/cart');}}>View cart</ViewCartBtn>
             <ExitBtn onClick={() => dispatch(cartNotificationHidden())}>&#10005;</ExitBtn>

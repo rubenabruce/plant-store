@@ -8,6 +8,12 @@ import { ItemDetailsCont, ItemName, ItemPrice, ItemSizes, ItemDesc,  CustomButto
 
 const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
   const [quantity, setQuantity] = useState(1);
+  const [shopItem, setShopItem] = useState({
+    ...item,
+    quantity: 1
+  })
+  console.log(shopItem)
+  
   const { name, latinName, potsize, price, height, id } = item;
 
   return (
@@ -26,13 +32,13 @@ const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
       <QuantityCont>
         <span><b>Quantity:</b></span>
         <QuantityAdjustCont>
-          <ArrowCont onClick={() => setQuantity(quantity - 1 ? quantity - 1 : quantity )}>&#10094;</ArrowCont>
-          <ValueCont>{quantity}</ValueCont>
-          <ArrowCont onClick={() => setQuantity(quantity + 1)}>&#10095;</ArrowCont>
+          <ArrowCont onClick={() => setShopItem({...shopItem, quantity: shopItem.quantity - 1 ? shopItem.quantity - 1 : shopItem.quantity})}>&#10094;</ArrowCont>
+          <ValueCont>{shopItem.quantity}</ValueCont>
+          <ArrowCont onClick={() => setShopItem({...shopItem, quantity: shopItem.quantity + 1})}>&#10095;</ArrowCont>
         </QuantityAdjustCont>
       </QuantityCont>
 
-      <CustomButtonCont onClick={() => {addItem(item); cartNotificationShow()}} className='custom-button'>Add to cart</CustomButtonCont>
+      <CustomButtonCont onClick={() => {addItem(shopItem); cartNotificationShow()}} className='custom-button'>Add to cart</CustomButtonCont>
 
       <CareInstructionCont>
         <h2>How to care for:</h2>

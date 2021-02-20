@@ -38,7 +38,7 @@ const CheckoutItem = ({item, clearItem, addItem, removeItem}) => {
         <ValueCont>{quantity}</ValueCont>
         <ArrowCont onClick={() => addItem(item)}>&#10095;</ArrowCont>
       </QuantityCont>
-      <PriceCont>{price}</PriceCont>
+      <PriceCont>£{price}</PriceCont>
       <RemoveButtonCont onClick={() => clearItem(item)}>&#10005;</RemoveButtonCont>
     </CheckoutItemCont>
   )

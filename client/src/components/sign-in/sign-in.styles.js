@@ -54,7 +54,8 @@ export const ButtonsContainer = styled.div`
 
 
     & button {
-      width: 100%;
+      /* width: 100%; */
+      line-height: unset;
       min-width: unset;
     }
   }
