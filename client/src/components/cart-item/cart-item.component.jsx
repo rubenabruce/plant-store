@@ -5,7 +5,7 @@ import { addItem, clearItemFromCart, removeItem } from '../../redux/cart/cart.ac
 
 import { CartItemCont, ItemCont, ItemDetailsCont, NamePriceCont, RowCont, BinCont, QuantityCont, ArrowCont, ValueCont} from "./cart-item.styles";
 
-const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem, hideItemOptions}) => {
+const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeItem, checkoutOptions}) => {
   const [image, setImage] = useState('');
   const {images, price, name, quantity} = item;
     
@@ -22,14 +22,23 @@ const CartItem = ({item, animations, itemImageSize, clearItem, addItem, removeIt
   return (
   <CartItemCont style={animations}>
     <ItemCont itemImageSize={itemImageSize} src={image} alt='item'/>
-    <ItemDetailsCont>
-      <RowCont>
-        <NamePriceCont>{name}</NamePriceCont>
-        <NamePriceCont>£{price}</NamePriceCont>
+    <ItemDetailsCont checkoutOptions={checkoutOptions}>
+      <RowCont className='item-name'>
+        <NamePriceCont >{name}</NamePriceCont>
+        {
+          checkoutOptions ? (
+            null
+          ) : (
+            <NamePriceCont>£{price}</NamePriceCont>
+          )
+        }
       </RowCont>
       {
-        hideItemOptions ? (
-            null
+        checkoutOptions ? (
+            <div>
+              <NamePriceCont>{quantity} x </NamePriceCont>
+              <NamePriceCont>£{price}</NamePriceCont>
+            </div>
           ) : (
             <RowCont>
               <BinCont onClick={() => clearItem(item)}/>

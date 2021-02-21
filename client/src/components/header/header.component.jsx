@@ -31,9 +31,10 @@ const Header = () => {
       { width < 800 ? null : <NavOptions /> }
       <IconsContainer>
         <AccountIconCont className={auth.currentUser ? 'active' : ''} onClick={() => auth.currentUser ? auth.signout() : history.push('/signin')} /> 
-        <SearchContainer>
-          <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
-        </SearchContainer>
+{       // <SearchContainer>
+        //  <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
+      //  </SearchContainer>
+    }
         <CartIcon />
       </IconsContainer>
     </NavContainer>

@@ -1,6 +1,22 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { animated } from 'react-spring';
 import { ReactComponent as BinSvg } from "../../assets/bin.svg";
+
+const CheckoutOptionsStyles = css`
+  font-weight: 400;
+  text-align: left;
+  align-items: flex-end;
+  padding: 0;
+
+  & .item-name {
+    justify-content: flex-end;
+  }
+`;
+
+const getCheckoutStyles = (props) => {
+  console.log(props)
+  return props.checkoutOptions ? CheckoutOptionsStyles : '';
+}
 
 export const CartItemCont = styled(animated.div)`
   width: 100%;
@@ -21,11 +37,14 @@ export const ItemDetailsCont = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   padding: 10px 20px;
+  font-weight: 600;
+  ${getCheckoutStyles}
+
 `;
 
 export const NamePriceCont = styled.span`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: inherit;
 `;
 
 export const RowCont = styled.div`

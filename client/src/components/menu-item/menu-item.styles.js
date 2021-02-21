@@ -6,6 +6,8 @@ import CustomButton from '../custom-button/custom-button.component';
 export const MenuItemCont = styled(animated.div)`
   height: 450px;
   /* width: 90%; with a filter section */
+  overflow: hidden;
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,6 +42,7 @@ export const MenuItemCont = styled(animated.div)`
       transform: scale(1.1);
       transition: all 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
       opacity: 0.7;
+      z-index: 1;
     }
   }
 
@@ -160,4 +163,23 @@ export const HeightPriceCont = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const OOSLabel = styled.div`
+  position: absolute;
+  width: 200%;
+  font-family: 'Montserrat';
+  height: 10%;
+  background-color: #4E7B46;
+  bottom: 50%;
+  margin: auto;
+  display: flex;
+  transform: rotate(45deg);
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  z-index: 10;
 `;

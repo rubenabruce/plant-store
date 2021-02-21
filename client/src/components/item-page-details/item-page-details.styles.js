@@ -66,8 +66,8 @@ export const CustomButtonCont = styled(CustomButton)`
   width: 100%;
   height: 100px;
   align-items: center;
-  background-color: #00C236;
   font-size: 24px;
+
   @media screen and (max-width: 800px) {
     margin: 10px 0;
     height: unset;

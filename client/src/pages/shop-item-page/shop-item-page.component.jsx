@@ -23,7 +23,7 @@ const ShopItemPage = ({ item, collectionItems }) => {
 
       <ShopItemCont>
         
-        <ItemPageImages images={currentItem.images}/>
+        <ItemPageImages stock={currentItem.stock} images={currentItem.images}/>
 
         <ItemPageDetails item={currentItem} />
 

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import {ReactComponent as UserCircle} from '../../assets/user-circle.svg';
 import {ReactComponent as UserCircleFilled} from '../../assets/user-circle-filled.svg';
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'; 
 
@@ -97,6 +96,11 @@ export const SearchIconCont = styled(SearchIcon)`
 
 export const AccountIconCont = styled(UserCircleFilled)`
   height: 34px;
+  margin: 0px 30px;
+
+  @media screen and (max-width: 800px) {
+    margin: 0 10px;
+  }
 
   & .account-icons-svg-path {
     ${IconsStyles}

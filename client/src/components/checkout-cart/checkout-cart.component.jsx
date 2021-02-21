@@ -17,7 +17,7 @@ const CheckoutCart = ({ cartItems, total, deliveryCost }) => {
       <CartItemsContainer>
         {
           cartItems.length ? (
-            cartItems.map((item) => (<CartItem itemImageSize='20' hideItemOptions={true} key={item.id} item={item} ></CartItem>))
+            cartItems.map((item) => (<CartItem itemImageSize='20' checkoutOptions={true} key={item.id} item={item} ></CartItem>))
           ) : (
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )

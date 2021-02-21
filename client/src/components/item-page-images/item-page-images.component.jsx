@@ -5,9 +5,9 @@ import AwesomeSliderStyles from 'react-awesome-slider/src/styled/scale-out-anima
 
 import { downloadFiles } from '../../firebase/firebase.utils';
 
-import { ItemImagesCont, Images } from "./item-page-images.styles";
+import { ItemImagesCont, Images, OOSLabel } from "./item-page-images.styles";
 
-const ItemPageImages = ({ images }) => {
+const ItemPageImages = ({ stock, images }) => {
   const [imageUrls, setImageUrls] = useState([]);
   
   console.log('itempageimages', images);
@@ -27,7 +27,15 @@ const ItemPageImages = ({ images }) => {
       <AwesomeSlider className='aws-btn' animation="scaleOutAnimation"  cssModule={[CoreStyles, AwesomeSliderStyles]}>
         {
           imageUrls.map((imageUrl, index) => 
-            <Images key={index} data-src={imageUrl} />
+            <Images key={index} data-src={imageUrl}>       
+            {
+              stock >= 1 ? (
+                null
+              ) : (
+                <OOSLabel>Out of stock</OOSLabel>
+              )
+            } 
+            </Images>
           )
         }
       </AwesomeSlider>

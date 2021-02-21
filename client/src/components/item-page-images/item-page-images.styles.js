@@ -7,6 +7,7 @@ export const ItemImagesCont = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   .awssld {
     height: 100%;
@@ -34,4 +35,25 @@ export const Images = styled.div`
     width: 100%;
     margin: auto;
   }
+`;
+
+export const OOSLabel = styled.div`
+  position: absolute;
+  width: 200%;
+  font-family: 'Montserrat';
+  height: 10%;
+  background-color: #4E7B46;
+  right: -50%;
+  bottom: 50%;
+  top: 50%;
+  margin: auto;
+  display: flex;
+  transform: rotate(45deg);
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  z-index: 10;
 `;

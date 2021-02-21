@@ -6,12 +6,12 @@ import { downloadFiles, storage } from '../../firebase/firebase.utils';
 import { addItem } from '../../redux/cart/cart.actions'
 import { cartNotificationShow } from '../../redux/shop/shop.actions'
 
-import { MenuItemCont, ImageContainerCont, ImageCont, ItemFooterCont, CustomButtonCont, HeightPriceCont } from "./menu-item.styles";
+import { MenuItemCont, ImageContainerCont, ImageCont, ItemFooterCont, CustomButtonCont, HeightPriceCont, OOSLabel } from "./menu-item.styles";
 
 const MenuItem = ({ item, addItem, history, animation, cartNotificationShow}) => {
   const [image, setImage] = useState();
   
-  const {id, images, height, name, price} = item;
+  const {id, images, height, name, price, stock} = item;
   let imageRef = images[0];
   
   useEffect(() => {
@@ -22,6 +22,13 @@ const MenuItem = ({ item, addItem, history, animation, cartNotificationShow}) =>
 
   return (
     <MenuItemCont style={animation} className='menu-item'>
+      {
+        stock >= 1 ? (
+          null
+        ) : (
+          <OOSLabel>Out of stock</OOSLabel>
+        )
+      }
       <ImageContainerCont onClick={() => { history.push(`/shop/${id}`); window.scrollTo(0, 0); }} className='background-image-cont'>
         <ImageCont className='background-image' imageUrl={image} />
       </ImageContainerCont>
@@ -32,7 +39,13 @@ const MenuItem = ({ item, addItem, history, animation, cartNotificationShow}) =>
           <span className='height-price price'>£{price}</span>
         </HeightPriceCont>
       </ItemFooterCont>
-      <CustomButtonCont onClick={() => {addItem(item); cartNotificationShow();}} className='custom-button'>Add to cart</CustomButtonCont>
+      {
+        stock >= 1 ? (
+          <CustomButtonCont onClick={() => {addItem(item); cartNotificationShow();}} className='custom-button'>Add to cart</CustomButtonCont>
+        ) : (
+          <CustomButtonCont disabled className='custom-button'>Out of stock</CustomButtonCont>
+        )
+      }
 
     </MenuItemCont>
   ); 

@@ -34,8 +34,8 @@ export const CartIconContainer = styled.div`
 `;
 
 export const ShoppingIconCont = styled(ShoppingIcon)`
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   
 `;
 

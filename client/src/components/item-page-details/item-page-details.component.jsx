@@ -7,14 +7,16 @@ import { cartNotificationShow } from '../../redux/shop/shop.actions';
 import { ItemDetailsCont, ItemName, ItemPrice, ItemSizes, ItemDesc,  CustomButtonCont, QuantityCont, QuantityAdjustCont, ArrowCont, ValueCont, CareInstructionCont } from "./item-page-details.styles";
 
 const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
-  const [quantity, setQuantity] = useState(1);
   const [shopItem, setShopItem] = useState({
     ...item,
     quantity: 1
   })
+  const inStock = item.stock >= 1 ? true : false;
   console.log(shopItem)
   
-  const { name, latinName, potsize, price, height, id } = item;
+  const { name, latinName, potsize, price, height, id, stock } = item;
+
+
 
   return (
     <ItemDetailsCont>
@@ -33,12 +35,12 @@ const ItemPageDetails = ({ item, addItem, cartNotificationShow }) => {
         <span><b>Quantity:</b></span>
         <QuantityAdjustCont>
           <ArrowCont onClick={() => setShopItem({...shopItem, quantity: shopItem.quantity - 1 ? shopItem.quantity - 1 : shopItem.quantity})}>&#10094;</ArrowCont>
-          <ValueCont>{shopItem.quantity}</ValueCont>
-          <ArrowCont onClick={() => setShopItem({...shopItem, quantity: shopItem.quantity + 1})}>&#10095;</ArrowCont>
+          <ValueCont>{inStock ? shopItem.quantity : 0}</ValueCont>
+          <ArrowCont onClick={() => setShopItem({...shopItem, quantity: shopItem.quantity == shopItem.stock ? shopItem.stock : shopItem.quantity + 1})}>&#10095;</ArrowCont>
         </QuantityAdjustCont>
       </QuantityCont>
 
-      <CustomButtonCont onClick={() => {addItem(shopItem); cartNotificationShow()}} className='custom-button'>Add to cart</CustomButtonCont>
+      <CustomButtonCont disabled={!inStock} onClick={() => {addItem(shopItem); cartNotificationShow()}} className='custom-button'>{ inStock ? 'Add to cart' : 'Not available'}</CustomButtonCont>
 
       <CareInstructionCont>
         <h2>How to care for:</h2>
