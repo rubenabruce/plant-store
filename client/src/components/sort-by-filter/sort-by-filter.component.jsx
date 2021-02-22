@@ -13,6 +13,5 @@ const SortByFilter = ({ animation }) => (
       </ContentCont>
     </SortByFilterCont>
 );
-
  
 export default SortByFilter;
