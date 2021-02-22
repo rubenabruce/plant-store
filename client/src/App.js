@@ -1,9 +1,11 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { Switch, Route } from 'react-router-dom';
 
 import HeadRoom from 'react-headroom';
+
+import { ProvideAuth } from './hooks/use-auth';
+import { GlobalStyle } from './global.styles';
+import { PrivateRoute, SignInUpRoute } from './components/private-route/private-route';
 
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 import Spinner from './components/spinner/spinner.component';
@@ -14,16 +16,7 @@ import NavDropdown from './components/nav-dropdown/nav-dropdown.component';
 import SideNav from './components/side-nav/side-nav.component';
 import CartNotification from './components/cart-notification/cart-notification.component';
 import Footer from './components/footer/footer.component';
-
-import { addCollectionAndDocuments, auth, createUserProfileDocument } from './firebase/firebase.utils';
-
-import { selectCurrentUser } from './redux/user/user.selectors';
-import { setCurrentUser } from './redux/user/user.actions';
-
-import { ProvideAuth } from './hooks/use-auth';
-import { GlobalStyle } from './global.styles';
-import { PrivateRoute, SignInUpRoute } from './components/private-route/private-route';
-import SHOP_DATA from './redux/shop/shop.data';
+import AccountDropdown from './components/account-dropdown/account-dropdown.component';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignIn = lazy(() => import('./components/sign-in/sign-in.component'));
@@ -36,7 +29,6 @@ const PaymentSuccess = lazy(() => import('./pages/success/payment-success.compon
 const ContactUsPage = lazy(() => import('./pages/contact-us-page/contact-us-page.component'));
 const DeliveryPage = lazy(() => import('./pages/delivery/delivery.component'));
 const TnCPage = lazy(() => import('./pages/tnc/tnc.component'));
-const Admin = lazy(() => import('./pages/admin/admin.component'));
 
 class App extends Component {
 
@@ -44,6 +36,7 @@ class App extends Component {
     scroll: false
   }
 
+  // if for some reason I need to redo the whole of the shop data on firebase
   // componentDidMount() {
   //   addCollectionAndDocuments("collections", SHOP_DATA.plants)
   // }
@@ -58,6 +51,7 @@ class App extends Component {
             <Header />
             <CartNotification />  
             <NavDropdown />
+            <AccountDropdown />
           </HeadRoom>
 
           <SideNav />

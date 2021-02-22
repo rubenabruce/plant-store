@@ -3,8 +3,9 @@ import { connect, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useTransition } from 'react-spring';
 import { createStructuredSelector } from 'reselect';
-import { selectNewItem } from '../../redux/cart/cart.selectors';
+
 import { cartNotificationHidden } from '../../redux/shop/shop.actions';
+import { selectNewItem } from '../../redux/cart/cart.selectors';
 import { selectNotificationHidden } from '../../redux/shop/shop.selectors';
 
 import { CartNotificationCont, CartNotificationItems, ItemName, ExitContatiners, ViewCartBtn, ExitBtn } from "./cart-notification.styles";

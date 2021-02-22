@@ -1,7 +1,8 @@
 import { UserActionTypes } from './user.types';
 
 const INITIAL_STATE = {
-  currentUser: null
+  currentUser: null,
+  showAccountDD: false
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -11,6 +12,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentUser: action.payload
       }
+    case UserActionTypes.TOGGLE_ACCOUNT_DD:
+      return {
+        ...state,
+        showAccountDD: !state.showAccountDD
+      } 
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/use-auth';
 
 import { toggleNavHidden, toggleSideNavHidden } from "../../redux/shop/shop.actions";
+import { toggleAccountDD } from '../../redux/user/user.actions'; 
 
 import BurgerBtn from '../../assets/Hamburger_icon.svg.png';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -30,7 +31,7 @@ const Header = () => {
       <Logo />
       { width < 800 ? null : <NavOptions /> }
       <IconsContainer>
-        <AccountIconCont className={auth.currentUser ? 'active' : ''} onClick={() => auth.currentUser ? auth.signout() : history.push('/signin')} /> 
+        <AccountIconCont className={auth.currentUser ? 'active' : ''} onClick={() => dispatch(toggleAccountDD())} /> 
 {       // <SearchContainer>
         //  <SearchIconCont onClick={() => dispatch(toggleNavHidden())} className='searchIcon' />
       //  </SearchContainer>

@@ -5,3 +5,6 @@ export const setCurrentUser = user => ({
   payload: user
 });
 
+export const toggleAccountDD = () => ({
+  type: UserActionTypes.TOGGLE_ACCOUNT_DD
+}) 
