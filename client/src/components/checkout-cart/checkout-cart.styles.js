@@ -2,12 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const CartDropdownContainer = styled.div`
   position: sticky;
-  margin-top: 70px;
+  padding-top: 70px;
   width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   background-color: #FEFEFE;
   top: 0;
   align-items: left;
@@ -25,6 +24,10 @@ export const CartItemsContainer = styled.div`
   display: flex;
   width: 80%;
   flex-direction: column;
+
+  > div {
+    border-top: none;
+  }
 `;
 
 export const EmptyMessage = styled.span`

@@ -97,7 +97,7 @@ const useOptions = () => {
       setIsProcessing(true);        
     }
 
-    const { data: clientSecret } = await axios.post('http://localhost:5000/payment', { 
+    const { data: clientSecret } = await axios.post('/payment', { 
       amount: completeTotal * 100
     });
     
@@ -222,7 +222,7 @@ const useOptions = () => {
         <SectionPara>We use your email address to send you confirmation and updates on your order.</SectionPara>
       </SectionCont>
       <CardElement options={options} onChange={(e) => {
-        setCheckoutError(e.checkoutEerorror); 
+        setCheckoutError(e.checkoutError); 
         setCardComplete(e.complete);
       }}/>
       {checkoutError && <ErrorMessage>{checkoutError.message}</ErrorMessage>}
