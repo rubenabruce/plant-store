@@ -22,7 +22,7 @@ My goals were to:
 - Cater to all users with a robust UX
 - Optimise code and assets in order for fast loading times
 - Implement user accounts and learn more about authentication
-- Deliver a complete and finished product
+- Create a self-sufficient site where they aren't relying on me for updates
 - Learn more about React and it's ecosystem
 - Learn and implement good practises
 
